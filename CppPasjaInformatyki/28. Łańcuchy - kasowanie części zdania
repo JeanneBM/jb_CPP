@@ -1,0 +1,25 @@
+#include <iostream>
+#include <string>
+
+using namespace std;
+
+int main()
+{
+    string napis="Ala ma kota";
+    //napis.erase(3,3);
+    //cout << napis;
+
+    //napis.insert(11," Filemona");
+    //cout<<napis;
+
+    //napis.replace(4,2,"nie ma");
+    //cout<<napis;
+
+    string nowynapis = napis.substr(4,7);
+    cout<< nowynapis;
+
+    //wynikiem w ostatnim będzie samo “ma kota”
+    //string c++ reference <<do szukania innych odwołań
+
+      return 0;
+}
