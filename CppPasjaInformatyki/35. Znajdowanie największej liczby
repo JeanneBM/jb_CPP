@@ -1,0 +1,25 @@
+#include <iostream>
+
+using namespace std;
+
+int a,b,c,m;
+
+int main()
+{
+    cout << "Podaj trzy liczby rodzielone spacja: " << endl;
+    cin>>a>>b>>c;
+    m=a;
+    if (m<b) m=b;
+    if (m<c) m=c;
+
+    cout <<m<<endl;
+/*
+    if ((a>=b)&&(a>=c))
+    cout<< "Najwieksza liczba to: " << a;
+    else if ((b>=a)&&(b>=c))
+    cout<< "Najwieksza liczba to: " << b;
+    else if ((c>=a)&&(c>=b))
+    cout<< "Najwieksza liczba to: " << c;
+*/
+    return 0;
+}
