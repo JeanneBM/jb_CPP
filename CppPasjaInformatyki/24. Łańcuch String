@@ -1,0 +1,23 @@
+#include <iostream>
+
+using namespace std;
+
+int main()
+{
+
+   // string napis="Ala ma kota";
+    // cout << napis[0] << endl;
+
+
+    string imie;
+    cout << "Podaj imie" << endl;
+    cin>>imie;
+
+    int dlugosc=imie.length();
+
+    if (imie[dlugosc-1]=='a')
+        cout << "wydaje mi sie, ze jestes kobieta";
+        else cout << "Jestes mezczyzna";
+
+    return 0;
+}
