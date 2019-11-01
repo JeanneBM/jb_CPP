@@ -1,0 +1,30 @@
+#include <iostream>
+
+using namespace std;
+
+int wiek;
+
+int main()
+{
+    cout << "Ile masz lat:";
+    cin >> wiek;
+
+    if (wiek>=18)
+    {
+        cout << "Jestes pelnoletni";
+    }
+    else
+    {
+        cout << "Nie jestes pelnoletni";
+    }
+
+    if (wiek>=35)
+    {
+        cout << " Mozesz kandydowac na prezydenta";
+    }
+    else
+    {
+        cout << " Nie mozesz kandydoawa na prezydenta";
+    }
+    return 0;
+}
