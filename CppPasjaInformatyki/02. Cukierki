@@ -1,0 +1,21 @@
+#include <iostream>
+
+using namespace std;
+
+int uczniowie,cukierki,x,y;
+int main()
+{
+    cout << "Ilu jest uczniów w Twojej klasie:";
+    cin >> uczniowie;
+
+    cout << "Ile cukierów kupila mama:";
+    cin>>cukierki;
+
+    x=cukierki/(uczniowie-1);
+    cout<< "Cukierków dla kazdego ucznia:" <<x;
+
+    y=cukierki-x*(uczniowie-1)<<y;
+    cout<<endl<<"Dla Jasia na wieczór"<<y;
+
+    return x;
+}
