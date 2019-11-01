@@ -1,0 +1,37 @@
+#include <iostream>
+#include <fstream>
+
+
+using namespace std;
+
+string imie, nazwisko;
+int nr_telefonu;
+
+int main()
+
+{
+    cout << "Podaj swoje imie: "<< endl;
+    cin>> imie;
+    cout << " " <<endl;
+
+    cout << "Podaj swoje nazwisko: "<< endl;
+    cin>> nazwisko;
+    cout << " " <<endl;
+
+    cout << "Podaj swoj numer telefonu: "<< endl;
+    cin>> nr_telefonu;
+    cout << " " <<endl;
+
+
+    fstream plik;
+    plik.open("wizytowka.txt",ios::out|ios::app);
+
+    plik<<imie<<endl;
+    plik<<nazwisko<<endl;
+    plik<<nr_telefonu<<endl;
+    plik<<endl;
+
+    plik.close();
+
+    return 0;
+}
