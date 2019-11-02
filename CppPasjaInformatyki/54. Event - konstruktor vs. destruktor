@@ -1,0 +1,76 @@
+Main:
+
+#include <iostream>
+#include "event.h"
+using namespace std;
+
+int main()
+{
+    Event w1;
+
+    w1.show();
+
+    return 0;
+}
+
+Event:
+
+#include <iostream>
+#include "event.h"
+using namespace std;
+
+void Event::load()
+{
+   cout<<endl<<"Nazwa wydarzenia: ";
+   cin>>name;
+   cout<<endl<<"Dzien: ";
+   cin>>day;
+   cout<<endl<<"Miesiac: ";
+   cin>>month;
+   cout<<endl<<"Rok: ";
+   cin>>year;
+   cout<<endl<<"Godzina: ";
+   cin>>hour;
+   cout<<endl<<"Minut: ";
+   cin>>minutes;
+}
+
+void Event::show()
+{
+   cout<<endl<<name<<" "<<day<<"."<<month<<"."<<year
+   <<" "<<hour<<":"<<minutes<<endl;
+}
+Event::Event(string n,int d,int m,int y,int h,int mins)
+{
+   name=n;
+   day=d;
+   month=m;
+   year=y;
+   hour=h;
+   minutes=mins;
+}
+Event::~Event()
+{
+   cout<<endl<<"To ja, destruktor sie nazywam";
+   cout<<" kasuje obiekty, slowa przepraszam nie uzywam";
+}
+
+.h:
+
+#include <iostream>
+
+using namespace std;
+
+class Event
+{
+   int day, month, year;
+   int hour, minutes;
+   string name;
+
+   public:
+
+   Event(string="brak",int=1,int=1,int=2015,int=12,int=0);
+   ~Event();
+   void load();
+   void show();
+};
