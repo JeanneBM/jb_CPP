@@ -1,0 +1,9 @@
+#include <iostream>  
+
+int main(); // większość kompilatorów nie wymaga tej linii   
+int main()   
+
+{   
+std::cout << "Witaj Swiecie!\n";  
+return 0;
+}
