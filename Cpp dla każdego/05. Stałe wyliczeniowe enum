@@ -1,0 +1,18 @@
+/* Za pomocą słowa kluczowego enum można tworzyć własne typy danych i określać należące do nich wartości. 
+Tego rodzaju typy są nazywane typami wyliczeniowymi.
+*/
+
+#include <iostream>   
+
+int main()   
+{   enum Days { Sunday, Monday, Tuesday, Wednesday, Thursday, Friday, Saturday };  
+
+Days today;   
+today = Monday;   
+
+if (today == Sunday || today == Saturday)  
+std::cout << "\nUwielbiam weekendy!\n";  
+else  std::cout << "\nWracaj do pracy.\n";  
+
+return 0;  
+} 
