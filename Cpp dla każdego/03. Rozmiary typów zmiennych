@@ -1,0 +1,19 @@
+ #include <iostream>  
+ 
+ int main()   
+ 
+ {   
+ 
+ using std::cout; 
+ 
+      cout << "Rozmiar zmiennej typu int to:\t\t" << sizeof(int) << " bajty.\n";  
+      cout << "Rozmiar zmiennej typu short int to:\t" << sizeof(short) << " bajty.\n";  
+      cout << "Rozmiar zmiennej typu long int to:\t" << sizeof(long) << " bajty.\n"; 
+      cout << "Rozmiar zmiennej typu char to:\t\t" << sizeof(char) << " bajty.\n"; 
+      cout << "Rozmiar zmiennej typu float to:\t\t" << sizeof(float) << " bajty.\n";  
+      cout << "Rozmiar zmiennej typu double to:\t" << sizeof(double) << " bajty.\n";  
+      cout << "Rozmiar zmiennej typu bool to:\t" << sizeof(bool) << " bajty.\n"; 
+ 
+ return 0;  
+ 
+ } 
