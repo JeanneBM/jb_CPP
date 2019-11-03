@@ -1,4 +1,11 @@
-  //definiowane poprzez typedef 
+  /*definiowane poprzez typedef;
+  pozwala między innymi nadać inną nazwę już istniejącemu typowi
+  instrukcja:
+  int wiek;
+  jest równoważna:
+  typedef int wiek;
+  wiek twojWiek; //oznacza: int twojWiek;
+  */
   
   #include <iostream>   
   
