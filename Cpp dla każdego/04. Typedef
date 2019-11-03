@@ -1,0 +1,23 @@
+  //definiowane poprzez typedef 
+  
+  #include <iostream>   
+  
+  typedef unsigned short int USHORT;   
+  
+  int main()   
+  {  
+  
+  using std::cout;  
+  using std::endl;  
+  
+  USHORT Width = 5;  
+  USHORT Length;  
+  Length = 10;  
+  USHORT Area  = Width * Length; 
+  cout << "Szerokosc:" << Width << "\n"; 
+  cout << "Dlugosc: "  << Length << endl;  
+  cout << "Obszar: " << Area <<endl;  
+  
+  return 0; 
+      
+  }
