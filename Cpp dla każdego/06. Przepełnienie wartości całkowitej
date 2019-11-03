@@ -1,0 +1,20 @@
+ // przepełnienie to odejmowanie dużej liczby od małej
+ #include <iostream>  
+  
+  int main()
+  { 
+  using std::cout; 
+  using std::endl;
+  
+  unsigned int difference; 
+  unsigned int bigNumber = 100;
+  unsigned int smallNumber = 50;  
+  
+  difference = bigNumber - smallNumber;  
+  cout << "Roznica to: " << difference;  //wynik:50
+  
+  difference = smallNumber - bigNumber;  
+  cout << "\nTeraz roznica to: " << difference <<endl;  //wynik:4294967246 
+  
+  return 0;  
+  } 
