@@ -1,0 +1,25 @@
+#include <iostream>   
+
+int Add (int x, int y)  
+    {
+    std::cout << "Funkcja Add() otrzymala " << x << " oraz " << y << "\n";   
+    return (x+y);  
+    }  
+    
+ int main()   
+    {
+    
+    using std::cout;  
+    using std::cin;  
+    cout << "Jestem w funkcji main()!\n";  
+    int a, b, c;  
+    cout << "Wpisz dwie liczby: "; 
+    cin >> a;  17:      cin >> b; 
+    cout << "\nWywoluje funkcje Add()\n"; 
+    c=Add(a,b);  
+    cout << "\nPonownie w funkcji main().\n"; 
+    cout << "c zostalo ustawione na " << c; 
+    
+    return 0;  
+    
+    } 
