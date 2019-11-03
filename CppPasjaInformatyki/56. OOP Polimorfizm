@@ -1,3 +1,9 @@
+/*
+C++ sprawia że różne obiekty „robią odpowiednie rzeczy” poprzez mechanizm zwany polimorfizmem funkcji i polimorfizmem klas. 
+„Poli” oznacza wiele, zaś „morfizm” oznacza w tym przypadku formę. 
+Pojęcie „polimorfizm” oznacza, że ta sama nazwa może przybierać wiele form.
+*/
+
 #include <iostream>
 
 using namespace std;
