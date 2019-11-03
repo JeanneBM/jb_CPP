@@ -1,3 +1,10 @@
+/* 
+C++ wspiera dziedziczenie. 
+Można dzięki niemu deklarować nowe typy, będące rozszerzeniem istniejących już typów. 
+Mówi się, że nowa podklasa jest wyprowadzona z istniejącego typu i czasem nazywa się ją typem wyprowadzonym (pochodnym). 
+*/
+
+
 #include <iostream>
 #include <math.h>
 
