@@ -1,0 +1,32 @@
+#include <iostream>
+
+inline int Double(int);
+
+int main()
+{ 
+
+int target;
+using std::cout; 
+using std::cin;  
+using std::endl;
+
+cout << "Wpisz liczbe: "; 
+cin >> target; 
+cout << "\n"; 
+
+target = Double(target);
+cout << "Wynik: " << target << endl;
+
+target = Double(target);
+cout << "Wynik: " << target << endl; 
+
+target = Double(target);
+cout << "Wynik: " << target << endl; 
+
+return 0; 
+} 
+
+int Double(int target)
+{  
+return 2*target;  
+} 
