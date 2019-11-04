@@ -1,0 +1,50 @@
+#include <iostream>
+
+int main()
+{
+using namespace std;  
+
+unsigned short small;  
+unsigned long  large; 
+unsigned long  skip;
+unsigned long target;
+
+const unsigned short MAXSMALL=65535;
+
+cout << "Wpisz mniejsza liczbe: ";  
+cin >> small; 
+cout << "Wpisz wieksza liczbe: ";
+cin >> large;  
+cout << "Wpisz liczbe pomijana: "; 
+cin >> skip;  
+cout << "Wpisz liczbe docelowa: "; 
+cin >> target;  
+cout << "\n"; 
+
+// ustalamy dla pętli trzy warunki zatrzymania: 
+
+while (small < large && large > 0 && small < MAXSMALL)
+
+{ 
+
+  small++;  
+  
+  if (small % skip == 0)  
+  { 
+      cout << "pominieto dla " << small << endl; 
+      continue;  
+  } 
+  
+  if (large == target)  
+  {
+      cout << "Osiagnieto wartosc docelowa!";
+      break;
+   } 
+   
+  large-=2;  
+}                   // koniec pętli while 
+
+cout << "\nMniejsza: " << small << " Wieksza: " << large << endl;  
+
+return 0; 
+}
