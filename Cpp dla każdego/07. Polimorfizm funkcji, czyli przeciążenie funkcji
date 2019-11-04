@@ -1,0 +1,72 @@
+#include <iostream>   
+
+int Double(int);   
+long Double(long);   
+float Double(float);   
+double Double(double);   
+
+/*zamiast 
+int DoubleInt(int); 
+long DoubleLong(long); 
+float DoubleFloat(float); 
+double DoubleDouble(double);
+
+Funkcja MyDouble() jest przeciążona dla parametrów typu int, long, float oraz double. 
+Ich prototypy znajdują się w liniach od 3. do 6., zaś definicje w liniach od 50. do 72.
+*/
+
+using namespace std; 
+
+int main()  
+{
+int      myInt = 6500;       
+long     myLong = 65000;
+float    myFloat = 6.5F;
+double   myDouble = 6.5e20; 
+
+int      doubledInt; 
+long     doubledLong;
+float    doubledFloat;  
+double   doubledDouble; 
+
+cout << "myInt: " << myInt << "\n";
+cout << "myLong: " << myLong << "\n"; 
+cout << "myFloat: " << myFloat << "\n";
+cout << "myDouble: " << myDouble << "\n";
+
+doubledInt = Double(myInt);
+doubledLong = Double(myLong);
+doubledFloat = Double(myFloat);
+doubledDouble = Double(myDouble);
+
+cout << "doubledInt: " << doubledInt << "\n";
+cout << "doubledLong: " << doubledLong << "\n";
+cout << "doubledFloat: " << doubledFloat << "\n";
+cout << "doubledDouble: " << doubledDouble << "\n";
+
+return 0;
+} 
+
+int Double(int original)
+{ 
+cout << "Wewnatrz Double(int)\n"; 
+return 2 * original;  
+} 
+
+long Double(long original)
+{
+cout << "Wewnatrz Double(long)\n";
+return 2 * original;
+}
+
+float Double(float original)
+{
+cout << "Wewnatrz Double(float)\n";
+return 2 * original; 
+}
+
+double Double(double original)
+{
+cout << "Wewnatrz Double(double)\n"; 
+return 2 * original;
+}
