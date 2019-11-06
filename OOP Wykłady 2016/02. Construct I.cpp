@@ -1,3 +1,5 @@
+//constructs an object in the allocated storage 
+
 #include <iostream>
 
 class foobar{
