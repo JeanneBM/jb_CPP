@@ -1,3 +1,52 @@
+main.cpp
+#include <iostream>
+#include "pytanie.h"
+
+using namespace std;
+
+int main()
+{
+
+   Pytanie p[5];
+   int suma=0;
+   for(int i=0; i<=4; i++)
+   {
+      p[i].nr_pytania=i+1;
+      p[i].wczytaj();
+      p[i].zadaj();
+      p[i].sprawdz();
+      suma+=p[i].punkt;
+   }
+
+   cout<<"KONIEC QUIZU! PUNKTY = "<<suma;
+
+   return 0;
+}
+------------------------------------------------------------------------------------------------------------------------------------
+pytanie.h
+
+include <iostream>
+
+using namespace std;
+
+class Pytanie
+{
+   public:
+
+   string tresc;
+   string a,b,c,d;
+   int nr_pytania;
+   string poprawna;
+   string odpowiedz;
+   int punkt;
+
+   void wczytaj(); //wczytuje pytania z pliku
+   void zadaj(); //pokazuje pytanie, czyta odpowiedz
+   void sprawdz(); //sprawdza poprawnosc odpowiedzi
+};
+------------------------------------------------------------------------------------------------------------------------------------
+pytanie.cpp
+
 #include <iostream>
 #include "pytanie.h"
 #include <fstream>
@@ -56,25 +105,4 @@ void Pytanie::sprawdz()
    else punkt=0;
 }
 
---------------------------------------------------------------------------------------------------------------------------------
-pytanie.h
 
-include <iostream>
-
-using namespace std;
-
-class Pytanie
-{
-   public:
-
-   string tresc;
-   string a,b,c,d;
-   int nr_pytania;
-   string poprawna;
-   string odpowiedz;
-   int punkt;
-
-   void wczytaj(); //wczytuje pytania z pliku
-   void zadaj(); //pokazuje pytanie, czyta odpowiedz
-   void sprawdz(); //sprawdza poprawnosc odpowiedzi
-};
