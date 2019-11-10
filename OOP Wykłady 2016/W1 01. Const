@@ -1,0 +1,11 @@
+#include <iostream>
+
+using namespace std;
+
+#define sin cos
+#define true false
+#define fabs abs
+#define PI 3.141592
+
+const double pi=3.141592;
+
