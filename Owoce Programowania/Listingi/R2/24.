@@ -1,0 +1,15 @@
+// Ten program pobiera jedności z liczby.
+#include <iostream>
+using namespace std;
+
+int main()
+{
+	int number = 12345;
+	int rightMost = number % 10;
+
+	cout << "Jedności liczby "
+		 << number << " to "
+		 << rightMost << "." << endl;
+
+	return 0;
+}
