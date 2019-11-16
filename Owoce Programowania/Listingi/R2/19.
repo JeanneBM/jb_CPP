@@ -1,0 +1,11 @@
+// Ten program demonstruje inicjowanie zmiennych.
+#include <iostream>
+using namespace std;
+
+int main()
+{
+   int month = 2, days = 28;
+
+   cout << "Miesiąc " << month << " ma " << days << " dni.\n";
+   return 0;
+}
