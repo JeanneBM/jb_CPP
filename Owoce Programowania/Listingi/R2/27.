@@ -1,0 +1,20 @@
+/*
+ PROGRAM: LISTAPLAC.CPP
+ Autor: Herbert Dorfmann
+ Program obliczający listę płac firmy
+ Data ostatniej modyfikacji: 20.08.2008
+*/
+
+#include <iostream>
+using namespace std;
+
+int main()
+{
+   double payRate;   // Przechowywanie stawki godzinowej
+   double hours;     // Przechowywanie przepracowanych godzin
+   int employNumber; // Przechowywanie numeru pracownika 
+
+   /* Reszta programu została pominięta. */
+
+   return 0;
+}
