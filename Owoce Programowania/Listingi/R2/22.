@@ -1,0 +1,29 @@
+// Ten program oblicza, ile zaoszczędzisz miesięcznie,
+// jeżeli odłożysz 5%, 7% lub 10%
+// miesięcznego wynagrodzenia na fundusz emerytalny.
+#include <iostream>
+using namespace std;
+
+int main()
+{
+    // Zmienne przechowują miesięczne wynagrodzenie
+    // i odkładaną kwotę.
+    double monthlyPay = 6000.0, contribution;
+           
+    // Obliczenie i wyświetlenie kwoty przy 5%
+    contribution = monthlyPay * 0.05;
+    cout << "5% to " << contribution 
+         << " zł miesięcznie.\n";
+
+    // Obliczenie i wyświetlenie kwoty przy 7%
+    contribution = monthlyPay * 0.07;
+    cout << "7% to " << contribution
+         << " zł miesięcznie.\n";
+
+    // Obliczenie i wyświetlenie kwoty przy 10%
+    contribution = monthlyPay * 0.1;
+    cout << "10% to " << contribution
+         << " zł miesięcznie.\n";
+
+    return 0;
+}
