@@ -1,0 +1,16 @@
+// Ten program demonstruje definicję trzech zmiennych w jednym wierszu.
+#include <iostream>
+using namespace std;
+
+int main()
+{
+   int floors, rooms, suites;
+
+   floors = 15;
+   rooms = 300;
+   suites = 30;
+   cout << "Grand Hotel ma " << floors << " pięter\n";
+   cout << " z " << rooms << " pokojami i " << suites;
+   cout << " apartamentami.\n";
+   return 0;
+}
