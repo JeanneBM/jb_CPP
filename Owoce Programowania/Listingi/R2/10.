@@ -1,0 +1,20 @@
+// W tym programie znajduje się kilka zmiennych przechowujących liczby całkowite różnych typów.
+#include <iostream>
+using namespace std;
+
+int main()
+{
+   int checking;
+   unsigned int kilometers;
+   long diameter;
+
+   checking = -20;
+   kilometers = 4276;
+   diameter = 100000;
+   cout << "Przebyliśmy długą drogę " << kilometers << ".";
+   cout << " kilometrów.\n";
+   cout << "Stan naszego konta wynosi " << checking << ".";
+   cout << "\nŚrednica naszej galaktyki wynosi " << diameter << ".";
+   cout << " lat świetlnych.\n";
+   return 0;
+}
