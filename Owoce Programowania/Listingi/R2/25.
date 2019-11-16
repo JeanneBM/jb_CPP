@@ -1,0 +1,24 @@
+// Ten program zamienia sekundy na minuty i sekundy.
+#include <iostream>
+using namespace std;
+
+int main()
+{
+    // Czas w sekundach wynosi 125.
+    int totalSeconds = 125;
+
+    // Zmienne dla minut i sekund
+    int minutes, seconds;
+
+    // Obliczenie minut
+    minutes = totalSeconds / 60;
+
+    // Obliczenie pozostałych sekund
+    seconds = totalSeconds % 60;
+
+    // Wyświetlenie wyników
+    cout << totalSeconds << " sekund to:\n";
+    cout << "Minut: " << minutes << endl;
+    cout << "Sekund: " << seconds << endl;
+    return 0;
+}
