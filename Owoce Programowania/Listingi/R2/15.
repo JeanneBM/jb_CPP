@@ -1,0 +1,13 @@
+// Ten program demonstruje zastosowanie klasy string.
+#include <iostream>
+#include <string> // Wymagane do zastosowania klasy string
+using namespace std;
+
+int main()
+{
+   string movieTitle;
+
+   movieTitle = "Szybcy i wściekli";
+   cout << "Mój ulubiony film to " << movieTitle << "." << endl;
+   return 0;
+}
