@@ -1,0 +1,11 @@
+// Prosty program w C++
+#include <iostream>
+
+using namespace std;
+
+int main()
+{
+   cout << "Programowanie to";
+   cout << "świetna zabawa!";
+   return 0;
+} 
