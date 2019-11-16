@@ -1,0 +1,17 @@
+// Ten program określa rozmiar typów int, long int
+// i long double.
+#include <iostream>
+using namespace std;
+
+int main()
+{
+   long double apple;
+
+   cout << "Rozmiar typu int to " << sizeof(int);
+   cout << " bajtów.\n";
+   cout << "Rozmiar typu long int to " << sizeof(long);
+   cout << " bajtów.\n";
+   cout << "Zmienna apple może przechować " << sizeof(apple);
+   cout << " bajtów jabłek!\n";
+   return 0;
+}
