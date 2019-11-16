@@ -1,0 +1,27 @@
+// Program oblicza wynagrodzenie za przepracowany czas z uwzględnieniem nadgodzin.
+#include <iostream>
+using namespace std;
+
+int main()          
+{
+   double regularWages,             // Przechowywanie wynagrodzenia podstawowego
+          basePayRate = 18.25,      // Podstawowa stawka godzinowa
+          regularHours = 40.0,      // Podstawowy czas pracy
+          overtimeWages,            // Przechowywanie wynagrodzenia za nadgodziny
+          overtimePayRate = 27.78,  // Stawka godzinowa za nadgodziny
+          overtimeHours = 10,       // Przepracowane nadgodziny
+          totalWages;               // Przechowywanie całkowitego wynagrodzenia
+
+   // Obliczenie wynagrodzenia podstawowego
+   regularWages = basePayRate * regularHours; 
+  
+   // Obliczenie nadgodzin
+   overtimeWages = overtimePayRate * overtimeHours;
+   
+   // Obliczenie wynagrodzenia całkowitego
+   totalWages = regularWages + overtimeWages;
+   
+   // Wyświetlenie wynagrodzenia całkowitego
+   cout << "Całkowite tygodniowe wynagrodzenie wynosi " << totalWages << " zł." << endl;
+   return 0;
+}
