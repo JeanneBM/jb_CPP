@@ -1,0 +1,11 @@
+// Ten program nie może znaleźć swojej zmiennej.
+#include <iostream>
+using namespace std;
+
+int main()
+{
+   cout << value; // BŁAD! Zmienna nie została jeszcze zdefiniowana!
+
+   int value = 100;
+   return 0;
+}
