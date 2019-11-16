@@ -1,0 +1,13 @@
+// Program wyświetlający źle
+#include <iostream>
+using namespace std;
+
+int main()
+{
+   cout << "Poniższe przedmioty oferowane w naszym wspaniałym sklepie były hitami sprzedaży";
+   cout << "w czerwcu:";
+   cout << "Gry komputerowe";
+   cout << "Kawa";
+   cout << "Aspiryna";
+   return 0;
+} 
