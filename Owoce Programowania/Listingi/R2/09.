@@ -1,0 +1,12 @@
+// Ten program ma literały i zmienną.
+#include <iostream>
+using namespace std;
+
+int main()
+{
+   int apples;
+
+   apples = 20;
+   cout << "Dzisiaj sprzedaliśmy " << apples << " buszli jabłek.\n";
+   return 0;
+} 
