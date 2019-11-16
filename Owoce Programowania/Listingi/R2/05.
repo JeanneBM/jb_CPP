@@ -1,0 +1,13 @@
+// Dobrze wyświetlający program
+#include <iostream>
+using namespace std;
+
+int main()
+{
+   cout << "Poniższe przedmioty oferowane w naszym wspaniałym sklepie były hitami sprzedaży" << endl;
+   cout << "w miesiącu czerwcu:" << endl;
+   cout << "Gry komputerowe" << endl;
+   cout << "Kawa" << endl;
+   cout << "Aspiryna" << endl;
+   return 0;
+} 
