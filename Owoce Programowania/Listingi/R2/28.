@@ -1,0 +1,20 @@
+// Ten program oblicza długość okręgu.
+#include <iostream>
+using namespace std;
+
+int main()
+{
+    // Stałe
+    const double PI = 3.14159;
+    const double DIAMETER = 10.0;
+
+    // Zmienna do przechowywania długości okręgu
+    double circumference;
+
+    // Obliczenie długości okręgu
+    circumference = PI * DIAMETER;
+
+    // Wyświetlenie długości okręgu
+    cout << "Długość okręgu wynosi: " << circumference << "." << endl;
+    return 0;
+}
