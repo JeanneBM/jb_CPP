@@ -1,0 +1,25 @@
+// Ten program oblicza cenę promocyjną towaru,
+// którego regularna cena wynosi 59,95 zł po uwzględnieniu
+// obniżki o 20%.
+#include <iostream>
+using namespace std;
+
+int main()
+{
+    // Zmienne przechowują cenę regularną,
+    // wielkość zniżki i cenę promocyjną.
+    double regularPrice = 59.95, discount, salePrice;
+          
+    // Obliczenie kwoty zniżki o 20%
+    discount = regularPrice * 0.20;
+
+    // Obliczenie ceny promocyjnej przez odjęcie 
+    // kwoty zniżki od ceny regularnej
+    salePrice = regularPrice - discount;
+
+    // Wyświetlenie wyników
+    cout << "Cena regularna: " << regularPrice << " zł" << endl;
+    cout << "Kwota zniżki: " << discount << " zł" << endl;
+    cout << "Cena promocyjna: " << salePrice << " zł" << endl;
+    return 0;
+}
