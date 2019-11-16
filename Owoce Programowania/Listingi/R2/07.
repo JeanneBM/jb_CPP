@@ -1,0 +1,12 @@
+// Ten program ma zmienną.
+#include <iostream>
+using namespace std;
+ 
+int main()
+{
+   int number;
+
+   number = 5;
+   cout << "Wartość zmiennej number to " << number << "." << endl;
+   return 0;
+}
