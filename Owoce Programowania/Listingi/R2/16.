@@ -1,0 +1,15 @@
+// Ten program wykorzystuje zmiennoprzecinkowe typy danych.
+#include <iostream>
+using namespace std;
+
+int main()
+{
+   float distance;
+   double mass;
+
+   distance = 1.495979E11;
+   mass = 1.989E30;
+   cout << "Odległość Słońca od Ziemi wynosi " << distance << " metrów.\n";
+   cout << "Masa Słońca wynosi " << mass << " kilogramów.\n";
+   return 0;
+}
