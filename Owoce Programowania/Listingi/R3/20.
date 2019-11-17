@@ -1,0 +1,13 @@
+// Program odczytuje pojedynczy znak wprowadzony z klawiatury i zapisuje go w zmiennej typu char.
+#include<iostream>
+using namespace std;
+
+int main()
+{
+    char ch;
+
+    cout << "Wpisz znak i naciśnij Enter: ";
+    cin >> ch;
+    cout << "Wpisałeś " << ch << "." << endl;
+    return 0;
+}
