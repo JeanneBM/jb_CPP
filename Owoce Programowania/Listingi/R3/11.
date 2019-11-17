@@ -1,0 +1,47 @@
+// Ten program obserwuje wyposażenie trzech sklepów z gadżetami,
+// które otwarto w tym samym czasie. Każdy z nich zaczął 
+// z taką samą liczbą gadżetów w wyposażeniu. Poprzez odejmowanie 
+// sprzedanych przez każdy sklep gadżetów
+// możemy obliczyć aktualny stan wyposażenia.
+#include <iostream>
+using namespace std;
+
+int main()
+{
+   int begInv,    // Wyposażenie początkowe dla wszystkich sklepów
+       sold,      // Liczba sprzedanych gadżetów
+       store1,    // Wyposażenie pierwszego sklepu
+       store2,    // Wyposażenie drugiego sklepu
+       store3;    // Wyposażenie trzeciego sklepu
+
+   // Pobranie początkowego wyposażenia wszystkich sklepów
+   cout << "Tydzień temu otwarto trzy sklepy z gadżetami\n";
+   cout << "w tym samym czasie i z tym samym początkowym\n";
+   cout << "wyposażeniem. Jakie było wyposażenie początkowe? ";
+   cin >> begInv;
+
+   // Ustawienie wyposażenia każdego ze sklepów
+   store1 = store2 = store3 = begInv;
+
+   // Pobranie liczby gadżetów sprzedanych w pierwszym sklepie
+   cout << "Ile gadżetów sprzedano w pierwszym sklepie? ";
+   cin >> sold;
+   store1 -= sold; // Zaktualizowanie wyposażenia pierwszego sklepu
+
+   // Pobranie liczby gadżetów sprzedanych w drugim sklepie
+   cout << "Ile gadżetów sprzedano w drugim sklepie? ";
+   cin >> sold;
+   store2 -= sold; // Zaktualizowanie wyposażenia drugiego sklepu
+
+   // Pobranie liczby gadżetów sprzedanych w trzecim sklepie
+   cout << "Ile gadżetów sprzedano w trzecim sklepie? ";
+   cin >> sold;
+   store3 -= sold; // Zaktualizowanie wyposażenia trzeciego sklepu
+
+   // Wyświetlenie bieżącego stanu wyposażenia każdego ze sklepów
+   cout << "\nBieżący stan wyposażenia każdego ze sklepów:\n";
+   cout << "Sklep 1: " << store1 << endl;
+   cout << "Sklep 2: " << store2 << endl;
+   cout << "Sklep 3: " << store3 << endl;
+   return 0;
+}
