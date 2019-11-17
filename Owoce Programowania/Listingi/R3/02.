@@ -1,0 +1,19 @@
+// Program prosi użytkownika o wpisanie długości i szerokości
+// prostokąta. Oblicza jego pole i wyświetla
+// obliczoną wartość na ekranie.
+#include <iostream>
+using namespace std;
+
+int main()
+{
+   int length, width, area;
+
+   cout << "Ten program oblicza pole ";
+   cout << "prostokąta.\n";
+   cout << "Wprowadź długość i szerokość prostokąta, ";
+   cout << "rozdzielając je spacją.\n";
+   cin >> length >> width;
+   area = length * width;
+   cout << "Pole prostokąta wynosi " << area << "." << endl;
+   return 0;
+}
