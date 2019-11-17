@@ -1,0 +1,21 @@
+// Program prosi użytkownika o wpidane licznika 
+// i mianownika ułamka, a następnie wyświetla
+// wartość dziesiętną.
+
+#include <iostream>
+using namespace std;
+
+int main()
+{
+    double numerator, denominator;
+    
+    cout << "Ten program pokazuje wartość dziesiętną ";
+    cout << "ułamka.\n";
+    cout << "Wpisz licznik: ";
+    cin >> numerator;
+    cout << "Wpisz mianownik: ";
+    cin >> denominator;
+    cout << "Wartość dziesiętna wynosi ";
+    cout << (numerator / denominator) << "." << endl;
+    return 0;
+}
