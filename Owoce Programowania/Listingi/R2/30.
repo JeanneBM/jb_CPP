@@ -1,0 +1,13 @@
+// Ten przykład jest dużo bardziej czytelny niż kod z listingu 2.29.
+#include <iostream>
+using namespace std;
+
+int main()
+{
+   double shares = 220.0;
+   double avgPrice = 14.67;
+
+   cout << "Sprzedano " << shares << " akcji w cenie ";
+   cout << avgPrice << " zł za akcję.\n";
+   return 0;
+}
