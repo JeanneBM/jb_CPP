@@ -1,0 +1,18 @@
+// Ten program stosuje rzutowanie typów, aby zapobiec dzieleniu liczb całkowitych.
+#include <iostream>
+using namespace std;
+
+int main()
+{
+   int books;        // Liczba książek do przeczytania
+   int months;       // Liczba miesięcy spędzonych na czytaniu
+   double perMonth;  // Średnia liczba książek na miesiąc
+
+   cout << "Ile książek planujesz przeczytać? ";
+   cin >> books;
+   cout << "Ile miesięcy zajmie Ci ich przeczytanie? ";
+   cin >> months;
+   perMonth = static_cast<double>(books) / months;
+   cout << "To jest " << perMonth << " książki na miesiąc.\n";
+   return 0;
+}
