@@ -1,0 +1,15 @@
+// Ten program możemy wykorzystać, aby sprawdzić zachowanie systemu 
+// w przypadku przepełnienia lub zaniżenia zmiennej typu zmiennoprzecinkowego.
+#include <iostream>
+using namespace std;
+
+int main()
+{
+   float test;
+
+   test = 2.0e38 * 1000;    // Test przepełnienia
+   cout << test << endl;
+   test = 2.0e-38 / 2.0e38; // Test zaniżenia
+   cout << test << endl;
+  return 0;
+}
