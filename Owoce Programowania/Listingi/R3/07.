@@ -1,0 +1,21 @@
+// Program pokazuje przepełnienie i zaniżenie w zmiennej typu short.
+#include <iostream>
+using namespace std;
+
+int main()
+{
+   // testVar zostaje zainicjowana maksymalną wartością dla typu short.
+short testVar = 32767;
+
+   // Wyświetlenie testVar
+   cout << testVar << endl;
+
+   // Dodanie 1 do testVar, aby spowodować przepełnienie
+   testVar = testVar + 1;
+   cout << testVar << endl;
+
+   // Odjęcie 1 od testVar, aby spowodować zaniżenie
+   testVar = testVar - 1;
+   cout << testVar << endl;
+   return 0;
+}
