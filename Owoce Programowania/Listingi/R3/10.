@@ -1,0 +1,17 @@
+// Ten program wykorzystuje wyrażenie rzutowania typu, aby wyświetlić
+// znak na podstawie liczby.
+#include <iostream>
+using namespace std;
+
+int main()
+{
+   int number = 65;
+
+   // Wyświetlenie wartości zmiennej number
+   cout << number << endl;
+
+   // Wyświetlenie wartości zmiennej number zamienionej
+   // na typ char
+   cout << static_cast<char>(number) << endl;
+   return 0;
+}
