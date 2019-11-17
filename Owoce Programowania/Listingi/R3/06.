@@ -1,0 +1,26 @@
+// Program oblicza średnią
+// trzech ocen z testów.
+#include <iostream>
+#include <cmath>
+using namespace std;
+
+int main()
+{
+   double test1, test2, test3;    // Przechowywanie ocen
+    double average;              // Przechowywanie średniej
+
+    // Pobranie trzech ocen
+    cout << "Wpisz pierwszą ocenę: ";
+    cin >> test1;
+    cout << "Wpisz drugą ocenę: ";
+    cin >> test2;
+    cout << "Wpisz trzecią ocenę: ";
+    cin >> test3;
+
+    // Obliczenie średniej ocen
+    average = (test1 + test2 + test3) / 3.0;
+
+    // Wyświetlenie średniej
+    cout << "Średnia ocen: " << average << endl;
+    return 0;
+}
