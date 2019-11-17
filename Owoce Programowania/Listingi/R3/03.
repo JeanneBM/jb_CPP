@@ -1,0 +1,18 @@
+// Program przedstawiający jak cin może odczytać wiele wartości
+// danych różnego typu.
+#include <iostream>
+using namespace std;
+
+int main()
+{
+   int whole;
+   double fractional;
+   char letter;
+
+   cout << "Wpisz liczbę całkowitą, liczbę z ułamkiem i literę: ";
+   cin >> whole >> fractional >> letter;
+   cout << "Liczba całkowita: " << whole << endl;
+   cout << "Liczba z ułamkiem: " << fractional << endl;
+   cout << "Litera: " << letter << endl;
+   return 0;
+}
