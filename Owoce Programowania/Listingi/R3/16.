@@ -1,0 +1,31 @@
+// Program pyta o wartość sprzedaży z trzech dni. 
+// Suma sprzedaży jest obliczana i wyświetlana w tabeli.
+#include <iostream>
+#include <iomanip>
+using namespace std;
+
+int main()
+{
+   double day1, day2, day3, total;
+
+   // Pobranie wartości sprzedaży z każdego dnia
+   cout << "Sprzedaż w dniu 1: ";
+   cin >> day1;
+   cout << "Sprzedaż w dniu 2: ";
+   cin >> day2;
+   cout << "Sprzedaż w dniu 3: ";
+   cin >> day3;
+
+   // Obliczenie sumy sprzedaży
+   total = day1 + day2 + day3;
+
+   // Wyświetlenie wartości sprzedaży
+   cout << "\nWartość sprzedaży\n";
+   cout << "-------------\n";
+   cout << setprecision(5);
+   cout << "Dzień 1: " << setw(8) << day1 << endl;
+   cout << "Dzień 2: " << setw(8) << day2 << endl;
+   cout << "Dzień 3: " << setw(8) << day3 << endl;
+   cout << "Razem: " << setw(10) << total << endl;
+   return 0;
+}
