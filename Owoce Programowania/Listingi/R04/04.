@@ -1,0 +1,18 @@
+// Ten program demonstruje, jak błędy zaokrągleń liczb zmiennoprzecinkowych
+// powodują, że operacje porównania stają się niewiarygodne.
+#include <iostream>
+using namespace std;
+
+int main()
+{
+   double a = 1.5;            // a to 1.5
+   double b = 1.5;            // b to 1.5
+
+   a += 0.0000000000000001;   // Dodanie nieco do a
+   if (a == b)
+      cout << "Zmienne a i b są takie same.\n";
+   else
+      cout << "Zmienne a i b nie są takie same.\n";
+
+   return 0;
+}
