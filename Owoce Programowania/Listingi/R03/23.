@@ -1,0 +1,18 @@
+// Ten program z powodzeniem wykorzystuje 
+// zarówno cin >>, jak i cin.get() do odczytu klawiatury.
+#include<iostream>
+using namespace std;
+
+int main()
+{
+    char ch;
+    int number;
+
+    cout << "Wpisz liczbę: ";
+    cin >> number;
+    cin.ignore();    // Pominięcie znaku nowego wiersza
+    cout << "Wpisz znak: ";
+    ch = cin.get();
+    cout << "Dziękuję!\n";
+    return 0;
+}
