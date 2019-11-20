@@ -1,0 +1,17 @@
+// Ten program demonstruje problem, który pojawia się 
+// przy mieszaniu cin >> z cin.get().
+#include <iostream>
+using namespace std;
+
+int main()
+{
+   char ch;                        // Zdefiniowanie zmiennej typu char
+   int number;                     // Zdefiniowanie zmiennej typu int
+
+   cout << "Wpisz liczbę: ";
+   cin >> number;                  // Odczytanie liczby
+   cout << "Wpisz znak: ";
+   ch = cin.get();                 // Odczytanie znaku
+   cout << "Dziękuję!\n";
+   return 0;
+}
