@@ -1,0 +1,26 @@
+// Ten program oblicza średnią z wyników trzech testów.
+// Jednak w warunku if użyto operatora = zamiast ==.
+#include <iostream>
+#include <iomanip>
+using namespace std;
+
+int main()
+{
+   int score1, score2, score3;  // Do przechowywania trzech wyników testów
+   double average;              // Do przechowywania średniej
+
+   // Pobranie trzech wyników testów
+   cout << "Wpisz trzy wyniki testów, a ja obliczę ich średnią: ";
+   cin >> score1 >> score2 >> score3;
+   
+   // Obliczenie i wyświetlenie średniej punktacji
+   average = (score1 + score2 + score3) / 3.0;
+   cout << fixed << showpoint << setprecision(1);
+   cout << "Twoja średnia wynosi " << average << "." << endl;
+
+   // Chcemy pogratulować użytkownikowi osiągnięcia
+   // idealnego wyniku. Niestety to nie działa.
+   if (average = 100)  // BŁĄD! To jest przypisanie!
+      cout << "Gratulacje! Osiągnąłeś idealny wynik!\n";
+   return 0;
+}
