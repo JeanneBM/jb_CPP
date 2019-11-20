@@ -1,0 +1,21 @@
+// Ten program prosi o wprowadzenie długości dwóch
+// przyprostokątnych trójkąta. Następnie oblicza i wyświetla
+// długość przeciwprostokątnej.
+#include <iostream>
+#include <iomanip>   // Na potrzeby funkcji setprecision()
+#include <cmath>     // Na potrzeby funkcji sqrt() i pow() 
+using namespace std;
+
+int main()
+{
+   double a, b, c;
+
+   cout << "Wprowadź długość boku a: ";
+   cin >> a;
+   cout << "Wprowadź długość boku b: ";
+   cin >> b;
+   c = sqrt(pow(a, 2.0) + pow(b, 2.0));
+   cout << "Długość przeciwprostokątnej wynosi ";
+   cout << setprecision(2) << c << "." << endl;
+   return 0;
+}
