@@ -1,0 +1,35 @@
+// Program prosi o wpisanie dwóch liczb: num1 i num2. 
+// num1 jest dzielone przez num2, a wynik jest wyświetlany na ekranie.
+// Jednak przed dzieleniem num2 jest sprawdzane
+// na wartość 0. Jeżeli zawiera 0, dzielenie 
+// nie nastąpi.
+#include <iostream>
+using namespace std;
+
+int main()
+{
+   double num1, num2, quotient;
+
+   // Wpisanie pierwszej liczby
+   cout << "Wpisz liczbę: ";
+   cin >> num1;
+  
+   // Wpisanie drugiej liczby
+   cout << "Wpisz kolejną liczbę: ";
+   cin >> num2;
+   
+   // Jeśli num2 nie jest zerem, wykonanie dzielenia
+   if (num2 == 0)
+   {
+      cout << "Dzielenie przez zero nie jest możliwe.\n";
+      cout << "Uruchom ponownie program i wpisz\n";
+      cout << "liczbę inną niż zero.\n";
+   }
+   else
+   {
+      quotient = num1 / num2;
+      cout << "Iloraz liczby " << num1 << " podzielonej przez ";
+      cout<< num2 << " wynosi " << quotient << ".\n";
+   }
+   return 0;
+}
