@@ -1,0 +1,18 @@
+// Ten program demonstruje trzy sposoby 
+// wykorzystania metody cin.get() do wstrzymania programu.
+#include<iostream>
+using namespace std;
+
+int main()
+{
+    char ch;
+
+    cout << "Program zatrzymał się. Naciśnij Enter, aby kontynuować.";
+    cin.get(ch);
+    cout << "Program zatrzymał się po raz drugi. Naciśnij Enter jeszcze raz.";
+    ch = cin.get();
+    cout << "Program zatrzymał się po raz trzeci. Naciśnij Enter jeszcze raz.";
+    cin.get();
+    cout << "Dziękuję!";
+    return 0;
+}
