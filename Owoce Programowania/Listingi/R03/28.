@@ -1,0 +1,50 @@
+// Program używany przez „Skrzynki na Miarę Sp. z o.o.” do obliczania
+// objętości, kosztów, ceny i zysku ze sprzedaży skrzynki
+// dowolnego rozmiaru. Oblicza te dane na podstawie wprowadzonych przez 
+// użytkownika rozmiarów skrzynki.
+#include <iostream>
+#include <iomanip>
+using namespace std;
+
+int main()
+{
+   // Stałe dla kosztów i ceny
+   const double COST_PER_CUBIC_DECIMETER = 0.23;
+   const double CHARGE_PER_CUBIC_DECIMETER = 0.5;
+
+   // Zmienne
+   double length,   // Długość skrzynki
+          width,    // Szerokość skrzynki
+          height,   // Wysokość skrzynki
+          volume,   // Objętość skrzynki
+          cost,     // Koszt produkcji skrzynki
+          charge,   // Cena za skrzynkę
+          profit;   // Zysk osiągnięty ze sprzedaży skrzynki
+
+   // Ustawienie formatowania liczb na wyjściu  
+   cout << setprecision(2) << fixed << showpoint;
+
+   // Poproszenie użytkownika o wpisanie długości, szerokości i wysokości skrzynki
+   cout<< "Wpisz rozmiary skrzynki(w decymetrach):\n";
+   cout << "Długość: ";
+   cin >> length;
+   cout << "Szerokość: ";
+   cin >> width;
+   cout << "Wysokość: ";
+   cin >> height;
+
+   // Obliczenie objętości skrzynki, kosztu produkcji,
+   // ceny dla klienta i zysku ze sprzedaży
+   volume = length * width * height;
+   cost = volume * COST_PER_CUBIC_DECIMETER;
+   charge = volume * CHARGE_PER_CUBIC_DECIMETER;
+   profit = charge - cost;
+
+   // Wyświetlenie obliczonych danych
+   cout << "Objętość skrzynki wynosi ";
+   cout << volume << " decymetrów sześciennych.\n";
+   cout << "Koszt produkcji: " << cost << " zł" << endl;
+   cout << "Cena: " << charge << " zł" << endl;
+   cout << "Zysk: " << profit << " zł" << endl;
+   return 0;
+}
