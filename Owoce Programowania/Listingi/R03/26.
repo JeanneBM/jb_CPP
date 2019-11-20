@@ -1,0 +1,29 @@
+// Ten program symuluje rzuty kostką.
+#include <iostream>
+#include <cstdlib>     // rand() i srand()
+#include <ctime>       // Funkcja time() 
+using namespace std;
+
+int main()
+{
+   // Stałe
+   const int MIN_VALUE = 1;   // Minimalna wartość na kostce
+   const int MAX_VALUE = 6;   // Maksymalna wartość na kostce
+
+   // Zmienne
+   int die1;   // Przechowywanie wartości pierwszej kostki
+   int die2;   // Przechowywanie wartości drugiej kostki
+
+   // Pobranie czasu systemowego
+   unsigned seed = time(0);
+
+   // Wprowadzenie ziarna do generatora liczb losowych
+   srand(seed);
+
+   cout << "Rzut kośćmi...\n";
+   die1 = (rand() % (MAX_VALUE - MIN_VALUE + 1)) + MIN_VALUE;
+   die2 = (rand() % (MAX_VALUE - MIN_VALUE + 1)) + MIN_VALUE;
+   cout << die1 << endl;
+   cout << die2 << endl;
+   return 0;
+}
