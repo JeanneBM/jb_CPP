@@ -1,0 +1,25 @@
+// Ten program oblicza średnią z wyników trzech testów.
+#include <iostream>
+#include <iomanip>
+using namespace std;
+
+int main()
+{
+   const int HIGH_SCORE = 95;   // Rekord wynosi 95 lub więcej
+   int score1, score2, score3;  // Do przechowywania trzech wyników testów
+   double average;              // Do przechowywania średniej
+
+   // Pobranie trzech wyników testów
+   cout << "Wpisz trzy wyniki testów, a ja obliczę ich średnią: ";
+   cin >> score1 >> score2 >> score3;
+  
+   // Obliczenie i wyświetlenie średniej punktacji
+   average = (score1 + score2 + score3) / 3.0;
+   cout << fixed << showpoint << setprecision(1);
+   cout << "Twoja średnia wynosi " << average << "." << endl;
+  
+   // Pogratulowanie użytkownikowi, jeżeli średnia jest rekordem
+   if (average > HIGH_SCORE)
+      cout << "Gratulacje! Pobiłeś rekord!\n";
+   return 0;
+}
