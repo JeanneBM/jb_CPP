@@ -1,0 +1,18 @@
+// Ten program prosi o wpisanie trzech liczb,
+// a następnie wyświetla ich średnią.
+#include <iostream>
+using namespace std;
+
+int main()
+{
+   double num1, num2, num3, avg;
+   cout << "Wpisz pierwszą liczbę: ";
+   cin >> num1;
+   cout << "Wpisz drugą liczbę: ";
+   cin >> num2;
+   cout << "Wpisz trzecią liczbę: ";
+   cin >> num3;
+   avg = num1 + num2 + num3 / 3;
+   cout << "Średnia wynosi " << avg << "." << endl;
+   return 0;
+}
