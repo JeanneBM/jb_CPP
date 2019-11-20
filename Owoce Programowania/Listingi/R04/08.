@@ -1,0 +1,19 @@
+// Ten program wykorzystuje operator modulo do określenia, 
+// czy liczba jest parzysta, czy nie. Liczba jest parzysta, jeśli 
+// dzieli się przez 2 bez reszty. Reszta wskazuje, że liczba jest nieparzysta.
+#include <iostream>
+using namespace std;
+
+int main()
+{
+   int number;
+
+   cout << "Wpisz liczbę całkowitą, a ja powiem Ci,\n";
+   cout << "czy jest parzysta, czy nieparzysta. ";
+  cin >> number;
+   if (number % 2 == 0)
+      cout << number << " jest parzysta.\n";
+   else
+      cout << number << " jest nieparzysta.\n";
+   return 0;
+}
