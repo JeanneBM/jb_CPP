@@ -1,0 +1,21 @@
+// Ten program wyświetla listę liczb
+// i ich kwadratów.
+#include <iostream>
+using namespace std;
+
+int main()
+{
+   const int MIN_NUMBER = 1,   // Pierwsza liczba
+             MAX_NUMBER = 10;  // Ostatnia liczba
+
+   int num = MIN_NUMBER;       // Licznik
+
+   cout << "Liczba Liczba do kwadratu\n";
+   cout << "-------------------------\n";
+   while (num <= MAX_NUMBER)
+   {
+      cout << num << "\t\t" << (num * num) << endl;
+      num++; //Zwiększ licznik.
+   }
+   return 0;
+}
