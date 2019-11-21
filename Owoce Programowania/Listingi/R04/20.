@@ -1,0 +1,25 @@
+// Ten program demonstruje porównywanie znaków
+// za pomocą operatorów relacyjnych.
+#include <iostream>
+using namespace std;
+
+int main()
+{
+   char ch;
+
+   // Pobranie znaku od użytkownika
+   cout << "Wpisz cyfrę lub literę: ";
+   ch = cin.get();
+
+   // Określenie, co wpisał użytkownik
+   if (ch >= '0' && ch <= '9')
+      cout << "Wpisałeś cyfrę.\n";
+   else if (ch >= 'A' && ch <= 'Z')
+      cout << "Wpisałeś wielką literę.\n";
+   else if (ch >= 'a' && ch <= 'z')
+      cout << "Wpisałeś małą literę.\n";
+   else
+      cout << "To nie jest cyfra ani litera.\n";
+
+   return 0;
+}
