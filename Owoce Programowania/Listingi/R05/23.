@@ -1,0 +1,33 @@
+// Ten program sprawdza, czy otwarcie pliku przebiegło bez błędów.
+#include <iostream>
+#include <fstream>
+using namespace std;
+
+int main()
+{
+   ifstream inputFile;
+   int number;
+
+   // Otwarcie pliku
+   inputFile.open("ZłaListaLiczb.txt");
+
+   // Przetworzenie pliku, jeżeli udało się go otworzyć
+   if (inputFile)
+   {
+      // Odczytanie liczb z pliku
+      // i ich wyświetlenie
+      while (inputFile >> number)
+      {
+         cout << number << endl;
+      }
+
+      // Zamknięcie pliku
+      inputFile.close();
+   }
+   else
+   {
+      // Wyświetlenie komunikatu błędu
+      cout << "Błąd otwarcia pliku.\n";
+   }
+   return 0;
+}
