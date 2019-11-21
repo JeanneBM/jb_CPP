@@ -1,0 +1,43 @@
+// Ten program oblicza średnią z testów. Prosi użytkownika o wpisanie
+// liczby uczniów i liczby wyników testów każdego ucznia.
+#include <iostream>
+#include <iomanip>
+using namespace std;
+
+int main()
+{
+   int numStudents,  // Liczba uczniów
+       numTests;     // Liczba testów na ucznia
+   double total,     // Akumulator przechowujący sumę wyników
+          average;   // Średnia punktów
+
+   // Sformatowanie liczb na wyjściu
+   cout << fixed << showpoint << setprecision(1);
+
+   // Pobranie liczby uczniów
+   cout << "Ten program oblicza średnią z testów.\n";
+   cout << "Dla ilu uczniów chcesz obliczyć średnie? ";
+   cin >> numStudents;
+  
+   // Pobranie liczby testów
+   cout << "Ile testów napisał każdy z uczniów? ";
+   cin >> numTests;
+  
+   // Obliczenie średniej dla każdego z uczniów
+   for (int student = 1; student <= numStudents; student++)
+   {
+      total = 0;      // Zainicjowanie akumulatora
+      for (int test = 1; test <= numTests; test++)
+      {
+         double score;
+         cout << "Wpisz wynik z testu nr " << test << " dla ";
+         cout << "ucznia " << student << ": ";
+         cin >> score;
+         total += score;
+      }
+      average = total / numTests;
+      cout << "Średnia punktów dla ucznia " << student;
+      cout << " wynosi " << average << ".\n\n";
+   }
+   return 0;
+}
