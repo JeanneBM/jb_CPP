@@ -1,0 +1,36 @@
+// Ten program ma trzy funkcje: main(), first() i second().
+#include <iostream>
+using namespace std;
+
+//*****************************************
+// Definicja funkcji first()                *
+// Ta funkcja wyświetla wiadomość.        *
+//*****************************************
+
+void first()
+{
+   cout << "Jestem teraz w funkcji first().\n";
+}
+
+//*****************************************
+// Definicja funkcji second()               *
+// Ta funkcja wyświetla wiadomość.        *
+//*****************************************
+
+void second()
+{
+   cout << "Jestem teraz w funkcji second().\n";
+}
+
+//*****************************************
+// Funkcja main()                          *
+//*****************************************
+
+int main()
+{
+   cout << "Zaczynam w funkcji main().\n";
+   first();    // Wywołanie funkcji first()
+   second();   // Wywołanie funkcji second()
+   cout << "Wracam do main().\n";
+   return 0;
+}
