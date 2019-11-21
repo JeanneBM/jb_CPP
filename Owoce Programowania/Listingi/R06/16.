@@ -1,0 +1,29 @@
+// Ten program ilustruje, że zmienne lokalne są
+// niedostępne dla innych funkcji.
+#include <iostream>
+using namespace std;
+
+void anotherFunction(); // Prototyp funkcji
+
+int main()
+{
+   int num = 1;   // Zmienna lokalna
+
+   cout << "W funkcji main() wartość num to " << num << "." << endl;
+   anotherFunction();
+   cout << "Z powrotem w main() wartość num to " << num << "." << endl;
+   return 0;
+}
+
+//*****************************************************
+// Definicja anotherFunction()                          *
+// Funkcja ta wyświetla wartość zmiennej                     *
+// lokalnej num.                                      *
+//*****************************************************
+
+void anotherFunction()
+{
+   int num = 20;  // Zmienna lokalna
+
+   cout << "W funkcji anotherFunction() wartość num to " << num << "." << endl;
+}
