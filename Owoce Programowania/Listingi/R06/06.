@@ -1,0 +1,24 @@
+// Ten program demonstruje funkcję z parametrem.
+#include <iostream>
+using namespace std;
+
+// Prototyp funkcji
+void displayValue(int);
+
+int main()
+{
+   cout << "Przekazuję 5 do funkcji displayValue().\n";
+   displayValue(5);  // Wywołanie displayValue() z argumentem 5
+   cout << "Jestem z powrotem w main().\n";
+   return 0;
+}
+
+//*********************************************************
+// Definicja funkcji displayValue()                       *
+// Wyświetla ona wartość parametru num.                   *
+//*********************************************************
+
+void displayValue(int num)
+{
+   cout << "Wartość wynosi " << num << "." << endl;
+}
