@@ -1,0 +1,33 @@
+// Ten program zapisuje wejście użytkownika do pliku.
+#include <iostream>
+#include <fstream>
+#include <string>
+using namespace std;
+
+int main()
+{
+   ofstream outputFile;
+   string name1, name2, name3;
+
+   // Otwarcie pliku wyjściowego
+   outputFile.open("Przyjaciele.txt");
+
+   // Pobranie imion trzech przyjaciół
+   cout << "Wpisz imiona trzech przyjaciół.\n";
+   cout << "Przyjaciel #1: ";
+   cin >> name1;
+   cout << "Przyjaciel #2: ";
+   cin >> name2;
+   cout << "Przyjaciel #3: ";
+   cin >> name3;
+
+   // Zapisanie imion do pliku
+   outputFile << name1 << endl;
+   outputFile << name2 << endl;
+   outputFile << name3 << endl;
+   cout << "Zapisano imiona do pliku.\n";
+
+   // Zamknięcie pliku
+   outputFile.close();
+   return 0;
+}
