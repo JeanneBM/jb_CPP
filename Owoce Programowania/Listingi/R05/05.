@@ -1,0 +1,58 @@
+// Ten program oblicza, ile drużyn piłkarskich można utworzyć
+// w lidze młodzieżowej na podstawie liczby 
+// zawodników. Walidacja wejścia obywa się za pomocą
+// pętli while.
+#include <iostream>
+using namespace std;
+
+int main()
+{
+   // Stałe dla maksymalnej i minimalnej liczby graczy
+   const int MIN_PLAYERS = 9,
+             MAX_PLAYERS = 15;
+
+   // Zmienne
+   int players,      // Liczba dostępnych zawodników
+       teamPlayers,  // Liczba pożądanych zawodników w drużynie
+       numTeams,     // Liczba drużyn
+       leftOver;     // Liczba pozostałych zawodników
+
+   // Pobranie liczby zawodników w drużynie
+   cout << "Ilu zawodników ma grać w jednej drużynie? ";
+   cin >> teamPlayers;
+  
+   // Walidacja wejścia
+   while (teamPlayers < MIN_PLAYERS || teamPlayers > MAX_PLAYERS)
+   {
+      // Wyjaśnienie błędu
+      cout << "Powinieneś mieć miniumum " << MIN_PLAYERS
+           << " zawodników w drużynie, lecz nie więcej niż " << MAX_PLAYERS << ".\n";
+
+      // Pobranie wejścia ponownie
+      cout << "Ilu zawodników ma grać w jednej drużynie? ";
+      cin >> teamPlayers;
+   }
+   
+   // Pobranie liczby wszystkich zawodników
+   cout << "Ilu jest wszystkich zawodników? ";
+   cin >> players;
+   
+   // Walidacja wejścia
+   while (players <= 0)
+   {
+      // Pobranie wejścia ponownie
+      cout << "Wpisz 0 lub więcej: ";
+      cin >> players;
+   }
+
+   // Obliczenie liczby drużyn
+   numTeams = players / teamPlayers;
+   
+   // Obliczenie, ilu zawodników zostało bez drużyny
+   leftOver = players % teamPlayers;
+  
+   // Wyświetlenie wyników
+   cout << "Można utworzyć " << numTeams << " drużyn z "
+        << leftOver << " zawodnikami pozostałymi bez drużyny.\n";
+   return 0;
+}
