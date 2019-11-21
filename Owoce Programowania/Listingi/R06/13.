@@ -1,0 +1,57 @@
+// Ten program korzysta z dwóch funkcji zwracających wartość.
+// Funkcja square() jest wywoływana w wyrażeniu matematycznym.
+#include <iostream>
+#include <iomanip>
+using namespace std;
+
+// Prototypy funkcji
+double getRadius();
+double square(double);
+
+int main()
+{
+   const double PI = 3.14159; // Stała dla pi
+   double radius;             // Przechowywanie promienia koła
+   double area;               // Przechowywanie pola koła
+
+   // Ustawienie formatowania liczb na wyjściu
+   cout << fixed << showpoint << setprecision(2);
+
+   // Pobranie promienia koła.
+   cout << "Ten program oblicza pole ";
+   cout << "koła.\n";
+   radius = getRadius();
+
+   // Obliczenie pola koła
+   area = PI * square(radius);
+
+   // Wyświetlenie wyniku
+   cout << "Pole wynosi " << area << "." << endl;
+   return 0;
+}
+
+//******************************************************
+// Definicja funkcji getRadius()                        *
+// Funkcja prosi użytkownika o wpisanie promienia      *
+// koła, a następnie zwraca tę wartość w typie double.  *
+//******************************************************
+
+double getRadius()
+{
+   double rad;
+
+   cout << "Wprowadź promień koła: ";
+   cin >> rad;
+   return rad;
+}
+
+//******************************************************
+// Definicja funkcji square()                          *
+// Funkcja przyjmuje argument typu double i zwraca     *
+// kwadrat jego wartości jako wartość double.          *
+//******************************************************
+
+double square(double number)
+{
+   return number * number;
+}
