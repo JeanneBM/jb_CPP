@@ -1,0 +1,32 @@
+// Ten program pomaga technikowi w procesie
+// sterowania temperaturą substancji.
+#include <iostream>
+using namespace std;
+
+int main()
+{
+   const double MAX_TEMP = 102.5;  // Temperatura maksymalna 
+   double temperature;             // Przechowywanie temperatury
+
+   // Pobranie aktualnej temperatury
+   cout << "Wpisz temperaturę substancji w stopniach Celsjusza: ";
+   cin >> temperature;
+
+   // Poproszenie technika o ustawienie termostatu na tak długo,
+   // na jak długo jest to potrzebne.
+   while (temperature > MAX_TEMP)
+   {
+      cout << "Temperatura jest za wysoka. Wyłącz\n";
+      cout << "termostat i zaczekaj 5 minut.\n";
+      cout << "Następnie ponownie odczytaj temperaturę\n";
+      cout << "i wpisz ją tutaj: ";
+      cin >> temperature;
+   }
+
+   // Przypomnienie technikowi, aby sprawdził temperaturę
+   // ponownie za 15 minut
+   cout << "Temperatura jest dobra.\n";
+   cout << "Sprawdź ją ponownie za 15 minut.\n";
+
+   return 0;
+}
