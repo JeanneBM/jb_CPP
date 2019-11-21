@@ -1,0 +1,31 @@
+// Instrukcja switch w poniższym programie korzysta z funkcji przechodzenia
+// przez kolejne polecenia klauzul case, aby wychwycić zarówno małe, jak i wielkie
+// litery wpisane przez użytkownika.
+#include <iostream>
+using namespace std;
+
+int main()
+{
+   char feedGrade;
+   
+   // Pobranie klasy jakości karmy
+   cout << "Nasza karma jest dostępna w trzech klasach jakości:\n";
+   cout << "A, B i C. Ceną, za którą klasę jesteś zainteresowany? ";
+   cin >> feedGrade;
+   
+   // Wyświetlenie ceny
+   switch(feedGrade)
+   {
+      case 'a':
+      case 'A': cout << "2 zł za kilogram\n";
+                break;
+      case 'b':
+      case 'B': cout << "1,50 zł za kilogram\n";
+                break;
+      case 'c':
+      case 'C': cout << "80 gr za kilogram\n";
+                break;
+      default:  cout << "Nieprawidłowy wybór\n";
+   }
+   return 0;
+}
