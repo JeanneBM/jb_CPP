@@ -1,0 +1,23 @@
+// Ten program zapisuje dane do pliku w jednym wierszu.
+#include <iostream>
+#include <fstream>
+using namespace std;
+
+int main()
+{
+   ofstream outputFile;
+   outputFile.open("Demo.txt");
+
+   cout << "Teraz zapisuję dane do pliku.\n";
+
+   // Zapisanie czterech nazwisk do pliku
+   outputFile << "Bach";
+   outputFile << "Beethoven";
+   outputFile << "Mozart";
+   outputFile << "Schubert";
+
+   // Zamknięcie pliku
+   outputFile.close();
+   cout << "Koniec.\n";
+   return 0;
+}
