@@ -1,1 +1,33 @@
+// Program demonstruje zastosowanie operatorów ++ i --.
+#include <iostream>
+using namespace std;
+
+int main()
+{
+   int num = 4;   // Wartość początkowa num wynosi 4.
+  
+   // Wyświetlenie wartości num
+   cout << "Wartość zmiennej num to " << num << "." << endl;
+   cout << "Teraz dokonam inkrementacji num.\n\n";
+  
+   // Postinkrementacja num za pomocą ++
+   num++;
+   cout << "Teraz wartość num wynosi " << num << "." << endl;
+   cout << "Dokonam ponownej inkrementacji.\n\n";
+
+   // Preinkrementacja num za pomocą ++
+   ++num;
+   cout << "Teraz wartość num wynosi " << num << "." << endl;
+   cout << "Dokonam dekrementacji num.\n\n";
+  
+   // Postdekrementacja num za pomocą --
+   num--;
+   cout << "Teraz wartość num wynosi " << num << "." << endl;
+   cout << "Dokonam ponownej dekrementacji num.\n\n";
+   
+   // Predekrementacja num za pomocą --
+   --num;
+   cout << "Teraz wartość num wynosi " << num << "." << endl;
+   return 0;
+}
 
