@@ -1,0 +1,26 @@
+// Ten program demonstruje pętlę for kontrolowaną przez użytkownika.
+#include <iostream>
+using namespace std;
+
+int main()
+{
+   int minNumber,   // Pierwsza liczba
+       maxNumber;   // Ostatnia liczba
+
+   // Pobranie wartości minimalnych i maksymalnych
+   cout << "Wyświetlę tabelkę z liczbami "
+        << "i ich kwadratami.\n"
+        << "Wpisz pierwszą liczbę: ";
+   cin >> minNumber;
+   cout << "Wpisz ostatnią liczbę: ";
+   cin >> maxNumber;
+
+   // Wyświetlenie tabelki
+   cout << "Liczba Liczba do kwadratu\n"
+       << "-------------------------\n";
+
+   for (int num = minNumber; num <= maxNumber; num++)
+      cout << num << "\t\t" << (num * num) << endl;
+
+   return 0;
+}
