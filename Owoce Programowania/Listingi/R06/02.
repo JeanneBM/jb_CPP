@@ -1,0 +1,26 @@
+// The function displayMessage is repeatedly called from a loop.
+#include <iostream>
+using namespace std;
+
+//*****************************************
+// Definicja funkcji displayMessage       *
+// Funckja wyświetla pozdrowienie.        *
+//*****************************************
+
+void displayMessage()
+{
+   cout << "Pozdrowienia z wnętrza funkcji displayMessage.\n";
+}
+
+//*****************************************
+// Funkcja main                           *
+//*****************************************
+
+int main()
+{
+   cout << "Pozdrowienia z funkcji main.\n";
+   for (int count = 0; count < 5; count++)
+      displayMessage(); // Wywołaj displayMessage
+   cout << "Powrot do funkcji main.\n";
+   return 0;
+}
