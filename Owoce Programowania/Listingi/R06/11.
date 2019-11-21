@@ -1,0 +1,35 @@
+// Ten program korzysta z funkcji wykonującej dzielenie. Jeśli wykryte
+// zostanie dzielenie przez zero, funkcja zakończy działanie.
+#include <iostream>
+using namespace std;
+
+// Prototyp funkcji
+void divide(double, double);
+
+int main()
+{
+   double num1, num2;
+
+   cout << "Wpisz dwie liczby, a ja podzielę pierwszą\n";
+   cout << "przez drugą: ";
+   cin >> num1 >> num2;
+   divide(num1, num2);
+   return 0;
+}
+
+//***************************************************************
+// Definicja funkcji divide()                                    *
+// Posiada dwa parametry: arg1 and arg2. Funkcja dzieli arg1    *
+// przez arg2 i wyświetla wynik. Jeśli arg2 wynosi zero,        *
+// program kończy działanie.                                  *
+//***************************************************************
+
+void divide(double arg1, double arg2)
+{
+   if (arg2 == 0.0)
+   {
+      cout << "Przepraszam, nie mogę podzielić przez 0.\n";
+      return;
+   }
+   cout << "Iloraz wynosi " << (arg1 / arg2) << "." << endl;
+}
