@@ -1,0 +1,27 @@
+// Ten program oblicza średnią z trzech wyników testów. Powtarza działanie
+// tyle razy, ile chce użytkownik.
+#include <iostream>
+using namespace std;
+
+int main()
+{
+   int score1, score2, score3; // Trzy wyniki
+   double average;             // Średnia punktacja
+   char again;                 // Przechowywanie wejścia T lub N
+
+   do
+   {
+      // Pobranie trzech wyników
+      cout << "Wpisz trzy wyniki, a ja obliczę ich średnią: ";
+      cin >> score1 >> score2 >> score3;
+     
+      // Obliczenie i wyświetlenie średniej
+      average = (score1 + score2 + score3) / 3.0;
+      cout << "Średnia wynosi " << average << ".\n";
+      
+      // Czy użytkownik chce obliczyć kolejną średnią?
+      cout << "Czy chcesz obliczyć kolejną średnią? (T/N) ";
+      cin >> again;
+   } while (again == 'T' || again == 't');
+   return 0;
+}
