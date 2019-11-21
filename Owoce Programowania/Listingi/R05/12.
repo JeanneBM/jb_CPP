@@ -1,0 +1,29 @@
+// Ten program pobiera dzienne wartości sprzedaży za określony okres
+// i oblicza ich sumę.
+#include <iostream>
+#include <iomanip>
+using namespace std;
+
+int main()
+{
+   int days;            // Liczba dni
+   double total = 0.0;  // Akumulator zainicjowany wartością 0
+
+   // Pobranie liczby dni
+   cout << "Z ilu dni chcesz wprowadzić wyniki sprzedaży? ";
+   cin >> days;
+  
+   // Pobranie wyników dla każdego dnia i skumulowanie sumy
+   for (int count = 1; count <= days; count++)
+   {
+      double sales;
+      cout << "Wpisz wartość sprzedaży za dzień " << count << ": ";
+      cin >> sales;
+      total += sales;   // Suma kumulatywna
+   }
+  
+   // Wyświetlenie całkowitej wartości sprzedaży
+   cout << fixed << showpoint << setprecision(2);
+   cout << "Wartość sprzedaży wynosi " << total << " zł." << endl;
+   return 0;
+}
