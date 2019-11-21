@@ -1,0 +1,36 @@
+// Ten program zapisuje do pliku wejście użytkownika.
+#include <iostream>
+#include <fstream>
+using namespace std;
+
+int main()
+{
+   ofstream outputFile;  // Obiekt strumienia pliku
+   int numberOfDays;     // Liczba dni
+   double sales;         // Wartość sprzedaży za dzień
+  
+   // Pobranie liczby dni
+   cout << "Z ilu dni chcesz wprowadzić sprzedaż? ";
+   cin >> numberOfDays;
+
+   // Otwarcie pliku Sprzedaż.txt
+   outputFile.open("Sprzedaż.txt");
+
+   // Pobranie sprzedaży za każdy dzień i zapisanie
+   // jej wartości do pliku
+   for (int count = 1; count <= numberOfDays; count++)
+   {
+      // Pobranie wartości sprzedaży za dany dzień 
+      cout << "Wpisz wartość sprzedaży za dzień "
+           << count << ": ";
+      cin >> sales;
+      
+      // Zapisanie sprzedaży do pliku
+      outputFile << sales << endl;
+   }
+
+   // Zamknięcie pliku
+   outputFile.close();
+   cout << "Dane zapisano do Sprzedaż.txt.\n";
+   return 0;
+}
