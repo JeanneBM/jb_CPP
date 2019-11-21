@@ -1,0 +1,27 @@
+// Program oblicza honorarium konsultantki, której stawka godzinowa 
+// wynosi 50 zł za godzinę za minimum pięć godzin. Operator ?: 
+// zamienia liczbę godzin na pięć, jeśli przepracowano mniej niż pięć godzin.
+#include <iostream>
+#include <iomanip>
+using namespace std;
+
+int main()
+{
+   const double PAY_RATE = 50.0;  // Stawka godzinowa
+   const int MIN_HOURS = 5;       // Minimalna liczba godzin
+   double hours,                  // Przepracowane godziny
+         charges;                 // Należne honorarium
+
+   // Pobranie liczby godzin
+   cout << "Ile godzin przepracowałaś? ";
+   cin >> hours;
+
+   // Określenie liczby godzin
+   hours = hours < MIN_HOURS ? MIN_HOURS : hours;
+   
+   // Obliczenie i wyświetlenie honorarium
+   charges = PAY_RATE * hours;
+   cout << fixed << showpoint << setprecision(2)
+        << "Honorarium wynosi " << charges << " zł." << endl;
+   return 0;
+}
