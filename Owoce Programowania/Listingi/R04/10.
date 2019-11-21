@@ -1,0 +1,30 @@
+// Ten program demonstruje zagnieżdżone instrukcje if.
+#include <iostream>
+using namespace std;
+
+int main()
+{
+   char employed,    // Obecnie zatrudniony, T lub N
+        recentGrad;  // Świeży absolwent, T lub N
+
+   // Czy użytkownik jest zatrudniony oraz czy jest świeżym absolwentem?
+   cout << "Odpowiedz na poniższe pytania,\n";
+   cout << "wpisując T jako Tak lub ";
+   cout << "N jako Nie.\n";
+   cout << "Czy jesteś zatrudniony? ";
+   cin >> employed;
+   cout << "Czy ukończyłeś szkołę wyższą ";
+   cout << "w ciągu ostatnich dwóch lat? ";
+   cin >> recentGrad;
+  
+   // Sprawdzenie, czy użytkownik kwalifikuje się do pożyczki
+   if (employed == 'T')
+   {
+      if (recentGrad == 'T') // Zagnieżdżony if
+      {
+         cout << "Kwalifikujesz się do uzyskania ";
+         cout << "obniżonego oprocentowania kredytu.\n";
+      }
+   }
+   return 0;
+}
