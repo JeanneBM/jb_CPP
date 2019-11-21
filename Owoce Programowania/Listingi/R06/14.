@@ -1,0 +1,73 @@
+// Ten program zamienia szklanki na litry.
+#include <iostream>
+#include <iomanip>
+using namespace std;
+
+// Prototypy funkcji
+void showIntro();
+double getCups();
+double cupsToLiters(double);
+
+int main()
+{
+   // Zmienne dla szklanek i litrów
+   double cups, liters;
+
+   // Sformatowanie liczb na wyjściu
+   cout << fixed << showpoint << setprecision(1);
+
+   // Wyświetlenie ekranu początkowego
+   showIntro();
+
+   // Pobranie liczby szklanek
+   cups = getCups();
+
+   // Zamiana szklanek na litry
+   liters = cupsToLiters(cups);
+
+   // Wyświetlenie szklanek przeliczonych na litry
+   cout << cups << " szklanek to " 
+<< liters << " litrów.\n";
+
+return 0;
+}
+
+//******************************************
+// Funkcja showIntro() wyświetla             *
+// komunikat wprowadzający.                *
+//******************************************
+
+void showIntro()
+{
+   cout << "Ten program zamienia wartość zmierzoną\n"
+        << "w szklankach na litry. Wzór\n"
+        << "służący do przeliczania to:\n"
+        << "    1 szklanka = 0.25l\n\n";
+}
+
+//******************************************
+// Funkcja getCups() prosi użytkownika       *
+// o wpisanie liczby szklanek, a następnie *
+// zwraca wartość typu double.                    *
+//******************************************
+
+double getCups()
+{
+   double numCups;
+
+   cout << "Wpisz liczbę szklanek: ";
+   cin >> numCups;
+   return numCups;
+}
+
+//******************************************
+// Funkcja cupsToLiters() przyjmuje          *
+// jako argument liczbę szklanek           *
+// i zwraca jej ekwiwalent w litrach jako  *
+// liczbę typu double.                     *
+//******************************************
+
+double cupsToLiters(double numCups)
+{
+   return numCups * 0.25;
+}
