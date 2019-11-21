@@ -1,0 +1,30 @@
+// Ten program demonstruje zastosowanie funkcji z trzema parametrami.
+#include <iostream>
+using namespace std;
+
+// Prototyp funkcji
+void showSum(int, int, int);
+
+int main()
+{
+   int value1, value2, value3;
+
+// Pobierz trzy liczby całkowite.
+   cout << "Wpisz trzy liczby całkowite, a ja ";
+   cout << "wyświetlę ich sumę: ";
+   cin >> value1 >> value2 >> value3;
+
+   // Wywołanie showSum() z przekazaniem trzech argumentów
+   showSum(value1, value2, value3); 
+   return 0;
+}
+
+//************************************************************
+// Definicja funkcji showSum()                                *
+// Funkcja ta używa trzech parametrów typu int. Wyświetla ich sumę.     *
+//************************************************************
+
+void showSum(int num1, int num2, int num3)
+{
+   cout << (num1 + num2 + num3) << endl;
+}
