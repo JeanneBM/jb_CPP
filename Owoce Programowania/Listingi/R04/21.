@@ -1,0 +1,34 @@
+// Ten program porównuje za pomocą operatorów relacyjnych tekst 
+// wprowadzony przez użytkownika z prawidłowymi numerami części.
+#include <iostream>
+#include <iomanip>
+#include <string>
+using namespace std;
+
+int main()
+{
+   const double PRICE_A = 249.0,  // Cena części A
+                PRICE_B = 199.0;  // Cena części B
+
+   string partNum;                // Przechowywanie numeru części
+
+   // Wyświetlenie dostępnych części i poproszenie użytkownika o wybór
+   cout << "Numery części do słuchawek to:\n"
+        << "Kontrola hałasu: numer części S-29A \n"
+        << "Zestaw bezprzewodowy: numer części S-29B \n"
+        << "Wpisz numer części, którą\n"
+        << "chcesz kupić: ";
+   cin >> partNum;
+
+   // Ustawienie formatowania liczb na wyjściu
+   cout << fixed << showpoint << setprecision(2);
+
+   // Walidacja i wyświetlenie ceny
+   if (partNum == "S-29A")
+      cout << "Cena wynosi " << PRICE_A << " zł." << endl;
+   else if (partNum == "S-29B")
+      cout << "Cena wynosi " << PRICE_B << " zł." << endl;
+   else
+      cout << partNum << " nie jest prawidłowym numerem części.\n";
+   return 0;
+}
