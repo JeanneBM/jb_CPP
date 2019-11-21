@@ -1,0 +1,38 @@
+// Ten program demonstruje, że modyfikacje parametru
+// nie wpływają na argument.
+#include <iostream>
+using namespace std;
+
+// Prototyp funkcji
+void changeMe(int);
+
+int main()
+{
+   int number = 12;
+
+   // Wyświetlanie wartość ze zmiennej number
+   cout << "Wartość number wynosi " << number << "." << endl;
+
+   // Wywołanie changeMe() z przekazaniem wartości z number
+   // jako argumentu
+   changeMe(number);
+
+   // Wyświetlenie wartości zmiennej number ponownie  
+   cout << "Wracam do metody main(), wartość ";
+   cout << "number wynosi " << number << "." << endl;
+   return 0;
+}
+
+//**************************************************************
+// Definicja funkcji changeMe()                                 *
+// Ta funkcja zmienia wartość parametru.                       *
+//**************************************************************
+
+void changeMe(int myValue)
+{
+   // Zmiana wartości myValue na 0
+   myValue = 0;
+
+   // Wyświetlenie wartości z myValue
+   cout << "Teraz wartość wynosi " << myValue << "." << endl;
+}
