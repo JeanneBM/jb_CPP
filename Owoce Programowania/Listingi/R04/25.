@@ -1,0 +1,27 @@
+// Ten program jest skonstruowany tak, 
+// aby wykorzystać zjawisko przechodzenia do kolejnych klauzul case.
+#include <iostream>
+using namespace std;
+
+int main()
+{
+   int modelNum;  // Numer modelu
+
+   // Pobranie numeru modelu od użytkownika
+   cout << "Dostępne są trzy modele naszych telewizorów:\n";
+   cout << "100, 200 i 300. Który chciałbyś kupić? ";
+   cin >> modelNum;
+  
+   // Wyświetlenie cech modelu
+   cout << "Wybrany model ma następujące cechy:\n";
+   switch (modelNum)
+   {
+      case 300: cout << "\tObraz w obrazie\n";
+      case 200: cout << "\tDźwięk stereo\n";
+      case 100: cout << "\tPilot\n";
+                break;
+      default:  cout << "Możesz wybrać tylko między 100,";
+                cout << "200 a 300.\n";
+   }
+   return 0;
+}
