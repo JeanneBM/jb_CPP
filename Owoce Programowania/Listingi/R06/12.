@@ -1,0 +1,33 @@
+// Ten program korzysta z funkcji zwracającej wartość.
+#include <iostream>
+using namespace std;
+
+// Prototyp funkcji
+int sum(int, int);
+
+int main()
+{
+   int value1 = 20,   // Pierwsza wartość
+       value2 = 40,   // Druga wartość
+       total;         // Do przechowania sumy
+
+   // Wywołanie funkcji sum() z przekazaniem jej wartości zmiennych
+   // value1 i value2 jako argumentów. Przypisanie zwracanej wartości
+   // do zmiennej total
+   total = sum(value1, value2);
+
+   // Wyświetlenie sumy wartości
+   cout << "Suma " << value1 << " i "
+        << value2 << " wynosi " << total << "." << endl;
+   return 0;
+}
+
+//*****************************************************
+// Definicja funkcji sum(). Ta funkcja zwraca           *
+// sumę wartości swoich parametrów.                     *
+//*****************************************************
+
+int sum(int num1, int num2)
+{
+   return num1 + num2;
+}
