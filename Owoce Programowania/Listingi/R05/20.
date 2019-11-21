@@ -1,0 +1,33 @@
+// Ten program odczytuje dane liczbowe z pliku.
+#include <iostream>
+#include <fstream>
+using namespace std;
+
+int main()
+{
+   ifstream inFile;
+   int value1, value2, value3, sum;
+
+   // Otwarcie pliku
+   inFile.open("DaneLiczbowe.txt");
+
+   // Odczytanie trzech liczb z pliku
+   inFile >> value1;
+   inFile >> value2;
+   inFile >> value3;
+
+   // Zamknięcie pliku
+   inFile.close();
+
+   // Obliczenie sumy liczb
+   sum = value1 + value2 + value3;
+
+   // Wyświetlenie trzech liczb
+   cout << "Oto trzy odczytane liczby:\n"
+        << value1 << " " << value2
+        << " " << value3 << endl;
+
+   // Wyświetlenie sumy liczb
+   cout << "Ich suma wynosi: " << sum << "." << endl;
+   return 0;
+}
