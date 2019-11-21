@@ -1,0 +1,34 @@
+// Ten program używa struktur if/else if, aby przypisać
+// ocenę (1, 2, 3, 4 lub 5) do punktacji z testu.
+#include <iostream>
+using namespace std;
+
+int main()
+{
+   // Przechowywanie progów ocen
+   const int SCORE_5 = 90,
+             SCORE_4 = 80,
+             SCORE_3 = 70,
+             SCORE_2 = 60;
+
+   int testScore;  // Przechowywanie liczby punktów z testu
+
+   // Pobieranie wyniku testu
+   cout << "Wpisz liczbę punktów z testu, a ja\n";
+   cout << "powiem Ci, jaką ocenę otrzymałeś: ";
+   cin >> testScore;
+   
+   // Określenie oceny na podstawie punktów
+   if (testScore >= SCORE_5)
+      cout << "Twoja ocena to 5.\n";
+   else if (testScore >= SCORE_4)
+      cout << "Twoja ocena to 4.\n";
+   else if (testScore >= SCORE_3)
+      cout << "Twoja ocena to 3.\n";
+   else if (testScore >= SCORE_2)
+      cout << "Twoja ocena to 2.\n";
+   else
+      cout << "Twoja ocena to 1.\n";
+   
+   return 0;
+}
