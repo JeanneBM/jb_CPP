@@ -1,0 +1,39 @@
+// Ten program prosi użytkownika o wpisanie nazwy pliku.
+#include <iostream>
+#include <string>
+#include <fstream>
+using namespace std;
+
+int main()
+{
+   ifstream inputFile;
+   string filename;
+   int number;
+
+   // Pobranie nazwy pliku od użytkownika
+   cout << "Wpisz nazwę pliku: ";
+   cin >> filename;
+
+   // Otwarcie pliku
+   inputFile.open(filename);
+
+   // Jeżeli otwarto plik, przejście do przetwarzania
+   if (inputFile)
+   {
+      // Odczytanie liczb z pliku
+      // i ich wyświetlenie
+      while (inputFile >> number)
+      {
+         cout << number << endl;
+      }
+
+      // Zamknięcie pliku
+      inputFile.close();
+   }
+   else
+   {
+   // Wyświetlenie komunikatu błędów
+   cout << "Błąd otwarcia pliku.\n";
+   }
+   return 0;
+}
