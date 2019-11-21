@@ -1,0 +1,73 @@
+// Ten program wyświetla menu i prosi użytkownika
+// o wybór. Pętla do-while powtarza program, dopóki
+// użytkownik nie wybierze z menu pozycji 4.
+#include <iostream>
+#include <iomanip>
+using namespace std;
+
+int main()
+{
+   // Stałe dla opcji w menu
+   const int ADULT_CHOICE = 1,
+             CHILD_CHOICE = 2,
+             SENIOR_CHOICE = 3,
+             QUIT_CHOICE = 4;
+
+   // Stałe przechowujące ceny karnetów
+   const double ADULT = 40.0,
+                SENIOR = 30.0,
+                CHILD = 20.0;
+   
+   // Zmienne
+   int choice;       // Przechowywanie wybranej opcji
+   int months;       // Przechowywanie liczby miesięcy
+   double charges;   // Przechowywanie miesięcznych opłat
+
+   // Ustawienie formatowania liczb na wyjściu
+   cout << fixed << showpoint << setprecision(2);
+   
+   do
+   {
+      // Wyświetlenie menu
+      cout << "\t\tMenu wyboru karnetów w klubie fitness\n\n"
+           << "1. Standardowy, osoba dorosła\n"
+           << "2. Dziecięcy\n"
+           << "3. Dla seniora\n"
+           << "4. Wyjdź z programu\n\n"
+           << "Wprowadź swój wybór: ";
+      cin >> choice;
+      
+      // Walidacja wybranej pozycji
+      while (choice < ADULT_CHOICE || choice > QUIT_CHOICE)
+      {
+         cout << "Wprowadź poprawną wartość: ";
+         cin >> choice;
+      }
+
+      // Walidacja i przetwarzanie wyboru użytkownika
+      if (choice != QUIT_CHOICE)
+      {
+         // Pobranie liczby miesięcy
+         cout << "Na ile miesięcy? ";
+         cin >> months;
+         
+         // Odpowiedź na wybór użytkownika
+         switch (choice)
+         {
+            case ADULT_CHOICE:
+                charges = months * ADULT;
+                break;
+            case CHILD_CHOICE:
+                charges = months * CHILD;
+                break;
+            case SENIOR_CHOICE:
+                charges = months * SENIOR;
+         }
+        
+         // Wyświetlenie ceny całkowitej
+         cout << "Cena karnetu wynosi "
+              << charges << " zł." << endl;
+      }
+   } while (choice != QUIT_CHOICE);
+   return 0;
+}
