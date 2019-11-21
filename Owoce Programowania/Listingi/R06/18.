@@ -1,0 +1,11 @@
+// Ten program ma niezainicjowaną zmienną globalną.
+#include <iostream>
+using namespace std;
+
+int globalNum;  // Zmienna globalna automatycznie ustawiona na zero
+
+int main()
+{
+   cout << "Wartość globalNum to " << globalNum << "." << endl;
+   return 0;
+}
