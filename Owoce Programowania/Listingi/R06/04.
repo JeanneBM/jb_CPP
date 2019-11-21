@@ -1,0 +1,37 @@
+// Ten program ma trzy funkcje: main(), deep() i deeper()
+#include <iostream>
+using namespace std;
+
+//*****************************************
+// Definicja funkcji deeper()               *
+// Ta funkcja wyświetla wiadomość.        *
+//*****************************************
+
+void deeper()
+{
+   cout << "Jestem teraz w funkcji deeper().\n";
+}
+
+//*****************************************
+// Definicja funkcji deep()                 *
+// Ta funkcja wyświetla wiadomość.        *
+//*****************************************
+
+void deep()
+{
+   cout << "Jestem teraz w funkcji deep().\n";
+   deeper();   // Wywołanie funkcji deep()
+   cout << "Wracam do deep().\n";
+}
+
+//*****************************************
+// Funkcja main()                          *
+//*****************************************
+
+int main()
+{
+   cout << "Zaczynam w funkcji main().\n";
+   deep();     // Wywołanie funkcji deep()
+   cout << "Wracam do main().\n";
+   return 0;
+}
