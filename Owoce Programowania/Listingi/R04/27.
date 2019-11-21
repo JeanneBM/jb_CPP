@@ -1,0 +1,70 @@
+// Ten program korzysta z instrukcji switch do określenia
+// pozycji wybranej z menu.
+#include <iostream>
+#include <iomanip>
+using namespace std;
+
+int main()
+{
+   int choice;       // Przechowywanie wybranej opcji
+   int months;       // Przechowywanie liczby miesięcy
+   double charges;   // Przechowywanie miesięcznych opłat
+
+   // Stałe przechowujące ceny karnetów
+   const double ADULT = 40.0,
+                SENIOR = 30.0,
+                CHILD = 20.0;
+
+   // Stałe dla opcji w menu
+   const int ADULT_CHOICE = 1,
+             CHILD_CHOICE = 2,
+             SENIOR_CHOICE = 3,
+             QUIT_CHOICE = 4;
+
+   // Wyświetlenie menu i odczytanie wejścia od użytkownika
+   cout << "\t\tMenu wyboru karnetów w klubie fitness\n\n";
+   cout << "1. Standardowy, osoba dorosła\n";
+   cout << "2. Dziecięcy\n";
+   cout << "3. Dla seniora\n";
+   cout << "4. Wyjdź z programu\n\n";
+   cout << "Wprowadź swój wybór: ";
+   cin >> choice;
+   
+   // Ustawienie formatowania liczb na wyjściu
+   cout << fixed << showpoint << setprecision(2);
+  
+   // Odpowiedź na wybór użytkownika
+   switch (choice)
+   {
+      case ADULT_CHOICE:
+         cout << "Na ile miesięcy? ";
+         cin >> months;
+         charges = months * ADULT;
+         cout << "Opłata całkowita wynosi " << charges << " zł." << endl;
+         break;
+        
+      case CHILD_CHOICE:
+         cout << "Na ile miesięcy? ";
+         cin >> months;
+         charges = months * CHILD;
+         cout << "Opłata całkowita wynosi " << charges << " zł." << endl;
+         break;
+         
+      case SENIOR_CHOICE:
+         cout << "Na ile miesięcy? ";
+         cin >> months;
+         charges = months * SENIOR;
+         cout << "Opłata całkowita wynosi " << charges << " zł." << endl;
+         break;
+        
+      case QUIT_CHOICE:
+         cout << "Koniec programu.\n";
+         break;
+         
+      default:
+         cout << "Dostępne opcje możesz wybrać, wpisując liczby od 1 do 4. Uruchom\n"
+              << "program ponownie i wybierz jedną z nich.\n";
+   }
+
+   return 0;
+}
