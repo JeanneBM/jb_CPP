@@ -1,0 +1,32 @@
+// Ten program zapisuje do pliku wejście użytkownika.
+#include<iostream>
+#include<fstream>
+using namespace std;
+
+int main()
+{
+   ofstream outputFile;
+   int number1, number2, number3;
+
+   // Otwarcie pliku wyjściowego
+   outputFile.open("Liczby.txt");
+
+   // Pobranie trzech liczb od użytkownika.
+   cout << "Wpisz liczbę: ";
+   cin >> number1;
+   cout << "Wpisz kolejną liczbę: ";
+   cin >> number2;
+   cout << "Jeszcze raz wpisz liczbę: ";
+   cin >> number3;
+
+   // Zapisanie liczby do pliku
+   outputFile << number1 << endl;
+   outputFile << number2 << endl;
+   outputFile << number3 << endl;
+   cout << "Liczby zostały zapisane do pliku.\n";
+
+   // Zamknięcie pliku
+   outputFile.close();
+   cout << "Koniec.\n";
+   return 0;
+}
