@@ -1,0 +1,27 @@
+// Ten program oblicza sumę punktów zdobytych przez  
+// drużynę piłkarską w serii rozgrywek. Użytkownik
+// wpisuje serię punktów, a następnie -1, aby zaznaczyć koniec listy.
+#include <iostream>
+using namespace std;
+
+int main()
+{
+   int game = 1,   // Licznik meczów
+       points,     // Przechowuje liczbę punktów
+       total = 0;  // Akumulator
+
+   cout << "Wpisz punkty zdobyte przez Twoją drużynę\n";
+   cout << "w tym sezone, a następnie wprowadź -1, by zakończyć wpisywanie.\n\n";
+   cout << "Wpisz pumkty za mecz " << game << ": ";
+   cin >> points;
+
+   while (points != -1)
+   {  
+      total += points;
+      game++;
+      cout << "Wpisz pumkty za mecz " << game << ": ";
+      cin >> points;
+   }
+   cout << "\nSuma punktów wynosi " << total << endl;
+   return 0;
+}
