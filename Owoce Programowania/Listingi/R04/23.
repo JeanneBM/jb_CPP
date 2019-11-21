@@ -1,0 +1,23 @@
+// Instrukcja switch w tym programie mówi użytkownikowi o czymś,
+// o czym już wie: o wpisanej literze!
+#include <iostream>
+using namespace std;
+
+int main()
+{
+   char choice;
+
+   cout << "Wpisz A, B lub C: ";
+   cin >> choice;
+   switch (choice)
+   {
+      case 'A': cout << "Wpisałeś A.\n";
+                break;
+      case 'B': cout << "Wpisałeś B.\n";
+                break;
+      case 'C': cout << "Wpisałeś C.\n";
+                break;
+      default:  cout << "Nie wpisałeś A, B ani C!\n";
+   }
+   return 0;
+}
