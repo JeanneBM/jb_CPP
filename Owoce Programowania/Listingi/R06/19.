@@ -1,0 +1,85 @@
+// Program oblicza pensję brutto.
+#include <iostream>
+#include <iomanip>
+using namespace std;
+
+// Zmienne globalne
+const double PAY_RATE = 22.55;    // Stawka godzinowa 
+const double BASE_HOURS = 40.0;   // Maksymalny podstawowy czas pracy
+const double OT_MULTIPLIER = 1.5; // Mnożnik nadgodzin
+
+// Prototypy funkcji
+double getBasePay(double);
+double getOvertimePay(double);
+
+int main()
+{
+   double hours,           // Godziny przepracowane
+          basePay,         // Wynagrodzenie za czas podstawowy
+          overtime = 0.0,  // Wynagrodzenie za nadgodziny
+          totalPay;        // Całkowite wynagrodzenie
+
+   // Pobranie liczby przepracowanych godzin
+   cout << "Ile godzin przepracowałeś? ";
+   cin >> hours;
+
+   // Pobranie wynagrodzenia za czas podstawowy
+   basePay = getBasePay(hours);
+
+   // Pobranie wynagrodzenia za nadgodziny, jeśli zostały przepracowane
+   if (hours > BASE_HOURS)
+      overtime = getOvertimePay(hours);
+
+   // Obliczenie całkowitego wynagrodzenia
+   totalPay = basePay + overtime;
+
+   // Sformatowanie liczb na wyjściu
+   cout << setprecision(2) << fixed << showpoint;
+
+   // Wyświetlenie wynagrodzenia
+   cout << "Wynagrodzenie za czas podstawowy: " << basePay << " zł" << endl
+        << "Wynagrodzenie za nadgodziny: " << overtime << " zł" << endl
+        << "Całkowite wynagrodzenie: " << totalPay << " zł" << endl;
+   return 0;
+}
+
+//************************************************
+// Funkcja getBasePay() przyjmuje jako argument    *
+// liczbę przepracowanych godzin i zwraca        *
+// wynagrodzenie za czas podstawowy.             *
+//************************************************
+
+double getBasePay(double hoursWorked)
+{
+   double basePay; // Przechowywanie wynagrodzenia za czas podstawowy
+
+   // Obliczenie wynagrodzenie za czas podstawowy
+   if (hoursWorked > BASE_HOURS)
+      basePay = BASE_HOURS * PAY_RATE;
+   else
+      basePay = hoursWorked * PAY_RATE;
+
+return basePay;
+}
+
+//*************************************************
+// Funkcja getOvertimePay() przyjmuje jako argument *
+// liczbę przepracowanych godzin i zwraca         * 
+// wynagrodzenie za nadgodziny.                   *
+//*************************************************
+
+double getOvertimePay(double hoursWorked)
+{
+   double overtimePay; // Przechowywanie wynagrodzenia za nadgodziny
+
+   // Obliczenie wynagrodzenia za  nadgodziny
+   if (hoursWorked > BASE_HOURS)
+   {
+      overtimePay = (hoursWorked - BASE_HOURS) * 
+               PAY_RATE * OT_MULTIPLIER;
+}
+   else
+      overtimePay = 0.0;
+
+   return overtimePay;
+}
