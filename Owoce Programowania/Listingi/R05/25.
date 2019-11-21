@@ -1,0 +1,27 @@
+// Ten program podnosi liczbę wpisaną przez
+// użytkownika do potęgi od 0 do 10.
+#include <iostream>
+#include <cmath>
+using namespace std;
+
+int main()
+{
+   int value;
+  char choice;
+
+   cout << "Wpisz liczbę: ";
+   cin >> value;
+   cout << "Program podniesie " << value;
+   cout << " do potęgi od 0 do 10.\n";
+   for (int count = 0; count <= 10; count++)
+   {
+      cout << value << " podniesiona do potęgi ";
+      cout << count << " wynosi " << pow(value, count) << ".";
+      cout << "\nWpisz Q, aby zakończyć, lub naciśnij dowolny inny klawisz, ";
+      cout << "aby kontynuować. ";
+      cin >> choice;
+      if (choice == 'Q' || choice == 'q')
+         break;
+   }
+   return 0;
+}
