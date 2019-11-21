@@ -1,0 +1,41 @@
+// Program korzysta z funkcji zwracającej true lub false.
+#include <iostream>
+using namespace std;
+
+// Prototyp funkcji
+bool isEven(int);
+
+int main()
+{
+   int val;
+
+   // Pobranie liczby od użytkownika
+   cout << "Wpisz liczbę całkowitą, a ja powiem Ci, ";
+   cout << "czy jest parzysta, czy nie: ";
+   cin >> val;
+
+   // Sprawdzenie parzystości
+   if (isEven(val))
+      cout << val << " jest parzysta.\n";
+   else
+      cout << val << " jest nieparzysta.\n";
+   return 0;
+}
+
+//*****************************************************************
+// Definicja funkcji isEven(). Funkcja ta akceptuje                 *
+// argument typu int i sprawdza, czy liczba jest parzysta.        *
+// Funkcja zwraca true, jeśli liczba jest parzysta, lub false,      *
+// jeśli liczba jest nieparzysta. Wartość zwracana jest typu bool.   *
+//*****************************************************************
+
+bool isEven(int number)
+{
+   bool status;
+
+if (number % 2 == 0)
+      status = true;  // Jeśli liczba jest parzysta, nie ma reszty.
+   else
+      status = false; // W przeciwnym razie liczba jest nieparzysta.
+   return status;
+}
