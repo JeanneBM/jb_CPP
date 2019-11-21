@@ -1,0 +1,39 @@
+// Ten program zamienia prędkości od 60 km/h
+// do 130 km/h (w krokach co 10 km/h) na mph (mile na godzinę).
+#include <iostream>
+#include <iomanip>
+using namespace std;
+
+int main()
+{
+   // Stałe dla prędkości
+   const int START_KPH = 60,  // Prędkość początkowa
+             END_KPH = 130,   // Prędkość końcowa
+             INCREMENT = 10;  // Zwiększenie prędkości
+
+   // Stała przechowująca współczynnik konwersji
+   const double CONVERSION_FACTOR = 0.6214;
+
+   // Zmienne
+   int kph;       // Prędkość w km/h
+   double mph;    // Prędkość w mph
+
+   // Ustawienie formatowania liczb wyjściowych
+   cout << fixed << showpoint << setprecision(1);
+
+   // Wyświetlenie nagłówków tabeli
+   cout << "km/h\tmph\n";
+   cout << "---------------\n";
+
+   // Wyświetlenie prędkości
+   for (kph = START_KPH; kph <= END_KPH; kph += INCREMENT)
+   {
+      // Obliczenie mph
+      mph = kph * CONVERSION_FACTOR;
+
+      // Wyświetlenie prędkości w przeliczeniu mph
+      cout << kph << "\t" << mph << endl;
+
+   }
+   return 0;
+}
