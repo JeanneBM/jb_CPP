@@ -1,0 +1,22 @@
+// Ten program korzysta z dwóch zmiennych o tej samej nazwie.
+#include <iostream>
+using namespace std;
+
+int main()
+{
+   // Zdefiniowanie zmiennej o nazwie number
+   int number;
+
+   cout << "Wpisz liczbę większą niż 0: ";
+   cin >> number;
+   if (number > 0)
+   {
+      int number;  // Druga zmienna o nazwie number
+      cout << "Wpisz teraz kolejną liczbę: ";
+      cin >> number;
+      cout << "Druga wpisana liczba to "
+           << number << "." << endl;
+   }
+   cout << "Pierwsza wpisana liczba to " << number << "."  << endl;
+   return 0;
+}
