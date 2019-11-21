@@ -1,0 +1,19 @@
+// Ten program wyświetla liczby od 1 do 10 
+// i ich kwadraty.
+#include <iostream>
+using namespace std;
+
+int main()
+{
+   const int MIN_NUMBER = 1,   // Wartość początkowa
+             MAX_NUMBER = 10;  // Wartość końcowa
+   int num;
+
+   cout << "Liczba Liczba do kwadratu\n";
+   cout << "-------------------------\n";
+
+   for (num = MIN_NUMBER; num <= MAX_NUMBER; num++)
+      cout << num << "\t\t" << (num * num) << endl;
+
+   return 0;
+}
