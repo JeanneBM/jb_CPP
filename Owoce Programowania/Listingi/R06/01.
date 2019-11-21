@@ -1,0 +1,25 @@
+// Ten program ma dwie funkcje: main() i displayMessage()
+#include <iostream>
+using namespace std;
+
+//*****************************************
+// Definicja funkcji displayMessage()       *
+// Funkcja wyświetla pozdrowienie.        *
+//*****************************************
+
+void displayMessage()
+{
+   cout << "Pozdrowienia z wnętrza funkcji displayMessage().\n";
+}
+
+//*****************************************
+// Funkcja main()                           *
+//*****************************************
+
+int main()
+{
+   cout << "Pozdrowienia z funkcji main().\n";
+   displayMessage();
+   cout << "Powrót do funkcji main().\n";
+   return 0;
+}
