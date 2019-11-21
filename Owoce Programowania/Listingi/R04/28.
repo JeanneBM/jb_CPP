@@ -1,0 +1,33 @@
+// Ten program demonstruje przesunięte definicje zmiennych.
+#include <iostream>
+using namespace std;
+
+int main()
+{
+   // Stałe dla minimalnego dochodu i lat zatrudnienia
+   const double MIN_INCOME = 60000.0;
+   const int MIN_YEARS = 5;
+
+   // Pobranie rocznego dochodu
+   cout << "Ile wynosi Twój roczny dochód? ";
+   double income;    // Definicja zmiennej
+   cin >> income;
+   
+   // Pobranie liczby lat zatrudnienia w obecnym miejscu pracy
+   cout << "Ile lat jesteś zatrudniony w obecnym "
+        << "miejscu pracy? ";
+   int years;        // Definicja zmiennej
+   cin >> years;
+  
+   // Określenie, czy użytkownik kwalifikuje się do pożyczki
+   if (income >= MIN_INCOME || years > MIN_YEARS)
+       cout << "Kwalifikujesz się.\n";
+   else
+   {
+       cout << "Twój roczny dochód musi wynosić minimum "
+           << MIN_INCOME << " zł lub musisz być "
+           << "zatrudniony przynajmniej " << MIN_YEARS
+           << " lat.\n";
+   }
+   return 0;
+}
