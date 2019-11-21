@@ -1,0 +1,22 @@
+// Ten program demonstruje zastosowanie operatorów 
+// pre- i postinkrementacji oraz pre- i postdekrementacji.
+#include <iostream>
+using namespace std;
+
+int main()
+{
+   int num = 4;
+  
+   cout << num << endl;   // Wyświetlenie 4
+   cout << num++ << endl; // Wyświetlenie 4, potem dodanie 1 do num
+   cout << num << endl;   // Wyświetlenie 5
+   cout << ++num << endl; // Dodanie 1 do num, następnie wyświetlenie 6
+   cout << endl;          // Wyświetlenie pustego wiersza
+   
+   cout << num << endl;   // Wyświetlenie 6
+   cout << num-- << endl; // Wyświetlenie 6, następnie odjęcie 1 od num
+   cout << num << endl;   // Wyświetlenie 5
+   cout << --num << endl; // Odjęcie 1 od num i wyświetlenie 4
+     
+   return 0;
+}
