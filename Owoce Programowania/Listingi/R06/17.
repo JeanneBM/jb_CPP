@@ -1,0 +1,29 @@
+// Ten program demonstruje, że zmienna globalna  
+// leży w zasięgu wszystkich funkcji zdefiniowanych  
+// po deklaracji zmiennej.
+#include <iostream>
+using namespace std;
+
+void anotherFunction(); // Prototyp funkcji
+int num = 2;            // Zmienna globalna
+
+int main()
+{
+   cout << "W funkcji main() wartość num wynosi " << num << "." << endl;
+   anotherFunction();
+   cout << "Z powrotem w main() wartość num wynosi " << num << "." << endl;
+   return 0;
+}
+
+//*****************************************************
+// Definicja anotherFunction()                          *
+// Ta funkcja zmienia wartość                         *
+// zmiennej globalnej num.                            *
+//*****************************************************
+
+void anotherFunction()
+{
+   cout << "W funkcji anotherFunction() wartość num wynosi " << num << "." << endl;
+   num = 50;
+   cout << "Lecz teraz została zmieniona na " << num << "." << endl;
+}
