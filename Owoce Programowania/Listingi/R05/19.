@@ -1,0 +1,26 @@
+// Ten program odczytuje dane z pliku.
+#include <iostream>
+#include <fstream>
+#include <string>
+using namespace std;
+
+int main()
+{
+   ifstream inputFile;
+   string name;
+
+   inputFile.open("Przyjaciele.txt");
+   cout << "Odczytuję dane z pliku.\n";
+ 
+   inputFile >> name;      // Odczytanie pierwszego imienia z pliku
+   cout << name << endl;   // Wyświetlenie pierwszego imienia
+ 
+   inputFile >> name;      // Odczytanie drugiego imienia z pliku
+   cout << name << endl;   // Wyświetlenie drugiego imienia
+  
+   inputFile >> name;      // Odczytanie trzeciego imienia z pliku
+   cout << name << endl;   // Wyświetlenie trzeciego imienia
+
+   inputFile.close();      // Zamknięcie pliku
+   return 0;
+}
