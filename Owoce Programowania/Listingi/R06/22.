@@ -1,0 +1,27 @@
+// Ten program korzysta z lokalnej zmiennej statycznej.
+#include <iostream>
+using namespace std;
+
+void showStatic(); // Prototyp funkcji
+
+int main()
+{
+    // Pięciokrotne wywołanie funkcji showStatic()
+   for (int count = 0; count < 5; count++)
+      showStatic();
+   return 0;
+}
+
+//**************************************************************
+// Definicja funkcji showStatic()                               *
+// statNum to statyczna zmienna lokalna. Jej wartość jest      *
+// wyświetlana i inkrementowana przed końcem funkcji.          *
+//**************************************************************
+
+void showStatic()
+{
+   static int statNum;
+
+   cout << "Wartość statNum to " << statNum << "." << endl;
+   statNum++;
+}
