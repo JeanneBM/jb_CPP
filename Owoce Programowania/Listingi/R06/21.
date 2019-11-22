@@ -1,0 +1,29 @@
+// Ten program pokazuje, że zmienne lokalne nie zachowują
+// swoich wartości pomiędzy wywołaniami funkcji.
+#include <iostream>
+using namespace std;
+
+// Prototyp funkcji
+void showLocal();
+
+int main()
+{
+   showLocal();
+   showLocal();
+   return 0;
+}
+
+//***********************************************************
+// Definicja funkcji showLocal()                             *
+// Wyświetlana jest wartość początkowa localNum, czyli 5.   *
+// Następnie wartość localNum jest zmieniana na 99 przed    *
+// końcem funkcji.                                        *
+//***********************************************************
+
+void showLocal()
+{
+   int localNum = 5; // Zmienna lokalna
+
+   cout << "Wartość zmiennej localNum to " << localNum << "." << endl;
+   localNum = 99;
+}
