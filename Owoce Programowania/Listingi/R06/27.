@@ -1,0 +1,46 @@
+// Ten program korzysta z przeciążonych funkcji.
+#include <iostream>
+#include <iomanip>
+using namespace std;
+
+// Prototypy funkcji
+int square(int);
+double square(double);
+
+int main()
+{
+  int userInt;
+   double userFloat;
+
+   // Pobranie wartości int i double
+   cout << fixed << showpoint << setprecision(2);
+   cout << "Wpisz liczbę całkowitą i zmiennoprzecinkową: ";
+   cin >> userInt >> userFloat;
+
+   // Wyświetlenie kwadratów
+   cout << "Oto ich kwadraty: ";
+   cout << square(userInt) << " i " << square(userFloat);
+   return 0;
+}
+
+//**************************************************************
+// Definicja przeciążonej funkcji square()                      *
+// Ta funkcja przyjmuje parametr typu int. Funkcja zwraca      *
+// kwadrat liczby jako wartość int.                            *
+//**************************************************************
+
+int square(int number)
+{
+   return number * number;
+}
+
+//***************************************************************
+// Definicja przeciążonej funkcji square()                       *
+// Ta funkcja przyjmuje parametr typu number. Funkcja zwraca        *
+// kwadrat liczby jako wartość double.                          *
+//***************************************************************
+
+double square(double number)
+{
+   return number * number;
+}
