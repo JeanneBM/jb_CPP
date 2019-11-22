@@ -1,0 +1,33 @@
+// Rozdział 6, Wyzwanie Programistyczne 2
+#include <iostream>
+using namespace std;
+
+// Napisz prototypy funkcji getLength,
+// getWidth, getArea, i displayData
+// tutaj.
+
+int main()
+{
+   double length,    // Długość prostokąta
+          width,     // Szerokość prostokąta
+          area;      // Pole prostokąta
+          
+   // Pobierz długość prostokąta.
+   length = getLength();
+   
+   // Pobierz szerokość prostokąta.
+   width = getWidth();
+   
+   // Pobierz pole prostokąta.
+   are = getArea();
+   
+   // Wyświetl dane na temat prostokąta.
+   displayData(length, width, area);
+          
+   return 0;
+}
+
+//***************************************************
+// Musisz napisać funkcje getLength, getWidth,      *
+// getArea i displayData.                           *
+//***************************************************
