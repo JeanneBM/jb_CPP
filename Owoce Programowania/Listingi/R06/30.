@@ -1,0 +1,45 @@
+// Ten program to sterownik funkcji showFees()
+#include <iostream>
+using namespace std;
+
+// Prototyp
+void showFees(double, int);
+
+int main()
+{
+   // Stałe dla opłat za karnety
+   const double ADULT = 40.0;
+   const double SENIOR = 30.0;
+   const double CHILD = 20.0;
+
+   // Test karnetu dla dorosłego
+   cout << "Sprawdzam karnet dla osoby dorosłej...\n"
+        << "Wywołuję showFees() z argumentami "
+        << ADULT << " i 10.\n";
+   showFees(ADULT, 10);
+
+   // Test karnetu dla seniora
+   cout << "Sprawdzam karnet dla seniora...\n"
+        << "Wywołuję showFees() z argumentami "
+        << SENIOR << " i 10.\n";
+   showFees(SENIOR, 10);
+
+   // Test karnetu dla dziecka
+   cout << "Sprawdzam karnet dla dziecka...\n"
+        << "Wywołuję showFees() z argumentami "
+        << CHILD << " i 10.\n";
+   showFees(CHILD, 10);
+   return 0;
+}
+
+//*****************************************************************
+// Definicja funkcji showFees(). Parametr memberRate zawiera        *
+// miesięczną opłatę za karnet, a parametr months liczbę         *
+// miesięcy. Funkcja wyświetla całkowitą cenę karnetu.            *
+//*****************************************************************
+
+void showFees(double memberRate, int months)
+{
+    cout << "Opłata całkowita wynosi "
+         << (memberRate * months) << " zł."<< endl;
+}
