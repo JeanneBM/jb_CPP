@@ -1,0 +1,27 @@
+// Ten program pokazuje, jak zakończyć program
+// za pomocą funkcji exit()
+#include<iostream>
+#include<cstdlib>   // Potrzebne dla funkcji exit()
+using namespace std;
+
+void function();  // Prototyp funkcji
+
+intmain()
+{
+   function();
+   return 0;
+}
+
+//***********************************************************
+// Ta funkcja pokazuje, że za pomocą funkcji exit() możemy    *
+// zakończyć program z poziomu innego niż funkcja main()     *
+//***********************************************************
+
+voidfunction()
+{
+   cout<< "Ten program kończy się funkcją exit().\n";
+   cout<< "Do zobaczenia!\n";
+   exit(0);
+   cout<< "Ten komunikat nigdy się nie wyświetli,\n";
+   cout<< "ponieważ program skończył swoje działanie.\n";
+}
