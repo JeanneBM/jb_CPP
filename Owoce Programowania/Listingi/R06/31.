@@ -1,0 +1,92 @@
+// Program sterowany przez meny, który wywołuje funkcje
+// w zależności od wyborów użytkownika.
+#include <iostream>
+#include <iomanip>
+using namespace std;
+
+// Prototypy funkcji
+void showMenu();
+void showFees(double, int);
+
+int main()
+{
+   int choice;       // Przechowuje wybór z menu
+   int months;       // Przechowuje liczbę miesięcy
+   
+   // Stałe dla pozycji menu
+   const int ADULT_CHOICE = 1,
+             CHILD_CHOICE = 2,
+             SENIOR_CHOICE = 3,
+             QUIT_CHOICE = 4;
+
+   // Stałe dla opłat za karnety
+   const double ADULT = 40.0,
+                SENIOR = 30.0,
+                CHILD = 20.0;
+
+   // Ustaw formatowanie liczb na wyjściu.
+   cout << fixed << showpoint << setprecision(2);
+   
+   do
+   {
+      // Wyświetl menu i odczytaj wejście od użytkownika.
+      showMenu();
+      cin >> choice;
+      
+      // Walidacja wyboru.
+      while (choice < ADULT_CHOICE || choice > QUIT_CHOICE)
+      {
+         cout << "Wybierz istniejącą pozycję z menu: ";
+         cin >> choice;
+      }
+      
+      // Przejdź dalej, jeżeli użytkownik nie chce wyjść.
+      if (choice != QUIT_CHOICE)
+      {
+          // Pobierz liczbę miesięcy.
+          cout << "Na ile miesięcy? ";
+          cin >> months;
+             
+          // Wyświetl opłaty za karnet.
+          switch (choice)
+          {
+             case ADULT_CHOICE:  
+                  showFees(ADULT, months);
+                  break;
+             case CHILD_CHOICE:
+                  showFees(CHILD, months);
+                  break;
+             case SENIOR_CHOICE:
+                  showFees(SENIOR, months);
+          }
+      }
+   } while (choice != QUIT_CHOICE);
+   return 0;
+}
+
+//*****************************************************************
+// Definicja funkcji showMenu, która wyświetla menu.              *
+//*****************************************************************
+
+void showMenu()
+{
+    cout << "\t\tMenu wyboru karnetów w klubie fitness\n\n"
+         << "1. Standardowy, osoba dorosła\n"
+         << "2. Dziecięcy\n"
+         << "3. Dla seniora\n"
+         << "4. Wyjdź z programu\n\n"
+         << "Wprowadź swój wybór: ";
+}
+
+//*****************************************************************
+// Funkcja wirtualna showFees.                                    *
+//*****************************************************************
+
+void showFees(double memberRate, int months)
+{
+    cout << "Wywołano funkcję showFees "
+         << "z następującymi argumentami:\n"
+         << "memberRate: " << memberRate << endl
+         << "months: " << months << endl;
+
+}
