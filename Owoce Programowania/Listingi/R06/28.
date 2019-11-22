@@ -1,0 +1,97 @@
+// Ten program wykorzystuje przeciążone funkcje do obliczenia
+// tygodniowego wynagrodzenia na podstawie przepracowanych godzin.
+#include <iostream>
+#include <iomanip>
+using namespace std;
+
+// Prototypy funkcji
+void getChoice(char &);
+double calcWeeklyPay(int, double); 
+double calcWeeklyPay(double);
+
+int main()
+{
+   char selection;   // Wybór z menu
+   int worked;       // Przepracowane godziny
+   double rate;      // Stawka godzinowa
+   double yearly;    // Roczne wynagrodzenie
+
+   // Ustawienie formatowania liczb na wyjściu
+   cout<<fixed<<showpoint<<setprecision(2);
+
+   // Wyświetlenie menu i pobranie pozycji do wyboru.
+   cout<< "Dla kogo chcesz obliczyć tygodniowe wynagrodzenie?\n";
+   cout<< "(G) Dla pracownika opłacanego na godziny. \n";
+   cout<< "(S) Dla pracownika ze stałym rocznym wynagrodzeniem.\n";
+   getChoice(selection);
+
+   // Przetworzenie wyboru z menu
+   switch (selection)
+   {
+      // Pracownik opłacany na godziny
+      case 'G' :
+      case 'g' :  cout<< "Ile godzin przepracowano? ";
+                  cin>>worked;
+                  cout<< "Jaka jest stawka godzinowa? ";
+                  cin>>rate;
+                  cout<< "Tygodniowe wynagrodzenie brutto wynosi ";
+                  cout<<calcWeeklyPay(worked, rate) << " zł."<<endl;
+                  break;
+
+      // Pracownik ze stałą pensją
+      case 'S' :
+      case 's' :  cout<< "Jakie jest roczne wynagrodzenie? ";
+                  cin>>yearly;
+                  cout<< "Tygodniowe wynagrodzenie brutto wynosi ";
+                  cout<<calcWeeklyPay(yearly) << " zł." <<endl;
+                  break;   
+   }
+   return 0;
+}
+
+//*************************************************************
+// Definicja funkcji getChoice()                               *
+// Parametr letter to wskaźnik do zmiennej typu char.         *
+// Funkcja prosi użytkownika o wybór G lub S i zwraca         *
+// zwalidowane wejście.                                       *
+//*************************************************************
+
+void getChoice(char &letter)
+{
+   // Pobranie wyboru użytkownika
+   cout << "Wybierz pozycję z menu (G lub S): ";
+   cin >> letter;
+
+   // Walidacja wejścia
+   while (letter != 'G' && letter != 'g' &&
+          letter != 'S' && letter != 's')
+   {
+      cout << "Proszę wpisać G lub S: ";
+      cin>>letter;
+   }
+}
+
+//***********************************************************
+// Definicja przeciążonej funkcji calcWeeklyPay()            *
+// Ta funkcja oblicza tygodniowe wynagrodzenie brutto       *
+// pracownika na godziny. *
+// Parametr przyjmuje stawkę za godzinę.    *
+// Funkcja zwraca wynagrodzenie tygodniowe.        *
+//***********************************************************
+
+double calcWeeklyPay(int hours, double payRate)
+{
+   return hours * payRate;
+}
+
+//***********************************************************
+// Definicja przeciążonej funkcji calcWeeklyPay()           *
+// Ta funkcja oblicza tygodniowe wynagrodzenie brutto       *
+// pracownika ze stałą pensją. Parametr przyjmuje roczne    *
+// wynagrodzenie. Funkcja zwraca wynagrodzenie tygodniowe.  *
+//***********************************************************
+
+double calcWeeklyPay(double annSalary)
+{
+   return annSalary / 52;
+}
