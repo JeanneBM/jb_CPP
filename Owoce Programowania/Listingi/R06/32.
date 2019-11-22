@@ -2,9 +2,9 @@
 #include <iostream>
 using namespace std;
 
-// Napisz prototypy funkcji getLength,
+// Prototypy funkcji getLength,
 // getWidth, getArea, i displayData
-// tutaj.
+
 
 int main()
 {
@@ -28,6 +28,6 @@ int main()
 }
 
 //***************************************************
-// Musisz napisać funkcje getLength, getWidth,      *
+// funkcje getLength, getWidth,                     *
 // getArea i displayData.                           *
 //***************************************************
