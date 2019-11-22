@@ -1,0 +1,46 @@
+// Ten program korzysta ze wskaźników jako parametrów funkcji.
+#include <iostream>
+using namespace std;
+
+// Prototyp funkcji. Parametry obydwu funkcji
+// są wskaźnikami.
+void doubleNum(int &);
+void getNum(int &);
+
+int main()
+{
+   int value;
+
+   // Pobranie liczby i zapisanie jej w value
+   getNum(value);
+
+   // Pomnożenie wartości value razy dwa
+   doubleNum(value);
+
+   // Wyświetlenie wyniku
+   cout << "Podwojona wartość to " << value << "." << endl;
+   return 0;
+}
+
+//*************************************************************
+// Definicja funkcji getNum()                                          *
+// Parametr userNum to wskaźnik. Użytkownik                  *
+// jest proszony o wpisanie liczby do zmiennej userNum.       *
+//*************************************************************
+
+void getNum(int &userNum)
+{
+   cout << "Wpisz liczbę: ";
+  cin >> userNum;
+}
+
+//**********************************************************
+// Definicja funkcji doubleNum()                                    *
+// Parametr refVar to wskaźnik. Wartość                    *
+// refVar jest podwajana.                                  *
+//**********************************************************
+
+void doubleNum (int &refVar)
+{
+   refVar *= 2;
+}
