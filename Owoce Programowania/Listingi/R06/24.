@@ -1,0 +1,34 @@
+// Ten program demonstruje zastosowanie argumentów domyślnych.
+#include <iostream>
+using namespace std;
+
+// Prototyp funkcji z argumentami domyślnymi
+void displayStars(int = 10, int = 1);
+
+int main()
+{
+   displayStars();      // Użycie argumentów domyślnych
+   cout << endl;
+   displayStars(5);     // Użycie domyślnej liczby wierszy
+   cout << endl;
+   displayStars(7, 3);  // Wyświetlenie 7 kolumn i 3 wierszy
+   return 0;
+}
+
+//********************************************************
+// Definicja funkcji displayStars()                       *
+// Domyślny argument dla cols to 10, a dla rows to 1.     *
+// Funkcja wyświetla kwadrat z gwiazdek.                 *
+//********************************************************
+
+void displayStars(int cols, int rows)
+{
+   // Pętla zagnieżdżona. Zewnętrzna pętla kontroluje liczbę wierszy,
+   // a wewnętrzna liczbę kolumn.
+   for (int down = 0; down < rows; down++)
+   {
+      for (int across = 0; across < cols; across++)
+         cout << "*";
+      cout << endl;
+   }
+}
