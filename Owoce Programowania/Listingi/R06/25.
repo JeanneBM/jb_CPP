@@ -1,0 +1,29 @@
+// Ten program korzysta ze zmiennej wskaźnikowej
+// w parametrze funkcji.
+#include <iostream>
+using namespace std;
+
+// Prototyp funkcji. Parametr jest wskaźnikiem.
+void doubleNum(int &);
+
+int main()
+{
+   int value = 4;
+
+   cout << "W funkcji main() wartość wynosi " << value << "." << endl;
+   cout << "Wywołuję doubleNum()..." << endl;
+   doubleNum(value);
+   cout << "Z powrotem w main(). Wartość wynosi " << value << "." << endl;
+   return 0;
+}
+
+//**********************************************************
+// Definicja funkcji doubleNum()                                    *
+// Parametr refVar to wskaźnik. Wartość                    *
+// refVar jest podwajana.                                  *
+//**********************************************************
+
+void doubleNum (int &refVar)
+{
+   refVar *= 2;
+}
