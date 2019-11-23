@@ -1,0 +1,18 @@
+// Ten program wyœwietla liczbê dni w ka¿dym miesi¹cu.
+#include <iostream>
+using namespace std;
+
+int main()
+{
+  const int MONTHS = 12;
+  int days[MONTHS] = { 31, 28, 31, 30,
+                       31, 30, 31, 31,
+                       30, 31, 30, 31 };
+
+  for (int count = 0; count < MONTHS; count++)
+  {
+    cout << "Miesi¹c " << (count + 1) << " ma ";
+    cout << days[count] << " dni.\n";
+  }
+  return 0;
+}
