@@ -1,0 +1,54 @@
+// Ten program wykorzystuje funkcjê podwajaj¹c¹
+// wartoœci wszystkich elementów tablicy.
+#include <iostream>
+using namespace std;
+
+// Prototypy funkcji.
+void doubleArray(int[], int);
+void showValues(int[], int);
+
+int main()
+{
+  const int ARRAY_SIZE = 7;
+  int set[ARRAY_SIZE] = { 1, 2, 3, 4, 5, 6, 7 };
+
+  // Wyœwietlenie pocz¹tkowej zawartoœci tablicy
+  cout << "Zawartoœæ tablicy:\n";
+  showValues(set, ARRAY_SIZE);
+
+  // Podwojenie wartoœci elementów tablicy
+  doubleArray(set, ARRAY_SIZE);
+
+  // Wyœwietlenie koñcowej zawartoœci tablicy
+  cout << "Zawartoœæ tablicy po wywo³aniu funkcji doubleArray():\n";
+  showValues(set, ARRAY_SIZE);
+
+  return 0;
+}
+
+//*****************************************************
+// Definicja funkcji doubleArray() podwajaj¹cej
+// wartoœæ ka¿dego elementu tablicy podanej
+// w argumencie nums. Argument size zawiera
+// wielkoœæ tablicy.
+//*****************************************************
+
+void doubleArray(int nums[], int size)
+{
+  for (int index = 0; index < size; index++)
+    nums[index] *= 2;
+}
+
+//***************************************************
+// Definicja funkcji showValues(). Jej argumentami
+// s¹ tablica liczb ca³kowitych i jej wielkoœæ.
+// Funkcja wyœwietla zawartoœæ podanej
+// tablicy.
+//***************************************************
+
+void showValues(int nums[], int size)
+{
+  for (int index = 0; index < size; index++)
+    cout << nums[index] << " ";
+  cout << endl;
+}
