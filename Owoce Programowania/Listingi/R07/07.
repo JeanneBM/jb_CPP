@@ -1,0 +1,29 @@
+// Ten program odczytuje dane z pliku i umieszcza je w tablicy.
+#include <iostream>
+#include <fstream>
+using namespace std;
+
+int main()
+{
+  const int ARRAY_SIZE = 10; // Wielkoœæ tablicy
+  int numbers[ARRAY_SIZE];   // Definicja tablicy 10 elementów
+  int count = 0;             // Licznik pêtli
+  ifstream inputFile;        // Strumieñ wejœciowy
+
+  // Otwarcie pliku.
+  inputFile.open("DziesiêæLiczb.txt");
+
+  // Odczytanie liczb z pliku i umieszczenie ich w tablicy
+  while (count < ARRAY_SIZE && inputFile >> numbers[count])
+    count++;
+
+  // Zamkniêcie pliku
+  inputFile.close();
+
+  // Wyœwietlenie odczytanych liczb
+  cout << "Odczytane liczby: ";
+  for (count = 0; count < ARRAY_SIZE; count++)
+    cout << numbers[count] << " ";
+  cout << endl;
+  return 0;
+}
