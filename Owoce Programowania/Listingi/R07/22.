@@ -1,0 +1,47 @@
+// Ten program demonstruje u¿ycie funkcji, której argumentem jest tablica dwuwymiarowa.
+#include <iostream>
+#include <iomanip>
+using namespace std;
+
+// Sta³e globalne
+const int COLS = 4;      // Liczba kolumn w ka¿dej tablicy
+const int TBL1_ROWS = 3; // Liczba wierszy w tablicy nr 1
+const int TBL2_ROWS = 4; // Liczba wierszy w tablicy nr 2
+
+void showArray(const int[][COLS], int); // Prototyp funkcji.
+
+int main()
+{
+  int table1[TBL1_ROWS][COLS] = { { 1, 2, 3, 4 },
+                                  { 5, 6, 7, 8 },
+                                  { 9, 10, 11, 12 } };
+  int table2[TBL2_ROWS][COLS] = { { 10, 20, 30, 40 },
+                                  { 50, 60, 70, 80 },
+                                  { 90, 100, 110, 120 },
+                                  { 130, 140, 150, 160 } };
+
+  cout << "Zawartoœæ tablicy table1:\n";
+  showArray(table1, TBL1_ROWS);
+  cout << "Zawartoœæ tablicy table2:\n";
+  showArray(table2, TBL2_ROWS);
+  return 0;
+}
+
+//******************************************************************
+// Definicja funkcji showArray(). Pierwszym argumentem jest
+// dwuwymiarowa tablica typu int o liczbie kolumn okreœlonej
+// za pomoc¹ sta³ej COLS. Drugi argument zawiera liczbê wierszy
+// tablicy. Funkcja wyœwietla zawartoœæ podanej tablicy.
+//******************************************************************
+
+void showArray(const int numbers[][COLS], int rows)
+{
+  for (int x = 0; x < rows; x++)
+  {
+    for (int y = 0; y < COLS; y++)
+    {
+      cout << setw(4) << numbers[x][y] << " ";
+    }
+    cout << endl;
+  }
+}
