@@ -1,0 +1,26 @@
+// Ten program prosi u¿ytkownika o podanie liczby godzin
+// przepracowanych przez szeœæ osób i zapisuje dane w tablicy.
+#include <iostream>
+using namespace std;
+
+int main()
+{
+  const int NUM_EMPLOYEES = 6; // Liczba osób
+  int hours[NUM_EMPLOYEES];    // Godziny przepracowane przez poszczególne osoby
+  int count;                   // Licznik pêtli
+
+  // Pobranie liczby godzin przepracowanych przez ka¿d¹ osobê
+  for (count = 0; count < NUM_EMPLOYEES; count++)
+  {
+    cout << "Podaj liczbê godzin przepracowanych przez osobê "
+      << (count + 1) << ": ";
+    cin >> hours[count];
+  }
+
+  // Wyœwietlenie wartoœci zapisanych w tablicy
+  cout << "Wprowadzone liczby godzin:";
+  for (count = 0; count < NUM_EMPLOYEES; count++)
+    cout << " " << hours[count];
+  cout << endl;
+  return 0;
+}
