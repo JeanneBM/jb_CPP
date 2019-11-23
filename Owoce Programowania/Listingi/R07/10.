@@ -1,0 +1,15 @@
+// Ten program demonstruje zastosowanie pêtli zakresowej.
+#include <iostream>
+using namespace std;
+
+int main()
+{
+  // Definicja tablicy liczb ca³kowitych
+  int numbers[] = { 10, 20, 30, 40, 50 };
+
+  // Wyœwietlenie zawartoœci tablicy
+  for (int val : numbers)
+    cout << val << endl;
+
+  return 0;
+}
