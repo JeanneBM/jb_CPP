@@ -1,0 +1,35 @@
+// Ten program demonstruje u¿ycie funkcji showValues()
+// do wyœwietlenia zawartoœci dwóch tablic.
+#include <iostream>
+using namespace std;
+
+void showValues(int[], int); // Prototyp funkcji
+
+int main()
+{
+  const int SIZE1 = 8; // Wielkoœæ tablicy set1
+  const int SIZE2 = 5; // Wielkoœæ tablicy set2
+  int set1[SIZE1] = { 5, 10, 15, 20, 25, 30, 35, 40 };
+  int set2[SIZE2] = { 2, 4, 6, 8, 10 };
+
+  // Umieszczenie tablicy set1 w argumencie funkcji showValues()
+  showValues(set1, SIZE1);
+
+  // Umieszczenie tablicy set2 w argumencie funkcji showValues()
+  showValues(set2, SIZE2);
+  return 0;
+}
+
+//***************************************************
+// Definicja funkcji showValues()
+// Argumentami funkcji jest tablica liczb
+// ca³kowitych i jej wielkoœæ. Funkcja
+// wyœwietla zawartoœæ tablicy.
+//***************************************************
+
+void showValues(int nums[], int size)
+{
+  for (int index = 0; index < size; index++)
+    cout << nums[index] << " ";
+  cout << endl;
+}
