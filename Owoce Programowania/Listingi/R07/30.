@@ -1,0 +1,17 @@
+// Ten program demonstruje u¿ycie funkcji cz³onkowskiej clear() wektora.
+#include <iostream>
+#include <vector>
+using namespace std;
+
+int main()
+{
+  vector<int> values(100);
+
+  cout << "Liczba elementów wektora values: "
+       << values.size() << "\n";
+  cout << "Wywo³anie funkcji clear()...\n";
+  values.clear();
+  cout << "Aktualna liczba elementów wektora values: "
+       << values.size() << "\n";
+  return 0;
+}
