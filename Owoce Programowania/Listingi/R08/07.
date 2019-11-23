@@ -1,0 +1,110 @@
+// Ten program demonstruje zastosowanie algorytmów
+// sortowania przez wybieranie i wyszukiwania binarnego z wektorem.
+#include <iostream>
+#include <string>
+#include <vector>
+using namespace std;
+
+// Prototyp funkcji
+void selectionSort(vector<string>&);
+void swap(string &, string &);
+int binarySearch(const vector<string>&, string);
+
+int main()
+{
+  string searchValue;  // Wyszukiwana wartoœæ
+  int position;        // Pozycja znalezionej wartoœci
+
+  // Definicja wektora ci¹gów znaków
+  vector<string> names{ "Hanna", "Antoni", "Julia", "Jakub",
+                        "Zuzanna", "Jan", "Maja", "Szymon",
+                        "Zofia", "Franciszek", "Lena", "Filip" };
+
+  // Posortowanie wektora
+  selectionSort(names);
+
+  // Wyœwietlenie elementów wektora
+  cout << "Posortowane imiona:\n";
+  for (auto element : names)
+    cout << element << endl;
+  cout << endl;
+
+  // Wyszukiwanie imienia
+  cout << "Podaj imiê: ";
+  getline(cin, searchValue);
+  position = binarySearch(names, searchValue);
+
+  // Wyœwietlenie wyniku
+  if (position != -1)
+    cout << "Pozycja szukanego imienia: " << position << "." << endl;
+  else
+    cout << "Imiê nie zosta³o znalezione.\n";
+
+  return 0;
+}
+
+//***********************************************************************
+// Funkcja selectionSort() sortuje wektor ci¹gów znaków w kolejnoœci alfabetycznej.
+//***********************************************************************
+void selectionSort(vector<string> &v)
+{
+  int minIndex;
+  string minValue;
+
+  for (int start = 0; start < (v.size() - 1); start++)
+  {
+    minIndex = start;
+    minValue = v[start];
+    for (int index = start + 1; index < v.size(); index++)
+    {
+      if (v[index] < minValue)
+      {
+        minValue = v[index];
+        minIndex = index;
+      }
+    }
+    swap(v[minIndex], v[start]);
+  }
+}
+
+//***************************************************
+// Funkcja swap() zamienia miejscami ci¹gi a i b.
+//***************************************************
+void swap(string &a, string &b)
+{
+  string temp = a;
+  a = b;
+  b = temp;
+}
+
+//*****************************************************************
+// Funkcja binarySearch() wykorzystuje algorytm
+// wyszukiwania binarnego do wyszukiwania w wektorze
+// ci¹gu podanego w argumencie str. Funkcja zwraca
+// indeks elementu, je¿eli ci¹g znajduje siê w wektorze,
+// lub wartoœæ -1 w przeciwnym razie.
+//*****************************************************************
+
+int binarySearch(const vector<string> &v, string str)
+{
+  int first = 0,          // Indeks pierwszego elementu wektora
+    last = v.size() - 1,  // Indeks ostatniego elementu wektora
+    middle,               // Indeks œrodkowego elementu wektora
+    position = -1;        // Indeks szukanego ci¹gu
+  bool found = false;     // Flaga
+
+  while (!found && first <= last)
+  {
+    middle = (first + last) / 2; // Wyliczenie indeksu œrodkowego elementu wektora
+    if (v[middle] == str)        // Szukany ci¹g znajduje siê w œrodkowym elemencie wektora.
+    {
+      found = true;
+      position = middle;
+    }
+    else if (v[middle] > str)    // Szukany ci¹g znajduje siê w pierwszej po³owie wektora.
+      last = middle - 1;
+    else
+      first = middle + 1;      // Szukany ci¹g znajduje siê w drugiej po³owie wektora.
+  }
+  return position;
+}
