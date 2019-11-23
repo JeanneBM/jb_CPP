@@ -1,0 +1,48 @@
+// Program sprawdzapoprawnoœæ dzia³ania funkcji
+// porównuj¹cej zawartoœci dwóch tablic.
+#include <iostream>
+using namespace std;
+
+// Prototyp funkcji
+bool testPIN(const int[], const int[], int);
+
+int main()
+{
+  const int NUM_DIGITS = 7; // Liczba cyfr numeru PIN.
+  int pin1[NUM_DIGITS] = { 2, 4, 1, 8, 7, 9, 0 }; // Podstawowy zestaw cyfr
+  int pin2[NUM_DIGITS] = { 2, 4, 6, 8, 7, 9, 0 }; // Tablica ró¿ni¹ca siê tylko jednym
+                                                  // elementem od tablicy pin1
+  int pin3[NUM_DIGITS] = { 1, 2, 3, 4, 5, 6, 7 }; // Tablica ró¿ni¹ca siê wszystkimi
+                                                  // elementami od tablicy pin1
+  if (testPIN(pin1, pin2, NUM_DIGITS))
+    cout << "B£¥D: funkcja zwraca wynik, ¿e tablice pin1 i pin2 s¹ identyczne.\n";
+  else
+    cout << "OK: funkcja zwraca wynik, ¿e tablice pin1 i pin2 s¹ ró¿ne.\n";
+
+  if (testPIN(pin1, pin3, NUM_DIGITS))
+    cout << "B£¥D: funkcja zwraca wynik, ¿e tablice pin1 i pin3 s¹ identyczne.\n";
+  else
+    cout << "OK: funkcja zwraca wynik, ¿e tablice pin1 i pin3 s¹ ró¿ne.\n";
+
+  if (testPIN(pin1, pin1, NUM_DIGITS))
+    cout << "OK: funkcja zwraca wynik, ¿e tablice pin1 i pin1 s¹ identyczne.\n";
+  else
+    cout << "B£¥D: funkcja zwraca wynik, ¿e tablice pin1 i pin1 s¹ ró¿ne.\n";
+  return 0;
+}
+
+//******************************************************************
+// Argumentami poni¿szej funkcji s¹ dwie tablice. Funkcja porównuje
+// zawartoœæ obu tablic i zwraca wynik true, je¿eli tablice zawieraj¹
+// takie same wartoœci, lub false w przeciwnym razie.
+//******************************************************************
+
+bool testPIN(const int custPIN[], const int databasePIN[], int size)
+{
+  for (int index = 0; index < size; index++)
+  {
+    if (custPIN[index] != databasePIN[index])
+      return false; // Znalezione dwie ró¿ne wartoœci
+  }
+  return true; // Dojœcie do tego miejsca oznacza, ¿e wszystkie wartoœci s¹ zgodne
+}
