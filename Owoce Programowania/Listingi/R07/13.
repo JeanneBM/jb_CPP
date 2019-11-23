@@ -1,0 +1,38 @@
+// Ten program zapisuje w tablicy liczby godzin przepracowanych przez kilka
+// osób i wylicza ich wynagrodzenia wed³ug takiej samej stawki.
+#include <iostream>
+#include <iomanip>
+using namespace std;
+
+int main()
+{
+  const int NUM_EMPLOYEES = 5;  // Liczba osób
+  int hours[NUM_EMPLOYEES];     // Tablica z liczbami przepracowanych godzin
+  double payrate;               // Stawka godzinowa
+  double grossPay;              // Wynagrodzenie
+
+  // Pobranie liczby przepracowanych godzin
+  cout << "Podaj liczby godzin przepracowanych przez ";
+  cout << NUM_EMPLOYEES << " osób, wynagradzanych wed³ug takiej samej\n";
+  cout << "stawki.\n";
+  for (int index = 0; index < NUM_EMPLOYEES; index++)
+  {
+    cout << "Osoba " << (index + 1) << ": ";
+    cin >> hours[index];
+  }
+
+  // Pobranie stawki godzinowej
+  cout << "Podaj stawkê godzinow¹: ";
+  cin >> payrate;
+
+  // Wyœwietlenie wynagrodzenia wszystkich osób
+  cout << "Wynagrodzenie poszczególnych osób:\n";
+  cout << fixed << showpoint << setprecision(2);
+  for (int index = 0; index < NUM_EMPLOYEES; index++)
+  {
+    grossPay = hours[index] * payrate;
+    cout << "Osoba " << (index + 1);
+    cout << ": " << grossPay << " z³" << endl;
+  }
+  return 0;
+}
