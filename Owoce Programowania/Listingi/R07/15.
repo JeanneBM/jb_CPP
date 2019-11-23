@@ -1,0 +1,35 @@
+// Ten program wykorzystuje dwie równoleg³e tablice: pierwsza zawiera
+// liczby przepracowanych godzin, a druga stawki godzinowe.
+#include <iostream>
+#include <iomanip>
+using namespace std;
+
+int main()
+{
+  const int NUM_EMPLOYEES = 5;   // Liczba osób
+  int hours[NUM_EMPLOYEES];      // Tablica z liczbami przepracowanych godzin
+  double payRate[NUM_EMPLOYEES]; // Tablica ze stawkami godzinowymi
+
+  // Pobranie liczby przepracowanych godzin i stawek godzinowych
+  cout << "Podaj liczby godzin przepracowanych przez " << NUM_EMPLOYEES
+       << " osób\n"
+       << "oraz ich stawki godzinowe.\n";
+  for (int index = 0; index < NUM_EMPLOYEES; index++)
+  {
+    cout << "Liczba godzin przepracowanych przez osobê " << (index + 1) << ": ";
+    cin >> hours[index];
+    cout << "Stawka godzinowa osoby " << (index + 1) << ": ";
+    cin >> payRate[index];
+  }
+
+  // Wyœwietlenie wynagrodzenia wszystkich osób
+  cout << "Wynagrodzenia poszczególnych osób:\n";
+  cout << fixed << showpoint << setprecision(2);
+  for (int index = 0; index < NUM_EMPLOYEES; index++)
+  {
+    double grossPay = hours[index] * payRate[index];
+    cout << "Osoba " << (index + 1);
+    cout << ": " << grossPay << " z³" << endl;
+  }
+  return 0;
+}
