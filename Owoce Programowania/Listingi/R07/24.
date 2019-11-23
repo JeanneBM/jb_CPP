@@ -1,0 +1,38 @@
+// Ten program zapisuje w dwóch wektorach godziny
+// przepracowane przez piêæ osób oraz ich stawki godzinowe.
+#include <iostream>
+#include <iomanip>
+#include <vector>
+using namespace std;
+
+int main()
+{
+  const int NUM_EMPLOYEES = 5;            // Liczba osób
+  vector<int> hours(NUM_EMPLOYEES);       // Wektor typu int
+  vector<double> payRate(NUM_EMPLOYEES);  // Wektor typu double
+  int index;                              // Licznik pêtli
+
+  // Pobranie danych.
+  cout << "Podaj liczby godzin przepracowanych przez " << NUM_EMPLOYEES;
+  cout << " osób oraz ich stawki godzinowe.\n";
+  for (index = 0; index < NUM_EMPLOYEES; index++)
+  {
+    cout << "Liczba godzin przepracowanych przez osobê " << (index + 1);
+    cout << ": ";
+    cin >> hours[index];
+    cout << "Stawka godzinowa osoby ";
+    cout << (index + 1) << ": ";
+    cin >> payRate[index];
+  }
+
+  // Wyœwietlenie wynagrodzenia wszystkich osób
+  cout << "\nWynagrodzenia poszczególnych osób:\n";
+  cout << fixed << showpoint << setprecision(2);
+  for (index = 0; index < NUM_EMPLOYEES; index++)
+  {
+    double grossPay = hours[index] * payRate[index];
+    cout << "Osoba " << (index + 1);
+    cout << ": " << grossPay << " z³" << endl;
+  }
+  return 0;
+}
