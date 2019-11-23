@@ -1,0 +1,53 @@
+// Ten program demonstruje algorytm wyszukiwania liniowego.
+#include <iostream>
+using namespace std;
+
+// Prototyp funkcji
+int linearSearch(const int[], int, int);
+
+int main()
+{
+  const int SIZE = 5;
+  int tests[SIZE] = { 87, 75, 98, 100, 82 };
+  int results;
+
+  // Wyszukiwanie liczby 100 w tablicy
+  results = linearSearch(tests, SIZE, 100);
+
+  // Jeżeli funkcja linearSearch() zwróci wynik -1, oznacza to, że liczba 100 nie została znaleziona.
+  if (results == -1)
+    cout << "Nie uzyskałeś 100 punktów w żadnym teście.\n";
+  else
+  {
+    // Inny wynik funkcji jest indeksem pierwszego elementu tablicy
+    // zawierającego liczbę 100
+    cout << "Uzyskałeś 100 punktów w teście nr ";
+    cout << (results + 1) << "." << endl;
+  }
+  return 0;
+}
+
+//******************************************************************
+// Funkcja linearSearch() przeszukuje liniowo tablicę liczb całkowitych. Tablica arr,
+// zawierająca liczbę elementów określoną w argumencie size, jest przeszukiwana
+// pod kątem wartości zapisanej w argumencie value. Jeżeli wartość ta zostanie
+// znaleziona, funkcja zwraca indeks elementu tablicy. W przeciwnym razie
+// funkcja zwraca wynik -1 oznaczający, że tablica nie zawiera szukanej wartości.
+//******************************************************************
+int linearSearch(const int arr[], int size, int value)
+{
+  int index = 0;       // Indeks wykorzystywany do przeszukiwania tablicy
+  int position = -1;   // Zmienna zawierająca pozycję wyszukiwanej liczby w tablicy
+  bool found = false;  // Flaga informująca, czy liczba została znaleziona
+
+  while (index < size && !found)
+  {
+    if (arr[index] == value)  // Jeżeli liczba została znaleziona, to...
+    {
+      found = true;           // ...ustaw flagę, oraz...
+      position = index;       // ...zapamiętaj indeks elementu.
+    }
+    index++;                  // Przejdź do następnego elementu.
+  }
+  return position;            // Zwróć pozycję lub liczbę -1.
+}
