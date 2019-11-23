@@ -1,0 +1,30 @@
+// Ten program zapisuje zawartość tablicy w pliku.
+#include <iostream>
+#include <fstream>
+using namespace std;
+
+int main()
+{
+  const int ARRAY_SIZE = 10;  // Wielkość tablicy
+  int numbers[ARRAY_SIZE];    // Tablica złożona z 10 elementów
+  int count;                  // Licznik pętli
+  ofstream outputFile;        // Strumień wyjściowy
+
+  // Umieszczenie wartości w tablicy
+  for (count = 0; count < ARRAY_SIZE; count++)
+    numbers[count] = count;
+
+  // Otwarcie pliku do zapisu
+  outputFile.open("ZapisaneLiczby.txt");
+
+  // Zapisanie zawartości tablicy w pliku
+  for (count = 0; count < ARRAY_SIZE; count++)
+    outputFile << numbers[count] << endl;
+
+  // Zamknięcie pliku
+  outputFile.close();
+
+  // Zrobione!
+  cout << "Liczby zostały zapisane w pliku.\n ";
+  return 0;
+}
