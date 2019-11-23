@@ -1,0 +1,109 @@
+// Ten program pobiera seriê ocen
+// i wylicza œredni¹ po odrzuceniu
+// najni¿szej oceny.
+#include <iostream>
+#include <iomanip>
+using namespace std;
+
+// Prototypy funkcji
+void getTestScores(double[], int);
+double getTotal(const double[], int);
+double getLowest(const double[], int);
+
+int main()
+{
+  const int SIZE = 4;      // Wielkoœæ tablicy
+  double testScores[SIZE], // Tablica z ocenami
+    total,                 // Suma ocen
+    lowestScore,           // Najni¿sza ocena
+    average;               // Œrednia ocena
+
+  // Ustalenie formatu wyœwietlanych liczb
+  cout << fixed << showpoint << setprecision(1);
+
+  // Pobranie ocen od u¿ytkownika
+  getTestScores(testScores, SIZE);
+
+  // Wyliczenie sumy ocen
+  total = getTotal(testScores, SIZE);
+
+  // Wyszukanie najni¿szej oceny
+  lowestScore = getLowest(testScores, SIZE);
+
+  // Odjêcie najni¿szej oceny od sumy ocen
+  total -= lowestScore;
+
+  // Wyliczenie œredniej. Suma jest dzielona przez 3,
+  // poniewa¿ zosta³a odrzucona najni¿sza ocena.
+  average = total / (SIZE - 1);
+
+  // Wyœwietlenie œredniej oceny
+  cout << "Œrednia ocena po odrzuceniu "
+    << "najni¿szej: " << average << ".\n";
+
+  return 0;
+}
+
+//***********************************************************
+// Argumentami funkcji getTestScores() s¹ tablica i jej wielkoœæ.
+// Funkcja prosi u¿ytkownika o podanie ocen testów
+// i zapisuje je w tablicy.
+//***********************************************************
+
+void getTestScores(double scores[], int size)
+{
+  // Licznik pêtli
+  int index;
+
+  // Pobranie ocen
+  for (index = 0; index <= size - 1; index++)
+  {
+    cout << "Podaj ocenê testu nr "
+      << (index + 1) << ": ";
+    cin >> scores[index];
+  }
+}
+
+//*****************************************************
+// Argumentami funkcji getTotal() s¹ tablica typu double
+// i jej wielkoœæ. Zwracanym wynikiem jest suma wartoœci
+// elementów typu double.
+//*****************************************************
+
+double getTotal(const double numbers[], int size)
+{
+  double total = 0; // Zmienna sumuj¹ca
+
+  // Dodanie wartoœci wszystkich elementów do zmiennej total
+  for (int count = 0; count < size; count++)
+    total += numbers[count];
+
+  // Zwrócenie sumy wartoœci
+  return total;
+}
+
+//*****************************************************
+// Argumentami funkcji getLowest() s¹ tablica typu double
+// i jej wielkoœæ. Zwracanym wynikiem jest najmniejsza
+// wartoœæ w tablicy.
+//*****************************************************
+
+double getLowest(const double numbers[], int size)
+{
+  double lowest; // Zmienna zawieraj¹ca najmniejsz¹ wartoœæ
+
+  // Odczytanie wartoœci pierwszego elementu
+  lowest = numbers[0];
+
+  // Przetworzenie pozosta³ych elementów tablicy
+  // Je¿eli wartoœæ elementu jest mniejsza od zmiennej lowest,
+  // to element jest przypisywany tej zmiennej.
+  for (int count = 1; count < size; count++)
+  {
+    if (numbers[count] < lowest)
+      lowest = numbers[count];
+  }
+
+  // Zwrócenie najmniejszej wartoœci
+  return lowest;
+}
