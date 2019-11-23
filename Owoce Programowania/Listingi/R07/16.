@@ -1,0 +1,27 @@
+// Ten program pokazuje, ¿e w argumencie funkcji mo¿na umieszczaæ
+// element tablicy tak samo jak zwyk³¹ zmienn¹.
+#include <iostream>
+using namespace std;
+
+void showValue(int); // Prototyp funkcji
+
+int main()
+{
+  const int SIZE = 8;
+  int numbers[SIZE] = { 5, 10, 15, 20, 25, 30, 35, 40 };
+
+  for (int index = 0; index < SIZE; index++)
+    showValue(numbers[index]);
+  return 0;
+}
+
+//**********************************************
+// Definicja funkcji showValue()
+// Argumentem funkcji jest liczba ca³kowita.
+// Funkcja wyœwietla wartoœæ argumentu.
+//**********************************************
+
+void showValue(int num)
+{
+  cout << num << " ";
+}
