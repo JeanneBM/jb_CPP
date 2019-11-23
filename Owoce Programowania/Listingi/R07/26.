@@ -1,0 +1,24 @@
+// Ten program demonstruje zastosowanie pêtli zakresowej z wektorem.
+#include <iostream>
+#include <vector>
+using namespace std;
+
+int main()
+{
+  // Definicja wektora
+  vector<int> numbers(5);
+
+  // Pobranie wartoœci do zapisania w elementach wektora
+  for (int &val : numbers)
+  {
+    cout << "Podaj liczbê ca³kowit¹: ";
+    cin >> val;
+  }
+
+  // Wyœwietlenie zawartoœci elementów wektora
+  cout << "Wprowadzone liczby:\n";
+  for (int val : numbers)
+    cout << val << endl;
+
+  return 0;
+}
