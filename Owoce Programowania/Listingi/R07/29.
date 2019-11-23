@@ -1,0 +1,31 @@
+// Ten program demonstruje u¿ycie funkcji cz³onkowskiej pop_back() wektora.
+#include <iostream>
+#include <vector>
+using namespace std;
+
+int main()
+{
+  vector<int> values;
+
+  // Zapisanie wartoœci w wektorze
+  values.push_back(1);
+  values.push_back(2);
+  values.push_back(3);
+  cout << "Wielkoœæ wektora: " << values.size() << endl;
+
+  // Usuniêcie wartoœci z wektora
+  cout << "Usuniêcie wartoœci z wektora... \n";
+  values.pop_back();
+  cout << "Aktualna wielkoœæ wektora: " << values.size() << endl;
+
+  // Usuniêcie kolejnej wartoœci z wektora
+  cout << "Usuniêcie wartoœci z wektora... \n";
+  values.pop_back();
+  cout << "Aktualna wielkoœæ wektora: " << values.size() << endl;
+
+  // Usuniêcie ostatniej wartoœci z wektora
+  cout << "Usuniêcie wartoœci z wektora... \n";
+  values.pop_back();
+  cout << "Aktualna wielkoœæ wektora: " << values.size() << endl;
+  return 0;
+}
