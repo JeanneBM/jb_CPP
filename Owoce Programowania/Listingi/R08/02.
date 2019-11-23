@@ -1,0 +1,69 @@
+// Ten program demonstruje użycie funkcji binarySearch()
+// przeszukującej binarnie tablicę liczb całkowitych.
+#include <iostream>
+using namespace std;
+
+// Prototyp funkcji
+int binarySearch(const int[], int, int);
+const int SIZE = 20;
+
+int main()
+{
+  // Tablica identyfikatorów posortowanych w kolejności rosnącej
+  int idNums[SIZE] = { 101, 142, 147, 189, 199, 207, 222,
+                       234, 289, 296, 310, 319, 388, 394,
+                       417, 429, 447, 521, 536, 600 };
+  int results;  // Wynik wyszukiwania
+  int empID;    // Identyfikator pracownika
+
+  // Pobranie żądanego identyfikatora
+  cout << "Podaj identyfikator, który chcesz wyszukać: ";
+  cin >> empID;
+
+  // Wyszukanie identyfikatora
+  results = binarySearch(idNums, SIZE, empID);
+
+  // Jeżeli zmienna results zawiera wartość -1 oznacza to, że identyfikator nie został znaleziony.
+  if (results == -1)
+    cout << "Tego identyfikatora nie ma w tablicy.\n";
+  else
+  {
+    // W przeciwnym razie zmienna results zawiera indeks
+    // elementu z szukanym identyfikatorem
+    cout << "Szukany identyfikator ma w tablicy indeks " << results;
+    cout << ".\n";
+  }
+  return 0;
+}
+
+//****************************************************************
+// Funkcja binarySearch() przeszukuje binarnie tablicę liczb całkowitych.
+// Argument size określa liczbę elementów tablicy, a value szukaną wartość.
+// Jeżeli funkcja znajdzie zadaną wartość, to zwraca jej indeks w tablicy.
+// W przeciwnym razie funkcja zwraca wartość -1 oznaczającą, że tablica
+// nie zawiera szukanej wartości.
+//****************************************************************
+
+int binarySearch(const int array[], int size, int value)
+{
+  int first = 0,       // Indeks pierwszego elementu tablicy
+    last = size - 1,   // Indeks ostatniego elementu tablicy
+    middle,            // Indeks środkowego elementu tablicy
+    position = -1;     // Indeks szukanej wartości
+  bool found = false;  // Flaga
+
+  while (!found && first <= last)
+  {
+    middle = (first + last) / 2;    // Wyliczenie indeksu środkowego elementu tablicy.
+    if (array[middle] == value)     // Szukana wartość znajduje się w środkowym elemencie tablicy.
+    {
+      found = true;
+      position = middle;
+    }
+    else if (array[middle] > value) // Szukana wartość znajduje się w pierwszej połowie tablicy.
+      last = middle - 1;
+    else
+      first = middle + 1;           // Szukana wartość znajduje się w drugiej połowie tablicy.
+  }
+  return position;
+}
