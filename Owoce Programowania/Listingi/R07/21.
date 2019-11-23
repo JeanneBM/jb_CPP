@@ -1,0 +1,42 @@
+// Ten program demonstruje przetwarzanie tablicy dwuwymiarowej.
+#include <iostream>
+#include <iomanip>
+using namespace std;
+
+int main()
+{
+  const int NUM_DIVS = 3;           // Liczba oddzia³ów firmy
+  const int NUM_QTRS = 4;           // Liczba kwarta³ów w roku
+  double sales[NUM_DIVS][NUM_QTRS]; // Tablica sk³adaj¹ca siê z 3 wierszy i 4 kolumn
+  double totalSales = 0;            // Zmienna zawieraj¹ca ca³kowit¹ sprzeda¿
+  int div, qtr;                     // Liczniki pêtli
+
+  cout << "Ten program wylicza ca³kowit¹ wartoœæ sprzeda¿y\n";
+  cout << "we wszystkich oddzia³ach firmy.\n";
+  cout << "Podaj wyniki sprzeda¿y.\n\n";
+
+  // Zagnie¿d¿one pêtle wykorzystywane do zapisania w tabeli
+  // wyników sprzeda¿y w ka¿dym oddziale za ka¿dy kwarta³
+  for (div = 0; div < NUM_DIVS; div++)
+  {
+    for (qtr = 0; qtr < NUM_QTRS; qtr++)
+    {
+      cout << "Oddzia³ " << (div + 1);
+      cout << ", kwarta³ " << (qtr + 1) << ": ";
+      cin >> sales[div][qtr];
+    }
+    cout << endl; // Wyœwietlenie pustego wiersza
+  }
+
+  // Zagnie¿d¿one pêtle sumuj¹ce wartoœci wszystkich elementów
+  for (div = 0; div < NUM_DIVS; div++)
+  {
+    for (qtr = 0; qtr < NUM_QTRS; qtr++)
+      totalSales += sales[div][qtr];
+  }
+
+  cout << fixed << showpoint << setprecision(2);
+  cout << "Ca³kowita wartoœæ sprzeda¿y :";
+  cout << totalSales << " z³." << endl;
+  return 0;
+}
