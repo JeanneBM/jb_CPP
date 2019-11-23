@@ -1,0 +1,65 @@
+// Ten program demonstruje zastosowanie algorytmu sortowania przez wybieranie.
+#include <iostream>
+using namespace std;
+
+// Prototypy funkcji
+void selectionSort(int[], int);
+void swap(int &, int &);
+
+int main()
+{
+  const int SIZE = 6;
+
+  // Tablica zawierająca nieposortowane wartości
+  int values[SIZE] = { 6, 1, 5, 2, 4, 3 };
+
+  // Wyświetlenie zawartości nieposortowanej tablicy
+  cout << "Nieposortowane wartości:\n";
+  for (auto element : values)
+    cout << element << " ";
+  cout << endl;
+
+  // Sortowanie tablicy.
+  selectionSort(values, SIZE);
+
+  // Wyświetlenie zawartości posortowanej tablicy
+  cout << "Posortowane wartości:\n";
+  for (auto element : values)
+    cout << element << " ";
+  cout << endl;
+
+  return 0;
+}
+
+//*********************************************************************
+// Funkcja selectionSort() sortuje tablicę liczb całkowitych w kolejności rosnącej.
+//*********************************************************************
+void selectionSort(int array[], int size)
+{
+  int minIndex, minValue;
+
+  for (int start = 0; start < (size - 1); start++)
+  {
+    minIndex = start;
+    minValue = array[start];
+    for (int index = start + 1; index < size; index++)
+    {
+      if (array[index] < minValue)
+      {
+        minValue = array[index];
+        minIndex = index;
+      }
+    }
+    swap(array[minIndex], array[start]);
+  }
+}
+
+//***************************************************
+// Funkcja swap() zamienia wartości argumentów a i b.
+//***************************************************
+void swap(int &a, int &b)
+{
+  int temp = a;
+  a = b;
+  b = temp;
+}
