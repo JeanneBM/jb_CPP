@@ -1,0 +1,34 @@
+// Ten program demonstruje u¿ycie
+// funkcji cz³onkowskiej size() wektora.
+#include <iostream>
+#include <vector>
+using namespace std;
+
+// Prototyp funkcji
+void showValues(vector<int>);
+
+int main()
+{
+  vector<int> values;
+
+  // Umieszczenie w wektorze serii liczb
+  for (int count = 0; count < 7; count++)
+    values.push_back(count * 2);
+
+  // Wyœwietlenie liczb.
+  showValues(values);
+  return 0;
+}
+
+//**************************************************
+// Definicja funkcji showValues()
+// Argumentem funkcji jest wektor.
+// Funkcja wyœwietla zawartoœæ
+// wszystkich elementów wektora.
+//**************************************************
+
+void showValues(vector<int> vect)
+{
+  for (int count = 0; count < vect.size(); count++)
+    cout << vect[count] << endl;
+}
