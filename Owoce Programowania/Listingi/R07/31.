@@ -1,0 +1,59 @@
+// Ten program demonstruje u¿ycie funkcji cz³onkowskiej empty() wektora.
+#include <iostream>
+#include <vector>
+using namespace std;
+
+// Prototyp funkcji
+double avgVector(vector<int>);
+
+int main()
+{
+  vector<int> values;  // Wektor zawieraj¹cy wartoœci
+  int numValues;       // Liczba wartoœci
+  double average;      // Zmienna zawieraj¹ca œredni¹
+
+  // Pobranie liczby wektor do uœrednienia
+  cout << "Ile wartoœci chcesz uœredniæ? ";
+  cin >> numValues;
+
+  // Pobranie wartoœci i zapisanie ich w wektorze
+  for (int count = 0; count < numValues; count++)
+  {
+    int tempValue;
+    cout << "Podaj wartoœæ: ";
+    cin >> tempValue;
+    values.push_back(tempValue);
+  }
+
+  // Wyliczenie i wyœwietlenie œredniej
+  average = avgVector(values);
+  cout << "Œrednia wartoœæ: " << average << endl;
+  return 0;
+}
+
+//*************************************************************
+// Definicja funkcji avgVector()
+// Argumentem funkcji jest wektor. Je¿eli wektor zawiera
+// wartoœci, to funkcja zwraca ich œredni¹.
+// W przeciwnym razie funkcja wyœwietla komunikat
+// o b³êdzie i zwraca wynik 0.
+//*************************************************************
+
+double avgVector(vector<int> vect)
+{
+  int total = 0;     // Zmienna sumuj¹ca
+  double avg;        // Œrednia
+
+  if (vect.empty())  // Sprawdzenie, czy wektor jest pusty
+  {
+    cout << "Brak wartoœci do uœrednienia.\n";
+    avg = 0.0;
+  }
+  else
+  {
+    for (int count = 0; count < vect.size(); count++)
+      total += vect[count];
+    avg = total / vect.size();
+  }
+  return avg;
+}
