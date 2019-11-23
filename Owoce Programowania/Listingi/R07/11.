@@ -1,0 +1,19 @@
+// Ten program demonstruje zastosowanie pêtli zakresowej
+#include <iostream>
+#include <string>
+using namespace std;
+
+int main()
+{
+  string planets[] = { "Merkury", "Wenus", "Ziemia", "Mars",
+                       "Jowisz", "Saturn", "Uran",
+                       "Neptun", "Pluton (kar³owata planetka)" };
+
+  cout << "Nazwy planet:\n";
+
+  // Wyœwietlenie zawartoœci tablicy
+  for (string val : planets)
+    cout << val << endl;
+
+  return 0;
+}
