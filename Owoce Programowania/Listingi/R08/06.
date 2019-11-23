@@ -1,0 +1,159 @@
+// Ten program tworzy raport sprzeda¿y firmy Demetris S.A.
+#include <iostream>
+#include <iomanip>
+using namespace std;
+
+// Prototypy funkcji
+void calcSales(const int[], const double[], double[], int);
+void showOrder(const double[], const int[], int);
+void dualSort(int[], double[], int);
+void showTotals(const double[], const int[], int);
+void swap(double&, double&);
+void swap(int&, int&);
+
+int main()
+{
+  // Sta³a NUM_PRODS zawieraj¹ca liczbê oferowanych produktów
+  const int NUM_PRODS = 9;
+
+  // Tablica z identyfikatorami produktów
+  int id[NUM_PRODS] = { 914, 915, 916, 917, 918,
+                        919, 920, 921, 922 };
+
+  // Tablica z liczbami sprzedanych sztuk ka¿dego produktu
+  int units[NUM_PRODS] = { 842, 416, 127, 514, 437,
+                           269, 97,  492, 212 };
+
+  // Tablica z cenami produktów
+  double prices[NUM_PRODS] = { 51.95, 59.95, 75.95, 67.95, 87.95,
+                               99.95, 59.95, 59.95, 67.95 };
+
+  // Tablica zawieraj¹ca wyliczone wartoœci sprzeda¿y
+  double sales[NUM_PRODS];
+
+  // Wyliczenie wartoœci sprzeda¿y wszystkich produktów
+  calcSales(units, prices, sales, NUM_PRODS);
+
+  // Posortowanie elementów tablicy sales w kolejnoœci malej¹cej
+  // i przestawienie numerów liczbami w tablicy id tak, aby
+  // obie tablice by³y zsynchronizowane
+  dualSort(id, sales, NUM_PRODS);
+
+  // Ustawienie formatu wyœwietlania liczb
+  cout << setprecision(2) << fixed << showpoint;
+
+  // Wyœwietlenie numerów produktów i wielkoœci ich sprzeda¿y
+  showOrder(sales, id, NUM_PRODS);
+
+  // Wyœwietlenie ca³kowitej liczby sprzedanych produktów i ca³kowitej wielkoœci sprzeda¿y
+  showTotals(sales, units, NUM_PRODS);
+  return 0;
+}
+
+//****************************************************************
+// Definicja funkcji calcSales(). Argumentami funkcji s¹ tablice
+// units, prices i sales oraz liczba ca³kowita num oznaczaj¹ca wielkoœæ 
+// obu tablic. Funkcja wylicza wielkoœæ sprzeda¿y ka¿dego produktu,
+// mno¿¹c liczbê sprzedanych sztuk przez jego cenê. Wynik zapisuje
+// w tablicy sales.
+//****************************************************************
+
+void calcSales(const int units[], const double prices[], double sales[], int num)
+{
+  for (int index = 0; index < num; index++)
+    sales[index] = units[index] * prices[index];
+}
+
+//****************************************************************
+// Definicja funkcji dualSort(). Argumentami funkcji s¹
+// tablice id i sales oraz liczba ca³kowita size oznaczaj¹ca 
+// wielkoœæ obu tablic. Funkcja sortuje malej¹co tablicê 
+// sales, wykorzystuj¹c algorytm sortowania przez wybieranie.
+// Elementy tablicy id zamienia w taki sam sposób jak
+// elementy tablicy sales.
+//****************************************************************
+
+void dualSort(int id[], double sales[], int size)
+{
+  int start, maxIndex, tempid;
+  double maxValue;
+
+  for (start = 0; start < (size - 1); start++)
+  {
+    maxIndex = start;
+    maxValue = sales[start];
+    tempid = id[start];
+    for (int index = start + 1; index < size; index++)
+    {
+      if (sales[index] > maxValue)
+      {
+        maxValue = sales[index];
+        tempid = id[index];
+        maxIndex = index;
+      }
+    }
+    swap(sales[maxIndex], sales[start]);
+    swap(id[maxIndex], id[start]);
+  }
+}
+
+//******************************************************
+// Funkcja swap() zamienia miejscami wartoœci a i b typu double.
+//******************************************************
+void swap(double &a, double &b)
+{
+  double temp = a;
+  a = b;
+  b = temp;
+}
+
+//******************************************************
+// Funkcja swap() zamienia miejscami wartoœci a i b typu int.
+//******************************************************
+void swap(int &a, int &b)
+{
+  int temp = a;
+  a = b;
+  b = temp;
+}
+
+//*****************************************************************
+// Definicja funkcji showOrder(). Argumentami funkcji s¹ tablice
+// sales i id oraz liczba ca³kowita num oznaczaj¹ca wielkoœci obu
+// tablic. Funkcja wyœwietla nag³ówek, a nastêpnie posortowan¹ 
+// listê numerów produktów i wielkoœci ich sprzeda¿y.
+//*****************************************************************
+
+void showOrder(const double sales[], const int id[], int num)
+{
+  cout << "Numer produktu\tWielkoœæ sprzeda¿y\n";
+  cout << "----------------------------------\n";
+  for (int index = 0; index < num; index++)
+  {
+    cout << id[index] << "\t\t";
+    cout << setw(8) << sales[index] << " z³" << endl;
+  }
+  cout << endl;
+}
+
+//******************************************************************
+// Definicja funkcji showTotals(). Argumentami funkcji s¹ tablice
+// sales i id oraz liczba ca³kowita num zawieraj¹ca wielkoœci obu 
+// tablic. Funkcja wylicza ca³kowit¹ liczbê sprzedanych produktów
+// i ca³kowit¹ wielkoœæ sprzeda¿y, a nastêpnie wyœwietla
+// wyliczone wartoœci.
+//******************************************************************
+
+void showTotals(const double sales[], const int units[], int num)
+{
+  int totalUnits = 0;
+  double totalSales = 0.0;
+
+  for (int index = 0; index < num; index++)
+  {
+    totalUnits += units[index];
+    totalSales += sales[index];
+  }
+  cout << "Ca³kowita liczba sprzedanych sztuk: " << totalUnits << endl;
+  cout << "Ca³kowita wartoœæ sprzeda¿y: " << totalSales << " z³" << endl;
+}
