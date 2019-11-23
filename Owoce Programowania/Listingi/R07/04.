@@ -1,0 +1,18 @@
+// Ten program inicjuje tablicê ci¹gami znaków.
+#include<iostream>
+#include<string>
+using namespace std;
+
+int main()
+{
+  const int SIZE = 9;
+  string planets[SIZE] = { "Merkury", "Wenus", "Ziemia", "Mars",
+                           "Jowisz", "Saturn", "Uran",
+                           "Neptun", "Pluton (kar³owata planetka)" };
+
+  cout << "Nazwy planet:\n";
+
+  for (int count = 0; count < SIZE; count++)
+    cout << planets[count] << endl;
+  return 0;
+}
