@@ -1,0 +1,24 @@
+// Ten program w niebezpieczny sposób odwołuje się do pamięci
+// zapisując dane poza tablicą.
+// Uwaga: program po uruchomieniu może ulec awarii.
+#include <iostream>
+using namespace std;
+
+int main()
+{
+  const int SIZE = 3;  // Stała określająca wielkość tablicy
+  int values[SIZE];    // Tablica złożona z trzech elementów
+  int count;           // Licznik pętli
+
+  // Próba zapisania pięciu liczb w trójelementowej tablicy
+  cout << "Zapis pięciu liczb w trójelementowej tablicy!\n";
+  for (count = 0; count < 5; count++)
+    values[count] = 100;
+
+  // Jeżeli program dalej działa, to wyświetla liczby
+  cout << "Jeżeli widzisz ten komunikat, oznacza to, że program\n";
+  cout << "nie uległ awarii! Zapisane liczby:\n";
+  for (count = 0; count < 5; count++)
+    cout << values[count] << endl;
+  return 0;
+}
