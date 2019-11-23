@@ -1,0 +1,16 @@
+#include <iostream>
+#include <string>
+using namespace std;
+int main()
+{
+  const int NUM_NAMES = 20;
+  string names[NUM_NAMES] = { "Nowak Julia", "Kowalski Antoni", "Wiœniewska Zuzanna",
+                              "Wójcik Jakub", "Kowalczyk Maja", "Kamiñski Jan",
+                              "Lewandowska Zofia", "Zieliñski Szymon", "Szymañska Lena",
+                              "WoŸniak Franciszek", "D¹browska Hanna", "Koz³owski Filip",
+                              "Jankowska Amelia", "Mazur Aleksander", "Wojciechowska Alicja",
+                              "Kwiatkowski Wojciech", "Krawczyk Aleksandra", "Kaczmarek Kacper",
+                              "Piotrowska Oliwia", "Grabowski Miko³aj" };
+  // Uzupe³nij kod programu.
+  return 0;
+}
