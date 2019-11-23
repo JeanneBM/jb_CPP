@@ -1,0 +1,143 @@
+// Ten program służy do wyszukiwania produktów wydawnictwa Demetris S.A.
+// Prosi on użytkownika o podanie numeru produktu,
+// a następnie wyświetla tytuł, opis i cenę produktu
+// o podanym numerze.
+#include <iostream>
+#include <string>
+using namespace std;
+
+const int NUM_PRODS = 9;     // Liczba wydawanych produktów
+const int MIN_PRODNUM = 914; // Najmniejszy numer produktu
+const int MAX_PRODNUM = 922; // Największy numer produktu
+
+// Prototypy funkcji
+int getProdNum();
+int binarySearch(const int[], int, int);
+void displayProd(const string[], const string[], const double[], int);
+
+int main()
+{
+  // Tablica numerów produktów
+  int id[NUM_PRODS] = { 914, 915, 916, 917, 918, 919, 920,
+                        921, 922 };
+
+  // Tablica tytułów produktów
+  string title[NUM_PRODS] =
+    { "Sześć kroków do przywództwa",
+      "Sześć kroków do przywództwa",
+      "Droga do doskonałości",
+      "Siedem lekcji jakości",
+      "Siedem lekcji jakości",
+      "Siedem lekcji jakości",
+      "Zespoły się buduje, nie stwarza",
+      "Przywództwo dla przyszłości",
+      "Przywództwo dla przyszłości"
+    };
+
+  // Tablica opisów produktów
+  string description[NUM_PRODS] =
+    { "Książka", "Audio CD", "DVD",
+      "Książka", "Audio CD", "DVD",
+      "Książka", "Książka ", "Audio CD"
+    };
+
+  // Tablica cen produktów
+  double prices[NUM_PRODS] = { 51.95, 59.95, 75.95, 67.95, 87.95,
+                               99.95, 59.95, 59.95, 67.95, };
+
+  int prodNum;  // Numer produktu
+  int index;    // Wynik wyszukiwania
+  char again;   // Odpowiedź T lub N
+
+  do
+  {
+    // Pobranie numeru produktu
+    prodNum = getProdNum();
+
+    // Wyszukanie numeru produktu
+    index = binarySearch(id, NUM_PRODS, prodNum);
+
+    // Wyświetlenie wyniku wyszukiwania
+    if (index == -1)
+      cout << "Produkt o podanym numerze nie został znaleziony.\n";
+    else
+      displayProd(title, description, prices, index);
+
+    // Czy użytkownik chce powtórzyć proces?
+    cout << "Czy chcesz wyszukać inny produkt? (t/n) ";
+    cin >> again;
+  } while (again == 't' || again == 'T');
+  return 0;
+}
+
+//****************************************************
+// Definicja funkcji getProdNum()
+// Funkcja prosi użytkownika o podanie numeru produktu
+// i sprawdza jego poprawność. Jeżeli numer jest poprawny,
+// funkcja go zwraca.
+//****************************************************
+
+int getProdNum()
+{
+  int prodNum; // Numer produktu.
+
+  cout << "Podaj numer produktu: ";
+  cin >> prodNum;
+  // Sprawdzenie poprawności danych
+  while (prodNum < MIN_PRODNUM || prodNum > MAX_PRODNUM)
+  {
+    cout << "Numer musi zawierać się w zakresie od " << MIN_PRODNUM;
+    cout << " do " << MAX_PRODNUM << ".\n";
+    cin >> prodNum;
+  }
+  return prodNum;
+}
+
+//*****************************************************************
+// Definicja funkcji binarySearch().
+// Funkcja binarySearch() przeszukuje binarnie tablicę liczb całkowitych.
+// Argument size określa liczbę elementów tablicy, a value szukaną wartość.
+// Jeżeli funkcja znajdzie zadaną wartość, to zwraca jej indeks w tablicy.
+// W przeciwnym razie funkcja zwraca wartość -1 oznaczającą, że tablica
+// nie zawiera szukanej wartości.
+//*****************************************************************
+
+int binarySearch(const int array[], int numElems, int value)
+{
+  int first = 0,          // Indeks pierwszego elementu tablicy
+    last = numElems - 1,  // Indeks ostatniego elementu tablicy
+    middle,               // Indeks środkowego elementu tablicy
+    position = -1;        // Indeks szukanej wartości
+  bool found = false;     // Flaga.
+
+  while (!found && first <= last)
+  {
+    middle = (first + last) / 2;    // Wyliczenie indeksu środkowego elementu tablicy
+    if (array[middle] == value)     // Szukana wartość znajduje się w środkowym elemencie tablicy.
+    {
+      found = true;
+      position = middle;
+    }
+    else if (array[middle] > value) // Szukana wartość znajduje się w pierwszej połowie tablicy.
+      last = middle - 1;
+    else
+      first = middle + 1;           // Szukana wartość znajduje się w drugiej połowie tablicy.
+  }
+  return position;
+}
+
+//**************************************************************
+// Argumentami funkcji displayProd() są trzy tablice i liczba
+// całkowita. Tablice zawierają tytuły, opisy i ceny produktów
+// zdefiniowane w funkcji main(). Argument index zawiera
+// indeks produktu. Funkcja wyświetla wartości elementów
+// o zadanym indeksie w poszczególnych tablicach.
+//**************************************************************
+
+void displayProd(const string title[], const string desc[],
+  const double price[], int index)
+{
+  cout << "Tytuł: " << title[index] << endl;
+  cout << "Opis: " << desc[index] << endl;
+  cout << "Cena: " << price[index] << " zł" << endl;
+}
