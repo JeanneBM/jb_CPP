@@ -1,0 +1,39 @@
+// Ten program demonstruje u¿ycie sta³ego wskaŸnika.
+#include <iostream>
+using namespace std;
+
+void displayValues(const int *, int);
+
+int main()
+{
+  // Wielkoœæ tablic
+  const int SIZE = 6;
+
+  // Definicja tablicy sta³ych typu int
+  const int array1[SIZE] = { 1, 2, 3, 4, 5, 6 };
+
+  // Definicja tablicy zmiennych typu int
+  int array2[SIZE] = { 2, 4, 6, 8, 10, 12 };
+
+  // Wyœwietlenie zawartoœci tablicy sta³ych
+  displayValues(array1, SIZE);
+
+  // Wyœwietlenie zawartoœci tablicy zmiennych
+  displayValues(array2, SIZE);
+  return 0;
+}
+
+//***************************************************
+// Funkcja displayValues() wyœwietla za pomoc¹ wskaŸnika 
+// zawartoœæ tablicy podanej w argumencie.
+//***************************************************
+
+void displayValues(const int *numbers, int size)
+{
+  // Wyœwietlenie zawartoœci tablicy
+  for (int count = 0; count < size; count++)
+  {
+    cout << *(numbers + count) << " ";
+  }
+  cout << endl;
+}
