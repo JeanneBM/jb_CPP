@@ -1,0 +1,31 @@
+// Ten program wykorzystuje wskaŸnik do wyœwietlania zawartoœci tablicy.
+#include <iostream>
+using namespace std;
+
+int main()
+{
+  const int SIZE = 8;
+  int set[SIZE] = { 5, 10, 15, 20, 25, 30, 35, 40 };
+  int *numPtr = nullptr;   // WskaŸnik
+  int count;               // Licznik pêtli
+
+  // Przypisanie zmiennej numPtr adresu tablicy set
+  numPtr = set;
+
+  // Wyœwietlenie zawartoœci tablicy z wykorzystaniem wskaŸnika
+  cout << "Zawartoœæ tablicy set:\n";
+  for (count = 0; count < SIZE; count++)
+  {
+    cout << *numPtr << " ";
+    numPtr++;
+  }
+
+  // Wyœwietlenie zawartoœci tablicy w odwrotnej kolejnoœci
+  cout << "\nZawartoœæ tablicy set w odwrotnej kolejnoœci:\n";
+  for (count = 0; count < SIZE; count++)
+  {
+    numPtr--;
+    cout << *numPtr << " ";
+  }
+  return 0;
+}
