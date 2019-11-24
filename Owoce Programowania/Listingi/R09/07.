@@ -1,0 +1,29 @@
+// Ten program wykorzystuje wyrażenie z nazwą tablicy jako wskaźnikiem,
+// oraz wyrażenie z indeksem i ze wskaźnikiem jako nazwą tablicy.
+#include <iostream>
+using namespace std;
+
+int main()
+{
+  const int NUM_COINS = 5;
+  double coins[NUM_COINS] = { 0.05, 0.1, 0.25, 0.5, 1.0 };
+  double *doublePtr;   // Wskaźnik typu double
+  int count;           // Indeks tablicy
+
+  // Przypisanie adresu tablicy coins do zmiennej doublePtr
+  doublePtr = coins;
+
+  // Wyświetlenie zawartości tablicy coins. Wykorzystany jest
+  // indeks i nazwa tablicy jako wskaźnik!
+  cout << "Zawartość tablicy coins:\n";
+  for (count = 0; count < NUM_COINS; count++)
+    cout << doublePtr[count] << " ";
+
+  // Ponowne wyświetlenie zawartości tablicy coins. Tym razem jednak
+  // nazwa tablicy jest użyta jako wskaźnik!
+  cout << "\nJeszcze raz zawartość tablicy coins:\n";
+  for (count = 0; count < NUM_COINS; count++)
+    cout << *(coins + count) << " ";
+  cout << endl;
+  return 0;
+}
