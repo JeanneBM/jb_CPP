@@ -1,0 +1,58 @@
+// Ten program sprawdza, czy siedmioznakowy kod klienta
+// ma prawidłowy format.
+#include <iostream>
+#include <cctype>
+using namespace std;
+
+// Prototyp funkcji
+bool testNum(char[], int);
+
+int main()
+{
+  const int SIZE = 8;   // Wielkość tablicy
+  char customer[SIZE];  // Tablica zawierająca kod klienta
+
+  // Pobranie kodu klienta
+  cout << "Podaj kod klienta w formacie ";
+  cout << "LLLCCCC\n";
+  cout << "(gdzie LLL = litery, a NNNN = cyfry): ";
+  cin.getline(customer, SIZE);
+
+  // Sprawdzenie poprawności kodu
+  if (testNum(customer, SIZE))
+    cout << "Kod klienta jest poprawny.\n";
+  else
+  {
+    cout << "To nie jest poprawny kod klienta.\n";
+    cout << "Przykład poprawnego kodu:\n";
+    cout << "   ABC1234\n";
+  }
+  return 0;
+}
+
+//**********************************************************
+// Definicja funkcji testNum().
+// Funkcja sprawdza, czy argument custNum zawiera
+// poprawny kod klienta. Argument size oznacza wielkość
+// tablicy podanej w argumencie.
+//**********************************************************
+
+bool testNum(char custNum[], int size)
+{
+  int count; // Licznik pętli
+
+  // Sprawdzenie, czy pierwsze trzy znaki kodu są literami
+  for (count = 0; count < 3; count++)
+  {
+    if (!isalpha(custNum[count]))
+      return false;
+  }
+
+  // Sprawdzenie, czy pozostałe znaki kodu są cyframi
+  for (count = 3; count < size - 1; count++)
+  {
+    if (!isdigit(custNum[count]))
+      return false;
+  }
+  return true;
+}
