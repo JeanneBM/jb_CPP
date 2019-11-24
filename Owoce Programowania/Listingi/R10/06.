@@ -1,0 +1,44 @@
+// Ten program wykorzystuje funkcjê strstr() do przeszukiwania tablicy C-ci¹gów.
+#include <iostream>
+#include <cstring>    // Plik nag³ówkowy zawieraj¹cy prototyp funkcji strstr()
+using namespace std;
+
+int main()
+{
+  // Sta³e okreœlaj¹ce wielkoœæ tablicy
+  const int NUM_PRODS = 5;   // Liczba produktów
+  const int LENGTH = 30;     // D³ugoœæ ci¹gu
+
+  // Tablica produktów.
+  char products[NUM_PRODS][LENGTH] =
+  { "TV327 Telewizor 31 cali",
+    "CD257 Odtwarzacz CD",
+    "TA677 Automatyczna sekretarka",
+    "CS109 Radio samochodowe",
+    "PC955 Komputer osobisty" };
+
+  char lookUp[LENGTH];     // Ci¹g wprowadzony przez u¿ytkownika
+  char *strPtr = nullptr;  // WskaŸnik znalezionego ci¹gu
+  int index;               // Licznik pêtli
+
+  // Pobranie kodu produktu.
+  cout << "\tBaza danych produktów\n\n";
+  cout << "Podaj kod produktu: ";
+  cin.getline(lookUp, LENGTH);
+
+  // Wyszukanie w tablicy podanego ci¹gu znaków
+  for (index = 0; index < NUM_PRODS; index++)
+  {
+    strPtr = strstr(products[index], lookUp);
+    if (strPtr != nullptr)
+      break;
+  }
+
+  // Wyœwietlenie informacji o produkcie, je¿eli wprowadzony ci¹g znaków zostanie znaleziony
+  if (strPtr != nullptr)
+    cout << products[index] << endl;
+  else
+    cout << "Brak produktów o podanym kodzie.\n";
+
+  return 0;
+}
