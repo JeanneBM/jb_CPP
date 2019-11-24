@@ -1,0 +1,58 @@
+// Ten program pokazuje, że w argumencie wskaźnikowym
+// można umieszczać tablicę.
+#include <iostream>
+#include <iomanip>
+using namespace std;
+
+// Prototypy funkcji
+void getSales(double *, int);
+double totalSales(double *, int);
+
+int main()
+{
+  const int QTRS = 4;
+  double sales[QTRS];
+
+  // Pobranie wielkości sprzedaży za wszystkie kwartały
+  getSales(sales, QTRS);
+
+  // Ustawienie formatów wyświetlania liczb
+  cout << fixed << showpoint << setprecision(2);
+
+  // Wyświetlenie całkowitej rocznej wielkości sprzedaży.
+  cout << "Całkowita roczna wielkość sprzedaży: ";
+  cout << totalSales(sales, QTRS) << " zł" << endl;
+  return 0;
+}
+
+//******************************************************************
+// Definicja funkcji getSales(). Argumentem funkcji jest wskaźnik typu
+// double, w którym umieszcza się tablicę. Funkcja prosi użytkownika
+// o podanie wyników sprzedaży, które następnie zapisuje we wskazanej tablicy.
+//******************************************************************
+void getSales(double *arr, int size)
+{
+  for (int count = 0; count < size; count++)
+  {
+    cout << "Podaj wielkość sprzedaży w kwartale ";
+    cout << (count + 1) << ": ";
+    cin >> arr[count];
+  }
+}
+
+//******************************************************************
+// Definicja funkcji totalSales(). Argumentem funkcji jest wskaźnik,
+// w którym umieszcza się tablicę. Funkcja zwraca sumę wartości
+// zapisanych w elementach podanej tablicy.
+//******************************************************************
+double totalSales(double *arr, int size)
+{
+  double sum = 0.0;
+
+  for (int count = 0; count < size; count++)
+  {
+    sum += *arr;
+    arr++;
+  }
+  return sum;
+}
