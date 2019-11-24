@@ -1,0 +1,24 @@
+// Ten program wyświetla ciąg znaków zapisany w tablicy.
+#include <iostream>
+using namespace std;
+
+int main()
+{
+  const int SIZE = 80;  // Wielkość tablicy
+  char line[SIZE];      // Tablica przechowująca wprowadzone dane
+  int count = 0;        // Licznik pętli
+
+  // Pobranie danych.
+  cout << "Wpisz ciąg złożony z maksymalnie "
+       << (SIZE - 1) << " znaków:\n";
+  cin.getline(line, SIZE);
+
+  // Wyświetlenie wprowadzonego ciągu znak po znaku
+  cout << "Wprowadzony ciąg znaków:\n";
+  while (line[count] != '\0')
+  {
+    cout << line[count];
+    count++;
+  }
+  return 0;
+}
