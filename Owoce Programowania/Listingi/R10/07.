@@ -1,0 +1,26 @@
+// Ten program sprawdza za pomocą funkcji strcmp(),
+// czy dwa C-ciągi są identyczne.
+#include <iostream>
+#include <string>
+using namespace std;
+
+int main()
+{
+  // Dwie tabele dla dwóch ciągów znaków
+  const int LENGTH = 40;
+  char firstString[LENGTH], secondString[LENGTH];
+
+  // Pobranie dwóch ciągów
+  cout << "Podaj pierwszy ciąg: ";
+  cin.getline(firstString, LENGTH);
+  cout << "Podaj drugi ciąg: ";
+  cin.getline(secondString, LENGTH);
+
+  // Porównanie ciągów za pomocą funkcji strcmp()
+  if (strcmp(firstString, secondString) == 0)
+    cout << "Wpisales dwa razy ten sam ciag.\n";
+  else
+    cout << "Ciagi nie sa takie same.\n";
+
+  return 0;
+}
