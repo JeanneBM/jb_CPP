@@ -1,0 +1,46 @@
+// Ten program wykorzystuje dwie funkcje, w których argumentach
+// umieszcza się adresy zmiennych.
+#include <iostream>
+using namespace std;
+
+// Prototypy funkcji
+void getNumber(int *);
+void doubleValue(int *);
+
+int main()
+{
+  int number;
+
+  // Wywołanie funkcji getNumber() z adresem zmiennej number w argumencie
+  getNumber(&number);
+
+  // Wywołanie funkcji doubleValue() z adresem zmiennej number w argumencie
+  doubleValue(&number);
+
+  // Wyświetlenie wartości zmiennej number
+  cout << "Podwojona wartość zmiennej: " << number << endl;
+  return 0;
+}
+
+//****************************************************************
+// Definicja funkcji getNumber(). Argument input jest wskaźnikiem.
+// Funkcja prosi użytkownika o podanie liczby, którą następnie
+// zapisuje w zmiennej wskazanej w argumencie.
+//****************************************************************
+
+void getNumber(int *input)
+{
+  cout << "Podaj liczbę całkowitą: ";
+  cin >> *input;
+}
+
+//****************************************************************
+// Definicja funkcji doubleValue(). Argument val jest
+// wskaźnikiem. Funkcja mnoży wskazywaną w
+// argumencie zmienną przez 2.
+//****************************************************************
+
+void doubleValue(int *val)
+{
+  *val *= 2;
+}
