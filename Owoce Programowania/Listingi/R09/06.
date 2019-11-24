@@ -1,0 +1,24 @@
+// Ten program przetwarza tablicę wykorzystując wskaźniki.
+#include <iostream>
+using namespace std;
+
+int main()
+{
+  const int SIZE = 5; // Wielkość tablicy
+  int numbers[SIZE];  // Tablica typu int
+  int count;          // Licznik pętli
+
+  // Pobranie wartości do zapisania w tablicy
+  // Wykorzystane jest wyrażenie ze wskaźnikiem, a nie z indeksem.
+  cout << "Podaj " << SIZE << " liczb: ";
+  for (count = 0; count < SIZE; count++)
+    cin >> *(numbers + count);
+
+  // Wyświetlenie zawartości tablicy
+  // Wykorzystane jest wyrażenie ze wskaźnikiem, a nie z indeksem.
+  cout << "Wprowadzone liczby:\n";
+  for (count = 0; count < SIZE; count++)
+    cout << *(numbers + count) << " ";
+  cout << endl;
+  return 0;
+}
