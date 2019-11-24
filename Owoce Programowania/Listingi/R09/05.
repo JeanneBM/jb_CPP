@@ -1,0 +1,13 @@
+// Ten program demonstruje wyłuskiwanie nazwy tablicy
+// za pomocą operatora *.
+#include <iostream>
+using namespace std;
+
+int main()
+{
+  short numbers[] = { 10, 20, 30, 40, 50 };
+
+  cout << "Pierwszy element tablicy: ";
+  cout << *numbers << endl;
+  return 0;
+}
