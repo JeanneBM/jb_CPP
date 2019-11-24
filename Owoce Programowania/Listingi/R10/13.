@@ -1,0 +1,41 @@
+// Ten program wykorzystuje funkcję nameSlice() do
+// odcinania nazwiska od ciąu zawierajacego imie
+// i nazwisko uzytkownika
+#include <iostream>
+using namespace std;
+
+void nameSlice(char[]);  // Prototyp funkcji
+
+int main()
+{
+  const int SIZE = 41; // Wielkoœæ tablicy
+  char name[SIZE];     // Imiê i nazwisko u¿ytkownika
+
+  cout << "Podaj swoje imiê i nazwisko ";
+  cout << "rozdzielone spacj¹:\n";
+  cin.getline(name, SIZE);
+  nameSlice(name);
+  cout << "Twoje imiê: " << name << endl;
+  return 0;
+}
+
+//***************************************************************
+// Definicja funkcji nameSlice(). Argumentem jest
+// tablica typu char. Funkcja wyszukuje w tablicy
+// spacjê. Je¿eli j¹ znajdzie, zastêpuje j¹
+// zerowym znakiem koñcowym.
+//***************************************************************
+
+void nameSlice(char userName[])
+{
+  int count = 0; // Licznik pêtli
+
+  // Wyszukanie pierwszej spacji lub znaku zerowego,
+  // je¿eli ci¹g nie zawiera spacji
+  while (userName[count] != ' ' && userName[count] != '\0')
+    count++;
+
+  // Zamiana spacji, je¿eli zosta³a znaleziona, na znak zerowy
+  if (userName[count] == ' ')
+    userName[count] = '\0';
+}
