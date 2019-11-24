@@ -1,0 +1,38 @@
+// Ten program wykorzystuje funkcjê strcmp() do sprowadzania
+// wprowadzonego przez u¿ytkownika kodu odtwarzacza MP3.
+#include <iostream>
+#include <cstring>
+#include <iomanip>
+using namespace std;
+
+int main()
+{
+  // Ceny odtwarzaczy
+  const double A_PRICE = 99.0,
+               B_PRICE = 199.0;
+
+  // Tablica z kodem odtwarzacza
+  const int PART_LENGTH = 9;
+  char partNum[PART_LENGTH];
+
+  // Wyœwietlenie instrukcji dla u¿ytkownika
+  cout << "Kody odtwarzaczy MP3:\n"
+       << "\tPojemnoœæ 16 GB, kod S147–29A\n"
+       << "\tPojemnoœæ 32 GB, kod S147–29B\n"
+       << "Podaj kod odtwarzacza,\n"
+       << "który chcesz kupiæ: ";
+
+  // Pobranie kodu o d³ugoœci maks. 8 znaków
+  cin >> partNum;
+
+  // Sprawdzenie za pomoc¹ funkcji strcmp() kodu
+  // wprowadzonego przez u¿ytkownika i wyœwietlenie ceny
+  cout << showpoint << fixed << setprecision(2);
+  if (strcmp(partNum, "S147–29A") == 0)
+    cout << "Cena: " << A_PRICE << " z³" << endl;
+  else if (strcmp(partNum, "S147–29B") == 0)
+    cout << "Cena: " << B_PRICE << " z³" << endl;
+  else
+    cout << "Kod " << partNum << " nie jest poprawny.\n";
+  return 0;
+}
