@@ -1,0 +1,30 @@
+// Ten program demonstruje użycie zmiennej wskaźnikowej
+// odwołującej się do różnych zmiennych.
+#include <iostream>
+using namespace std;
+
+int main()
+{
+  int x = 25, y = 50, z = 75;  // Zmienne typu int
+  int *ptr = nullptr;          // Zmienna wskaźnikowa
+
+  // Wyświetlenie wartości zmiennych x, y i z.
+  cout << "Wartości zmiennych x, y i z:\n";
+  cout << x << " " << y << " " << z << endl;
+
+  // Modyfikowanie wartości zmiennych x, y i z za pomocą wskaźnika
+
+  ptr = &x;      // Zapisanie w zmiennej ptr adresu zmiennej x
+  *ptr += 100;   // Dodanie do zmiennej x liczby 100
+
+  ptr = &y;      // Zapisanie w zmiennej ptr adresu zmiennej y
+  *ptr += 100;   // Dodanie do zmiennej y liczby 100
+
+  ptr = &z;      // Zapisanie w zmiennej ptr adresu zmiennej z
+  *ptr += 100;   // Dodanie do zmiennej z liczby 100
+
+  // Wyświetlenie wartości zmiennych x, y i z
+  cout << "Ponowne wyświetlenie wartości zmiennych x, y i z:\n";
+  cout << x << " " << y << " " << z << endl;
+  return 0;
+}
