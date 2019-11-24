@@ -1,0 +1,34 @@
+// Ten program wykorzystuje wskaźnik do wyświetlania
+// tablicy typu int.
+#include <iostream>
+using namespace std;
+
+int main()
+{
+  const int SIZE = 8;
+  int numbers[SIZE] = { 5, 10, 15, 20, 25, 30, 35, 40 };
+  int *ptr = numbers;     // Przypisanie wskaźnikowi ptr adresu tablicy numbers
+
+  // Wyświetlenie zawartości tablicy
+  cout << "Zawartość tablicy:\n";
+  cout << *ptr << " ";    // Wyświetlenie pierwszego elementu tablicy
+  while (ptr < &numbers[SIZE - 1])
+  {
+    // Przesunięcie wskaźnika ptr na następny element tablicy
+    ptr++;
+    // Wyświetlenie wartości wskazywanej przez wskaźnik ptr
+    cout << *ptr << " ";
+  }
+
+  // Wyświetlenie zawartości tablicy w odwrotnej kolejności
+  cout << "\nZawartość tablicy w odwrotnej kolejności:\n";
+  cout << *ptr << " ";   // Wyświetlenie ostatniego elementu tablicy
+  while (ptr > numbers)
+  {
+    // Przesunięcie wskaźnika ptr na poprzedni element tablicy
+    ptr--;
+    // Wyświetlenie wartości wskazywanej przez wskaźnik ptr
+    cout << *ptr << " ";
+  }
+  return 0;
+}
