@@ -1,0 +1,14 @@
+// Ten program zapisuje adres zmiennej we wskaŸniku.
+#include <iostream>
+using namespace std;
+
+int main()
+{
+  int x = 25; // Zmienna typu int
+  int *ptr = nullptr; // Zmienna wskaŸnikowa typu int
+
+  ptr = &x; // Zapisanie adresu zmiennej x w zmiennej ptr
+  cout << "Wartoœæ zmiennej x: " << x << endl;
+  cout << "Adres zmiennej x: " << ptr << endl;
+  return 0;
+}
