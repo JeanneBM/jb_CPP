@@ -1,0 +1,55 @@
+// Ten program demonstruje u¿ycie funkcji
+// zwracaj¹cej wskaŸnik.
+#include <iostream>
+#include <cstdlib>  // Plik nag³ówkowy zawieraj¹cy funkcje rand() i srand()
+#include <ctime>    // Plik nag³ówkowy zawieraj¹cy funkcjê time()
+using namespace std;
+
+// Prototyp funkcji
+int *getRandomNumbers(int);
+
+int main()
+{
+  int *numbers = nullptr;  // WskaŸnik tablicy z liczbami
+
+  // Utworzenie tablicy z piêcioma liczbami losowymi
+  numbers = getRandomNumbers(5);
+
+  // Wyœwietlenie liczb
+  for (int count = 0; count < 5; count++)
+    cout << numbers[count] << endl;
+
+  // Zwolnienie pamiêci
+  delete[] numbers;
+  numbers = nullptr;
+  return 0;
+}
+
+//***************************************************
+// Funkcja getRandomNumbers() zwraca wskaŸnik
+// do tablicy zawieraj¹cej liczby losowe. Argument 
+// funkcji zawiera liczbê elementów tablicy.
+//***************************************************
+
+int *getRandomNumbers(int num)
+{
+  int *arr = nullptr;  // WskaŸnik do tablicy z liczbami
+
+  // Zwrócenie wskaŸnika zerowego je¿eli argument num zawiera zero lub liczbê ujemn¹
+  if (num <= 0)
+    return nullptr;
+
+  // Dynamiczne utworzenie tablicy
+  arr = new int[num];
+
+  // Zainicjowanie generatora liczb losowych poprzez wywo³anie funkcji srand()
+  // z argumentem zawieraj¹cym wynik funkcji time()
+  srand(time(0));
+
+  // Wype³nienie tablicy liczbami losowymi
+  for (int count = 0; count < num; count++)
+    arr[count] = rand();
+
+  // Zwrócenie wskaŸnika do tablicy
+  return arr;
+}
