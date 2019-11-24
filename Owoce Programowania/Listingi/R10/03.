@@ -1,0 +1,40 @@
+// Ten program wylicza pole koła. Wyświetla wynik i prosi użytkownika
+// o decyzję, czy chce kontynuować obliczenia. Pętla demonstrująca
+// użycie funkcji toupper() jest wykonywana do momentu, aż użytkownik
+// wpisze znak 't', 'T', 'n' lub 'N'.
+#include <iostream>
+#include <cctype>
+#include <iomanip>
+using namespace std;
+
+int main()
+{
+  const double PI = 3.14159;  // Stała pi
+  double radius;              // Promień koła
+  char goAgain;               // Odpowiedź T lub N
+
+  cout << "Ten program wylicza pole koła.\n";
+  cout << fixed << setprecision(2);
+
+  do
+  {
+    // Pobranie promienia koła i wyświetlenie jego pola
+    cout << "Podaj promień koła: ";
+    cin >> radius;
+    cout << "Pole koła: " << (PI * radius * radius);
+    cout << endl;
+
+    // Czy użytkownik chce wykonać inne obliczenia?
+    cout << "Chcesz wykonać inne obliczenia? (T lub N) ";
+    cin >> goAgain;
+
+    // Sprawdzenie odpowiedzi
+    while (toupper(goAgain) != 'T' && toupper(goAgain) != 'N')
+    {
+      cout << "Wpisz T lub N: ";
+      cin >> goAgain;
+    }
+
+  } while (toupper(goAgain) == 'T');
+  return 0;
+}
