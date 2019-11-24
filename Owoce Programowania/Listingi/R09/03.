@@ -1,0 +1,26 @@
+// Ten program demonstruje użycie operatora pośredniości.
+#include <iostream>
+using namespace std;
+
+int main()
+{
+  int x = 25;         // Zmienna typu int
+  int *ptr = nullptr; // Wskaźnik typu int
+
+  ptr = &x; // Zapisanie adresu zmiennej x w zmiennej ptr
+
+  // Wyświetlenie wartości zmiennej x w zwykły sposób i za pomocą zmiennej ptr
+  cout << "Dwukrotnie wyświetlona wartość zmiennej x:\n";
+  cout << x << endl;    // Wyświetlenie wartości zmiennej x
+  cout << *ptr << endl; // Wyświetlenie wartości zmiennej x
+
+  // Przypisanie wartości 100 zmiennej wskazywanej przez zmienną ptr
+  // W ten sposób wartość jest przypisywana zmiennej x
+  *ptr = 100;
+
+  // Wyświetlenie wartości zmiennej x w zwykły sposób i za pomocą zmiennej ptr
+  cout << "Ponownie wyświetlona wartość zmiennej x:\n";
+  cout << x << endl;    // Wyświetlenie wartości zmiennej x
+  cout << *ptr << endl; // Wyświetlenie wartości zmiennej x
+  return 0;
+}
