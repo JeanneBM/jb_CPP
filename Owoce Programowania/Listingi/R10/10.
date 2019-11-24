@@ -1,0 +1,36 @@
+// Ten program demonstruje u¿ycie funkcji tolower() i stoi().
+#include <iostream>
+#include <cctype>       // Plik nag³ówkowy zawieraj¹cy funkcjê tolower().
+#include <string>
+using namespace std;
+
+int main()
+{
+  string input;         // Dane wprowadzone przez u¿ytkownika
+  int total = 0;        // Zmienna sumuj¹ca
+  int count = 0;        // Licznik pêtli
+  double average;       // Œrednia wartoœæ wprowadzonych liczb
+
+  // Pobranie pierwszej liczby
+  cout << "Ten program uœrednia seriê liczb.\n";
+  cout << "Wpisz pierwsz¹ liczbê lub K, aby zakoñczyæ: ";
+  getline(cin, input);
+
+  // Przetwarzanie pierwszej liczby i kolejnych
+  while (tolower(input[0]) != 'k')
+  {
+    total += stoi(input);   // Sumowanie wprowadzanych liczb
+    count++;                // Zliczanie wprowadzanych liczb
+    // Pobranie nastêpnej liczby
+    cout << "Wpisz kolejn¹ liczbê lub K, aby zakoñczyæ: ";
+    getline(cin, input);
+  }
+
+  // Je¿eli u¿ytkownik wpisa³ liczby, wyœwietlenie ich œredniej
+  if (count != 0)
+  {
+    average = static_cast<double>(total) / count;
+    cout << "Œrednia: " << average << endl;
+  }
+  return 0;
+}
