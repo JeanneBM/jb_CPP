@@ -1,0 +1,18 @@
+// Ten program demonstruje użycie wskaźnika typu unique_ptr.
+#include <iostream>
+#include <memory>
+using namespace std;
+
+int main()
+{
+  // Definicja inteligentnego wskaźnika typu unique_ptr,
+  // Zawierającego adres dynamicznie utworzonej zmiennej typu int
+  unique_ptr<int> ptr(new int);
+
+  // Przypisanie wartości 99 dynamicznie utworzonej zmiennej
+  *ptr = 99;
+
+  // Wyświetlenie wartości dynamicznie utworzonej zmiennej
+  cout << *ptr << endl;
+  return 0;
+}
