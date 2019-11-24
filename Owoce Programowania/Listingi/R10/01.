@@ -1,0 +1,24 @@
+// Ten program demonstruje użycie funkcji sprawdzających znaki.
+#include <iostream>
+#include <cctype>
+using namespace std;
+
+int main()
+{
+  char input;
+
+  cout << "Podaj dowolny znak: ";
+  cin.get(input);
+  cout << "Znak, który podałeś, to: " << input << "." << endl;
+  if (isalpha(input))
+    cout << "Jest to znak alfanumeryczny.\n";
+  if (isdigit(input))
+    cout << "Jest to cyfra.\n";
+  if (islower(input))
+    cout << "Jest to mała litera.\n";
+  if (isupper(input))
+    cout << "Jest to wielka litera.\n";
+  if (isspace(input))
+    cout << "Jest to biały znak.\n";
+  return 0;
+}
