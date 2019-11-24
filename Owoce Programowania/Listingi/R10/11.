@@ -1,0 +1,43 @@
+// Ten program demonstruje użycie funkcji getline()
+// do odczytywania wszystkich wprowadzanych danych.
+#include <iostream>
+#include <string>
+#include <iomanip>
+using namespace std;
+
+int main()
+{
+  string input;       // Zmienna na wprowadzone dane
+  string name;        // Wprowadzone imię i nazwisko
+  int idNumber;       // Wprowadzony identyfikator
+  int age;            // Wprowadzony wiek
+  double income;      // Wprowadzone zarobki
+
+  // Pobranie identyfikatora u¿ytkownika.
+  cout << "Jaki jest Twój identyfikator? ";
+  getline(cin, input);            // Odczytanie ciągu znaków
+  idNumber = stoi(input);         // Konwersja ciągu na liczbę typu int
+
+  // Pobranie imienia i nazwiska. Konwersja nie jest potrzebna.
+  cout << "Jak się nazywasz? ";
+  getline(cin, name);
+
+  // Pobranie wieku użytkownika
+  cout << "Ile masz lat? ";
+  getline(cin, input);            // Odczytanie ciągu znaków
+  age = stoi(input);              // Konwersja ciągu na liczbę typu int
+
+  // Pobranie zarobków użytkownika.
+  cout << "Ile zarabiasz miesiecznie? ";
+  getline(cin, input);            // Odczytanie ciagu znaków
+  income = stod(input);           // Konwersja ciagu na liczbe typu double
+
+  // Wyświetlenie uzyskanych danych
+  cout << setprecision(2) << fixed << showpoint;
+  cout << "Nazywasz sie " << name
+       << ", masz " << age
+       << " lat\ni zarabiasz "
+       << income << " zl miesiecznie.\n";
+
+  return 0;
+}
