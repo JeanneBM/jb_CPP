@@ -1,0 +1,16 @@
+// Ten program zawiera literały znakowe.
+#include <iostream>
+using namespace std;
+
+int main()
+{
+  char again;
+
+  do
+  {
+    cout << "Programowanie w C++ to świetna zabawa!" << endl;
+    cout << "Czy chcesz ponownie wyświetlić ten komunikat? ";
+    cin >> again;
+  } while (again == 'T' || again == 't');
+  return 0;
+}
