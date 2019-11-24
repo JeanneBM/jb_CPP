@@ -1,0 +1,32 @@
+// Ten program demonstruje użycie wskaźnika typu unique_ptr
+// zawierającego adres dynamicznie utworzonej tablicy typu int.
+#include <iostream>
+#include <memory>
+using namespace std;
+
+int main()
+{
+  int max; // Wielkość tablicy
+
+  // Pobranie liczby wartości do zapisania w tablicy
+  cout << "Ile wartości chcesz podać? ";
+  cin >> max;
+
+  // Definicja inteligentnego wskaźnika typu unique_ptr zawierającego
+  // adres dynamicznie utworzonej tablicy typu int
+  unique_ptr<int[]> ptr(new int[max]);
+
+  // Pobranie wartości do zapisania w tablicy
+  for (int index = 0; index < max; index++)
+  {
+    cout << "Podaj liczbę całkowitą: ";
+    cin >> ptr[index];
+  }
+
+  // Wyświetlenie zawartości tablicy
+  cout << "Wprowadzone wartości:\n";
+  for (int index = 0; index < max; index++)
+    cout << ptr[index] << endl;
+
+  return 0;
+}
