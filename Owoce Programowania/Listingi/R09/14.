@@ -1,0 +1,52 @@
+// Ten program sumuje i uœrednia wyniki sprzeda¿y
+// dla dowolnej liczby dni. Dane zapisuje
+// w dynamicznie utworzonej tablicy.
+#include <iostream>
+#include <iomanip>
+using namespace std;
+
+int main()
+{
+  double *sales = nullptr, // WskaŸnik dynamicznie tworzonej tablicy
+         total = 0.0,      // Zmienna sumuj¹ca
+         average;          // Œrednia wielkoœæ sprzeda¿y
+  int numDays,             // Liczba dni z wynikami sprzeda¿y
+      count;               // Licznik pêtli
+
+  // Pobranie liczby dni
+  cout << "Podaj liczbê dni ";
+  cout << "z wynikami sprzeda¿y: ";
+  cin >> numDays;
+
+  // Dynamiczne przydzielenie obszaru pamiêci
+  // odpowiednio du¿ego dla podanej liczby dni
+  sales = new double[numDays];
+
+  // Pobranie wielkoœci sprzeda¿y za ka¿dy dzieñ
+  cout << "Podaj wyniki sprzeda¿y:\n";
+  for (count = 0; count < numDays; count++)
+  {
+    cout << "Dzieñ " << (count + 1) << ": ";
+    cin >> sales[count];
+  }
+
+  // Wyliczenie ca³kowitej sprzeda¿y
+  for (count = 0; count < numDays; count++)
+  {
+    total += sales[count];
+  }
+
+  // Wyliczenie œredniej dziennej sprzeda¿y
+  average = total / numDays;
+
+  // Wyœwietlenie wyników
+  cout << fixed << showpoint << setprecision(2);
+  cout << "\nCa³kowita sprzeda¿: " << total << " z³" << endl;
+  cout << "Œrednia sprzeda¿: " << average << " z³" << endl;
+
+  // Zwolnienie przydzielonej pamiêci
+  delete[] sales;
+  sales = nullptr;    // Przypisanie zmiennej sales wskaŸnika zerowego
+
+  return 0;
+}
