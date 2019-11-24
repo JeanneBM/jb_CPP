@@ -1,0 +1,45 @@
+// Ten program wykorzystuje własną funkcję do kopiowania C-ciągu.
+#include <iostream>
+using namespace std;
+
+void stringCopy(char[], char[]); // Prototyp funkcji
+
+int main()
+{
+  const int LENGTH = 30;  // Wielkość tablic
+  char first[LENGTH];     // Dane wprowadzone przez użytkownika
+  char second[LENGTH];    // Kopia danych
+
+  // Pobranie ciągu znaków i zapisanie go w tablicy
+  cout << "Podaj ciag skladajacy sie z maks. "
+       << (LENGTH - 1) << " znakow:\n";
+  cin.getline(first, LENGTH);
+
+  // Kopiowanie zawartości tablicy first do tablicy second
+  stringCopy(first, second);
+
+  // Wyświetlenie kopii danych.
+  cout << "Wprowadzony ciag:\n" << second << endl;
+  return 0;
+}
+
+//***********************************************************
+// Definicja funkcji stringCopy()
+// Funkcja kopiuje C-ciag z tablicy string1 do string2.
+//***********************************************************
+
+void stringCopy(char string1[], char string2[])
+{
+  int index = 0;  // Licznik pętli.
+
+  // Kopiowanie kolejnych elementów tablicy string1 do string2
+  // do momentu osiągnięcia znaku zerowego
+  while (string1[index] != '\0')
+  {
+    string2[index] = string1[index];
+    index++;
+  }
+
+  // Umieszczenie znaku zerowego na koñcu ciągu string2
+  string2[index] = '\0';
+}
