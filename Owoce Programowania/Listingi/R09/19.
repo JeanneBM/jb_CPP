@@ -1,0 +1,101 @@
+// Ten program wyświetla kwoty ofiarowane przez pracowników
+// firmy "Graficy Sp. z o.o." fundacji "Milusińscy". Darowizny są
+// wyświetlane w kolejności od najmniejszej do największej
+// oraz w oryginalnej kolejności.
+#include <iostream>
+using namespace std;
+
+// Prototypy funkcji.
+void arrSelectSort(int *[], int);
+void showArray(const int[], int);
+void showArrPtr(int *[], int);
+
+int main()
+{
+  const int NUM_DONATIONS = 15;   // Liczba darowizn
+
+  // Tablica zawierająca kwoty darowizn
+  int donations[NUM_DONATIONS] = { 20, 400, 20, 100, 40, 
+                                   20, 100, 20, 20, 400,
+                                   40, 60, 40, 20, 40 };
+
+  // Tablica wskaźników typu int
+  int *arrPtr[NUM_DONATIONS] = { nullptr, nullptr, nullptr, nullptr, nullptr,
+                                 nullptr, nullptr, nullptr, nullptr, nullptr,
+                                 nullptr, nullptr, nullptr, nullptr, nullptr };
+
+  // Elementy tablicy arrPtr są wskaźnikami typu int. Każdemu
+  // elementowi jest przypisywany adres elementu tablicy donations.
+  for (int count = 0; count < NUM_DONATIONS; count++)
+    arrPtr[count] = &donations[count];
+
+  // Sortowanie tablicy wskaźników
+  arrSelectSort(arrPtr, NUM_DONATIONS);
+
+  // Wyświetlenie zawartości tablicy donations przy użyciu tablicy wskaźników
+  // Elementy są wyświetlane w kolejności rosnącej.
+  cout << "Darowizny w kolejności rosnącej: \n";
+  showArrPtr(arrPtr, NUM_DONATIONS);
+
+  // Wyświetlenie zawartości tablicy donations w oryginalnej kolejności.
+  cout << "Darowizny w oryginalnej kolejności: \n";
+  showArray(donations, NUM_DONATIONS);
+  return 0;
+}
+
+//****************************************************************
+// Definicja funkcji arrSelectSort().
+// Funkcja porządkuje tablicę arr, wykorzystując algorytm
+// sortowania przez wybieranie. Każdy element tej tablicy
+// wskazuje element innej tablicy. Po posortowaniu kolejne
+// elementy tablicy arr wskazują elementy drugiej tablicy
+// w kolejności od najmniejszego do największego.
+//****************************************************************
+
+void arrSelectSort(int *arr[], int size)
+{
+  int startScan, minIndex;
+  int *minElem;
+
+  for (startScan = 0; startScan < (size - 1); startScan++)
+  {
+    minIndex = startScan;
+    minElem = arr[startScan];
+    for (int index = startScan + 1; index < size; index++)
+    {
+      if (*(arr[index]) < *minElem)
+      {
+        minElem = arr[index];
+        minIndex = index;
+      }
+    }
+    arr[minIndex] = arr[startScan];
+    arr[startScan] = minElem;
+  }
+}
+
+//***********************************************************
+// Definicja funkcji showArray().
+// Funkcja wyświetla zawartość tablicy arr. Argument
+// size zawiera liczbę elementów tablicy.
+//***********************************************************
+
+void showArray(const int arr[], int size)
+{
+  for (int count = 0; count < size; count++)
+    cout << arr[count] << " ";
+  cout << endl;
+}
+
+//***************************************************************
+// Definicja funkcji showArrPtr().
+// Funkcja wyświetla wartości wskazywane przez elementy tablicy arr.
+// Argument size zawiera liczbę elementów tablicy.
+//***************************************************************
+
+void showArrPtr(int *arr[], int size)
+{
+  for (int count = 0; count < size; count++)
+    cout << *(arr[count]) << " ";
+  cout << endl;
+}
