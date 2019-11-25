@@ -1,0 +1,33 @@
+// Ten program wykorzystuje manipulatory setprecision
+// i fixed do formatowania zapisywanych danych.
+#include <iostream>
+#include <iomanip>
+#include <fstream>
+using namespace std;
+
+int main()
+{
+  fstream dataFile;
+  double num = 17.816392;
+
+  dataFile.open("Liczby.txt", ios::out);    // Otwarcie pliku w trybie wyjściowym
+
+  dataFile << fixed;           // Włączenie notacji stałoprzecinkowej
+  dataFile << num << endl;     // Zapisanie liczby
+
+  dataFile << setprecision(4); // Format z czterema cyframi po przecinku
+  dataFile << num << endl;     // Zapisanie liczby
+
+  dataFile << setprecision(3); // Format z trzema cyframi po przecinku
+  dataFile << num << endl;     // Zapisanie liczby
+
+  dataFile << setprecision(2); // Format z dwiema cyframi po przecinku
+  dataFile << num << endl;     // Zapisanie liczby
+
+  dataFile << setprecision(1); // Format z jedną cyfrą po przecinku
+  dataFile << num << endl;     // Zapisanie liczby
+
+  cout << "Koniec.\n";
+  dataFile.close();            // Zamknięcie pliku
+  return 0;
+}
