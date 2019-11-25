@@ -1,0 +1,28 @@
+// W tym programie wykorzystany jest operator == do porównania
+// ciągu wprowadzonego przez użytkownika z kodami produktów.
+#include <iostream>
+#include <iomanip>
+#include <string>
+using namespace std;
+
+int main()
+{
+  const double APRICE = 249.0;   // Cena produktu A
+  const double BPRICE = 199.0;   // Cena produktu B
+  string partNum;                // Kod produktu
+
+  cout << "Kody słuchawek:\n";
+  cout << "\tZ redukcją szumu: S147-29A\n";
+  cout << "\tBezprzewodowe: S147-29B\n";
+  cout << "Podaj kod słuchawek, które chcesz kupić: ";
+  cin >> partNum;
+  cout << fixed << showpoint << setprecision(2);
+
+  if (partNum == "S147-29A")
+    cout << "Cena: " << APRICE << " zł" << endl;
+  else if (partNum == "S147-29B")
+    cout << "Cena: " << BPRICE << " zł" << endl;
+  else
+    cout << "Kod " << partNum << " jest błędny.\n";
+  return 0;
+}
