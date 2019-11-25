@@ -1,0 +1,54 @@
+// Ten program demonstruje użycie funkcji tellg().
+#include <iostream>
+#include <fstream>
+using namespace std;
+
+int main()
+{
+  long offset;   // Zmienna przechowująca przesunięcie pozycji
+  long numBytes; // Zmienna przechowująca wielkość pliku
+  char ch;       // Zmienna przechowująca znak
+  char again;    // Zmienna przechowująca znak T lub N
+
+                 // Otwarcie pliku w trybie wejściowym
+  fstream file("Litery.txt", ios::in);
+
+  // Określenie liczby bajtów w pliku
+  file.seekg(0L, ios::end);
+  numBytes = file.tellg();
+  cout << "Liczba bajtów w pliku: " << numBytes << ".\n";
+
+  // Powrót na początek pliku
+  file.seekg(0L, ios::beg);
+
+  // Część umożliwiająca użytkownikowi poruszanie się po pliku
+  do
+  {
+    // Wyświetlenie bieżącej pozycji odczytu
+    cout << "Bieżąca pozycja " << file.tellg() << endl;
+
+    // Pobranie numeru bajtu od użytkownika.
+    cout << "Podaj przesunięcie, licząc od początku pliku: ";
+    cin >> offset;
+
+    // Przesunięcie pozycji odczytu do zadanego bajtu,
+    // odczytanie i wyświetlenie znaku
+    if (offset >= numBytes)   // Pozycja wykracza poza koniec pliku?
+      cout << "Pozycja wykracza poza koniec pliku.\n";
+    else
+    {
+      file.seekg(offset, ios::beg);
+      file.get(ch);
+      cout << "Odczytany znak: " << ch << endl;
+    }
+
+    // Czy użytkownik chce spróbować jeszcze raz?
+    cout << "Jeszcze raz? ";
+    cin >> again;
+  } while (again == 'T' || again == 't');
+
+  // Zamknięcie pliku
+  file.close();
+  return 0;
+}
+
