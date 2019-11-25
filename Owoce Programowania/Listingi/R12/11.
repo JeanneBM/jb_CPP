@@ -1,0 +1,29 @@
+// Ten program demonstruje przykład użycia funkcji put().
+#include <iostream>
+#include <fstream>
+using namespace std;
+
+int main()
+{
+  char ch;  // Zmienna przechowująca znak
+
+  // Otwarcie pliku w trybie wyjściowym
+  fstream dataFile("Zdanie.txt", ios::out);
+
+  cout << "Wpisz zdanie, kończąc je ";
+  cout << "kropką.\n";
+
+  // Pobranie zdania wprowadzanego przez użytkownika znak po znaku
+  // i zapisanie go w pliku
+  cin.get(ch);
+  while (ch != '.')
+  {
+    dataFile.put(ch);
+    cin.get(ch);
+  }
+  dataFile.put(ch); // Zapisanie kropki
+
+  // Zamknięcie pliku
+  dataFile.close();
+  return 0;
+}
