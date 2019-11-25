@@ -1,0 +1,41 @@
+// Ten program wykorzystuje funkcję getline() do odczytywania
+// pełnych wierszy danych z pliku
+#include <iostream>
+#include <fstream>
+#include <string>
+using namespace std;
+
+int main()
+{
+  string input;     // Zmienna na odczytane dane
+  fstream nameFile; // Obiekt plikowy
+
+  // Otwarcie pliku w trybie wejściowym
+  nameFile.open("Nowak.txt", ios::in);
+
+  // Kontynuacja działania w przypadku pomyślnego otwarcia pliku
+  if (nameFile)
+  {
+    // Odczyt wiersza danych z pliku
+    getline(nameFile, input);
+
+    // Kontynuacja działania pod warunkiem pomyślnego
+    // // wykonania ostatniej operacji
+    while (nameFile)
+    {
+      // Wyświetlenie ostatniego odczytanego wiersza
+      cout << input << endl;
+
+      // Odczyt następnego wiersza
+      getline(nameFile, input);
+    }
+
+    // Zamknięcie pliku
+    nameFile.close();
+  }
+  else
+  {
+    cout << "BŁĄD: nie można otworzyć pliku.\n";
+  }
+  return 0;
+}
