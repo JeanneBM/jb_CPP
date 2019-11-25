@@ -1,0 +1,47 @@
+// Ten program wykorzystuje tablicę struktur.
+#include <iostream>
+#include <iomanip>
+using namespace std;
+
+struct PayInfo
+{
+  int hours;        // Liczba przepracowanych godzin
+  double payRate;   // Stawka godzinowa
+};
+
+int main()
+{
+  const int NUM_WORKERS = 3;     // Liczba pracowników
+  PayInfo workers[NUM_WORKERS];  // Tablica struktur
+  int index;                     // Licznik
+
+  // Wprowadzenie danych dot. wynagrodzenia pracowników.
+  cout << "Podaj liczbę godzin przepracowanych przez " << NUM_WORKERS
+       << " pracowników oraz ich stawki godzinowe.\n";
+
+  for (index = 0; index < NUM_WORKERS; index++)
+  {
+    // Pobranie liczby godzin przepracowanych przez każdego pracownika
+    cout << "Liczba godzin przepracowanych przez pracownika " << (index + 1);
+    cout << ": ";
+    cin >> workers[index].hours;
+
+    // Pobranie stawek godzinowych pracowników
+    cout << "Podaj stawkę godzinową pracownika ";
+    cout << (index + 1) << ": ";
+    cin >> workers[index].payRate;
+    cout << endl;
+  }
+
+  // Wyświetlenie wypłaty każdego pracownika
+  cout << "Wypłata każdego pracwonika:\n";
+  cout << fixed << showpoint << setprecision(2);
+  for (index = 0; index < NUM_WORKERS; index++)
+  {
+    double gross;
+    gross = workers[index].hours * workers[index].payRate;
+    cout << "Pracownik " << (index + 1);
+    cout << ": " << gross << " zł" << endl;
+  }
+  return 0;
+}
