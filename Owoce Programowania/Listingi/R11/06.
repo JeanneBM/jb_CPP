@@ -1,0 +1,68 @@
+// Ten program zawiera funkcje, w których argumentach
+// można umieszczać struktury.
+#include <iostream>
+#include <string>
+#include <iomanip>
+using namespace std;
+
+struct InventoryItem
+{
+  int partNum;                // Numer części
+  string description;         // Opis części
+  int onHand;                 // Liczba części
+  double price;               // Cena
+};
+
+// Prototypy funkcji
+void getItem(InventoryItem&);     // Argument przekazywany przez referencję
+void showItem(InventoryItem);     // Argument przekazywany przez wartość
+
+int main()
+{
+  InventoryItem part;
+
+  getItem(part);
+  showItem(part);
+  return 0;
+}
+
+//************************************************************
+// Definicja funkcji getItem(). Jej argumentem jest
+// referencja zmiennej strukturalnej. Wprowadzane przez
+// użytkownika dane są zapisywane w strukturze.
+//************************************************************
+
+void getItem(InventoryItem &p)  // Argumentem jest referencja.
+{
+  // Pobranie numeru części
+  cout << "Podaj numer części: ";
+  cin >> p.partNum;
+
+  // Pobranie opisu części
+  cout << "Podaj opis części: ";
+  cin.ignore();  // Pominięcie znaku końca wiersza
+  getline(cin, p.description);
+
+  // Pobranie liczby części
+  cout << "Podaj liczbę części: ";
+  cin >> p.onHand;
+
+  // Pobranie ceny części
+  cout << "Podaj cenę części: ";
+  cin >> p.price;
+}
+
+//***********************************************************
+// Definicja funkcji showItem(). Jej argument
+// jest strukturą InventoryItem. Funkcja
+// wyświetla zawartość struktury.
+//***********************************************************
+
+void showItem(InventoryItem p)
+{
+  cout << fixed << showpoint << setprecision(2);
+  cout << "Numer części: " << p.partNum << endl;
+  cout << "Opis: " << p.description << endl;
+  cout << "Liczba: " << p.onHand << endl;
+  cout << "Cena: " << p.price << " zł" << endl;
+}
