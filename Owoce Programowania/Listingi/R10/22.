@@ -1,0 +1,28 @@
+// Ten program demonstruje użycie klasy string.
+#include <iostream>
+#include <string>
+using namespace std;
+
+int main()
+{
+  // Definicje trzech obiektów typu string
+  string str1, str2, str3;
+
+  // Przypisanie wartości do obiektów
+  str1 = "ABC";
+  str2 = "DEF";
+  str3 = str1 + str2;
+
+  // Wyświetlenie kolejnych znaków obiektu str3
+  // za pomocą indeksu
+  for (int x = 0; x < str3.size(); x++)
+    cout << str3[x];
+  cout << endl;
+
+  // Porównanie obiektów str1 i str2
+  if (str1 < str2)
+    cout << "Obiekt str1 jest mniejszy od str2.\n";
+  else
+    cout << "Obiekt str1 nie jest mniejszy od str2.\n";
+  return 0;
+}
