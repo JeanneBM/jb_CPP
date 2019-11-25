@@ -1,0 +1,31 @@
+// Ten program zapisuje dane w pliku, zamyka go,
+// po czym otwiera ponownie i dopisuje kolejne dane.
+#include <iostream>
+#include <fstream>
+using namespace std;
+
+int main()
+{
+  ofstream dataFile;
+
+  cout << "Otwieranie pliku. . .\n";
+  // Otwarcie pliku w trybie wyjściowym
+  dataFile.open("Demo.txt", ios::out);
+  cout << " Zapisywanie danych w pliku:\n";
+  dataFile << "Jacek\n";      // Zapisanie wiersza nr 1
+  dataFile << "Sylwia\n";     // Zapisanie wiersza nr 2
+  cout << "Zamykanie pliku.\n";
+  dataFile.close();           // Zamknięcie pliku
+
+  cout << "Ponowne otwieranie pliku...\n";
+  // Otwarcie pliku w trybie dołączania
+  dataFile.open("Demo.txt", ios::out | ios::app);
+  cout << "Zapisywanie kolejnych danych w pliku.\n";
+  dataFile << "Wanda\n";      // Zapisanie wiersza nr 3
+  dataFile << "Darek\n";      // Zapisanie wiersza nr 4
+  cout << "Zamykanie pliku.\n";
+  dataFile.close();           // Zamknięcie pliku
+
+  cout << "Koniec.\n";
+  return 0;
+}
