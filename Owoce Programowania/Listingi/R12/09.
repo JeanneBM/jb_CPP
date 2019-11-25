@@ -1,0 +1,40 @@
+// Ten program demonstuje użycie funkcji getline()
+// z określonym separatorem.
+#include <iostream>
+#include <fstream>
+#include <string>
+using namespace std;
+
+int main()
+{
+  string input; // Zmienna na odczytane dane
+
+  // Otwarcie pliku w trybie wejściowym
+  fstream dataFile("Nazwiska.txt", ios::in);
+
+  // Kontynuacja działania w przypadku pomyślnego otwarcia pliku
+  if (dataFile)
+  {
+    // Odczytanie elementu oddzielonego znakiem $
+    getline(dataFile, input, '$');
+
+    // Kontynuacja działania pod warunkiem pomyślnego
+    // wykonania ostatniej operacji
+    while (dataFile)
+    {
+      // Wyświetlenie ostatniego odczytanego elementu
+      cout << input << endl;
+
+      // Odczytanie elementu oddzielonego znakiem $
+      getline(dataFile, input, '$');
+    }
+
+    // Zamknięcie pliku
+    dataFile.close();
+  }
+  else
+  {
+    cout << "BŁĄD: nie można otworzyć pliku.\n";
+  }
+  return 0;
+}
