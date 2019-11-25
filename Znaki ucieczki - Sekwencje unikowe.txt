@@ -1,4 +1,4 @@
-\n    Nowy wiersz 	      Przenosi kursor do nowego wiersza
+\n    Nowy wiersz 	    Przenosi kursor do nowego wiersza
 \\    Lewy ukośnik        Powoduje wyświetlenie lewego ukośnika
 \t    Tabulacja           Powoduje przejście kursora do następnego punktu tabulacji
 \?    Znak zapytania    
