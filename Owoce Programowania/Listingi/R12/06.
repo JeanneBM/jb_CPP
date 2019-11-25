@@ -1,0 +1,76 @@
+// Ten program demonstruje wykorzystanie funkcji członkowskich obiektu
+// plikowego do sprawdzania poprawności wykonania operacji.
+#include <iostream>
+#include <fstream>
+using namespace std;
+
+// Prototypy funkcji
+void showState(fstream &);
+
+int main()
+{
+  int num = 10;
+
+  // Otwarcie pliku w trybie wyjściowym
+  fstream testFile("Dane.dat", ios::out);
+  if (testFile.fail())
+  {
+    cout << "BŁĄD: nie można otworzyć pliku.\n";
+    return 0;
+  }
+
+  // Zapisanie liczby w pliku
+  cout << "Zapisywanie liczby " << num << " w pliku.\n";
+  testFile << num;
+
+  // Wyświetlenie bitów stanu
+  showState(testFile);
+
+  // Zamknięcie pliku
+  testFile.close();
+
+  // Ponowne otwarcie pliku w trybie wejściowym
+  testFile.open("Dane.dat", ios::in);
+  if (testFile.fail())
+  {
+    cout << "BŁĄD: nie można otworzyć pliku.\n";
+    return 0;
+  }
+
+  // Odczytanie jedynej liczby z pliku
+  cout << "Odczytywanie pliku.\n";
+  testFile >> num;
+  cout << "Liczba " << num << " została odczytana.\n";
+
+  // Wyświetlenie bitów stanu.
+  showState(testFile);
+
+  // Choć w pliku nie ma więcej danych, wykonywana jest niedozwolona operacja odczytu.
+  cout << "Wykonanie niedozwolonej operacji odczytu pliku.\n";
+  testFile >> num;
+
+  // Wyświetlenie bitów stanu
+  showState(testFile);
+
+  // Zamknięcie pliku
+  testFile.close();
+  return 0;
+}
+
+//*****************************************************************
+// Definicja funkcji showState(), której argumentem
+// jest referencja obiektu typu fstream. Funkcja
+// wyświetla wyniki zwracane przez funkcje eof(),
+// fail(), bad() i good(). Na końcu wywołuje
+// funkcję clear().
+//*****************************************************************
+
+void showState(fstream &file)
+{
+  cout << "Stan obiektu plikowego:\n";
+  cout << " bit eof: " << file.eof() << endl;
+  cout << " bit fail: " << file.fail() << endl;
+  cout << " bit bad: " << file.bad() << endl;
+  cout << " bit good: " << file.good() << endl;
+  file.clear(); // Skasowanie wszystkich bitów błędów
+}
