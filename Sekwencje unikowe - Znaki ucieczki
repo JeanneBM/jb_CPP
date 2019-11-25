@@ -1,0 +1,16 @@
+\n    Nowy wiersz 	      Przenosi kursor do nowego wiersza
+\\    Lewy ukośnik        Powoduje wyświetlenie lewego ukośnika
+\t    Tabulacja           Powoduje przejście kursora do następnego punktu tabulacji
+\?    Znak zapytania    
+\v    Tabulator pionowy 
+\'    Apostrof            Pojedynczy cytat  
+\b    Backspace           Powoduje powrót kursora lub przesunięcie o jedną pozycję w lewo
+\"    Cudzysłów           Podwójny cudzysłów
+
+
+powrót karetki 	\®
+znak null 	\0
+Wysuw strony 	\n
+ósemkowy 	\ooo
+Alert (dzwonek) 	\a
+szesnastkowo 	\xhhh
