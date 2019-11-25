@@ -1,0 +1,37 @@
+// Ten program wykorzystuje funkcji write() i read().
+#include <iostream>
+#include <fstream>
+using namespace std;
+
+int main()
+{
+  const int SIZE = 4;
+  char data[SIZE] = { 'A', 'B', 'C', 'D' };
+  fstream file;
+
+  // Otwarcie pliku w trybie wyjściowym binarnym.
+  file.open("Test.dat", ios::out | ios::binary);
+
+  // Zapisanie zawartości tablicy w pliku
+  cout << "Zapisywanie znaków w pliku.\n";
+  file.write(data, sizeof(data));
+
+  // Zamknięcie pliku
+  file.close();
+
+  // Otwarcie pliku w trybie wejściowym binarnym
+  file.open("Test.dat", ios::in | ios::binary);
+
+  // Odczytanie zawartości tablicy z pliku
+  cout << "Odczytywanie danych i umieszczanie ich w pamięci.\n";
+  file.read(data, sizeof(data));
+
+  // Wyświetlenie zawartości tablicy
+  for (int count = 0; count < SIZE; count++)
+    cout << data[count] << " ";
+  cout << endl;
+
+  // Zamknięcie pliku
+  file.close();
+  return 0;
+}
