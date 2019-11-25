@@ -1,0 +1,68 @@
+// Ten program wykorzystuje zmienną strukturalną do odczytywania z pliku rekordów danych.
+#include <iostream>
+#include <fstream>
+using namespace std;
+
+const int NAME_SIZE = 51, ADDR_SIZE = 51, PHONE_SIZE = 14;
+
+// Deklaracja struktury jako rekordu danych
+struct Info
+{
+  char name[NAME_SIZE];
+  int age;
+  char address1[ADDR_SIZE];
+  char address2[ADDR_SIZE];
+  char phone[PHONE_SIZE];
+};
+
+int main()
+{
+  Info person;    // Zmienna przechowująca informacje o osobie
+  char again;     // Zmienna przechowująca znak T lub N
+  fstream people; // Obiekt plikowy
+
+  // Otwarcie pliku w trybie wejściowym binarnym.
+  people.open("Osoby.dat", ios::in | ios::binary);
+
+  // Sprawdzenie, czy nie wystąpiły błędy
+  if (!people)
+  {
+    cout << "Błąd otwarcia pliku. Przerwanie działania programu.\n";
+    return 0;
+  }
+
+  cout << "Dane osób zapisane w pliku:\n\n";
+  // Odczytanie z pliku pierwszego rekordu danych
+  people.read(reinterpret_cast<char *>(&person),
+    sizeof(person));
+
+  // Wyświetlanie kolejnych rekordów danych
+  // aż do osiągnięcia końca pliku
+  while (!people.eof())
+  {
+    // Wyświetlenie rekordu danych
+    cout << "Imię i nazwisko: ";
+    cout << person.name << endl;
+    cout << "Wiek: ";
+    cout << person.age << endl;
+    cout << "Adres 1: ";
+    cout << person.address1 << endl;
+    cout << "Adres 2: ";
+    cout << person.address2 << endl;
+    cout << "Nr telefonu: ";
+    cout << person.phone << endl;
+
+    // Zaczekanie do naciśnięcia przez użytkownika klawisza Enter
+    cout << "\nNaciśnij Emter, aby wyświetlić następny rekord danych.\n";
+    cin.get(again);
+
+    // Odczytanie z pliku następnego rekordu danych
+    people.read(reinterpret_cast<char *>(&person),
+      sizeof(person));
+  }
+
+  cout << "To są wszystkie informacje zapisane w pliku!\n";
+  people.close();
+  return 0;
+}
+
