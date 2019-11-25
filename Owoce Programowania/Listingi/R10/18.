@@ -1,0 +1,28 @@
+// W tym programie wykorzystane są operatory relacji do
+// sortowania ciągów wprowadzonych przez użytkownika.
+#include <iostream>
+#include <string>
+using namespace std;
+
+int main()
+{
+  string name1, name2;
+
+  // Pobranie nazwiska i imienia pierwszej osoby.
+  cout << "Podaj nazwisko i imię pierwszej osoby: ";
+  getline(cin, name1);
+
+  // Pobranie nazwiska i imienia drugiej osoby.
+  cout << "Podaj nazwisko i imię drugiej osoby: ";
+  getline(cin, name2);
+
+  // Wyświetlenie danych w kolejności alfabetycznej
+  cout << "Nazwiska w kolejności alfabetycznej:\n";
+  if (name1 < name2)
+    cout << name1 << endl << name2 << endl;
+  else if (name1 > name2)
+    cout << name2 << endl << name1 << endl;
+  else
+    cout << "Wprowadziłeś dwukrotnie te same dane!\n";
+  return 0;
+}
