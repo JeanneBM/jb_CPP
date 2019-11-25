@@ -1,0 +1,34 @@
+// Ten program demonstruje użycie funkcji seekg().
+#include <iostream>
+#include <fstream>
+using namespace std;
+
+int main()
+{
+  char ch; // Zmienna przechowująca znak
+
+  // Otwarcie pliku w trybie wejściowym
+  fstream file("Litery.txt", ios::in);
+
+  // Przejście do 5. bajtu (nr 6) licząc od początku pliku
+  // i odczytanie znaku
+  file.seekg(5L, ios::beg);
+  file.get(ch);
+  cout << "Bajt nr 5, licząc od początku pliku: " << ch << endl;
+
+  // Przejście do 10. bajtu licząc od końca pliku
+  // i odczytanie znaku
+  file.seekg(-10L, ios::end);
+  file.get(ch);
+  cout << "Bajt nr 10, licząc od końca pliku: " << ch << endl;
+
+  // Przejście do bajtu nr 3 (czwartego) licząc od bieżącej pozycji
+  // i odczytanie znaku
+  file.seekg(3L, ios::cur);
+  file.get(ch);
+  cout << "Bajt nr 3, licząc od bieżącej pozycji: " << ch << endl;
+
+  file.close();
+  return 0;
+}
+
