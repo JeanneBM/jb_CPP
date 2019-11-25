@@ -1,0 +1,29 @@
+// Ten program demonstruje zakrywanie
+// zmiennych globalnych przez lokalne.
+#include <iostream>
+using namespace std;
+
+// Zmienna globalna
+const int BIRDS = 500;
+
+// Prototyp funkcji
+void cracov();
+
+int main()
+{
+   cout << "W Warszawie jest " << BIRDS
+        << " ptaków.\n";
+   cracov();
+   return 0;
+}
+
+//********************************************
+// Funkcja cracov()                        *
+//********************************************
+
+void cracov()
+{
+   const int BIRDS = 10000;
+   cout << "W Krakowie jest " << BIRDS
+        << " ptaków.\n";
+}
