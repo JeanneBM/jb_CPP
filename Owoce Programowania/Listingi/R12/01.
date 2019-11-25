@@ -1,0 +1,20 @@
+// Ten program wykorzystuje obiekt fstream do zapisania danych w pliku.
+#include <iostream>
+#include <fstream>
+using namespace std;
+
+int main()
+{
+  fstream dataFile;
+
+  cout << "Otwieranie pliku...\n";
+  dataFile.open("Demo.txt", ios::out);    // Otwarcie pliku w trybie wyjściowym
+  cout << "Zapisywanie danych w pliku:\n";
+  dataFile << "Jacek\n";      // Zapisanie wiersza nr 1
+  dataFile << "Sylwia\n";     // Zapisanie wiersza nr 2
+  dataFile << "Wanda\n";      // Zapisanie wiersza nr 3
+  dataFile << "Darek\n";      // Zapisanie wiersza nr 4
+  dataFile.close();           // Zamknięcie pliku
+  cout << "Koniec.\n";
+  return 0;
+}
