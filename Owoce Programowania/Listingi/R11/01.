@@ -1,0 +1,50 @@
+// Ten program demonstruje użycie struktury.
+#include <iostream>
+#include <string>
+#include <iomanip>
+using namespace std;
+
+struct PayRoll
+{
+  int empNumber;    // Identyfikator pracownika
+  string name;      // Imię i nazwisko pracownika
+  double hours;     // Liczba przepracowanych godzin
+  double payRate;   // Stawka godzinowa
+  double grossPay;  // Wynagrodzenie
+};
+
+int main()
+{
+  PayRoll employee; // Zmienna employee jest typu PayRoll.
+
+  // Pobranie identyfikatora pracownika.
+  cout << "Podaj identyfikator pracownika: ";
+  cin >> employee.empNumber;
+
+  // Pobranie imienia i nazwiska pracownika
+  cout << "Podaj imię i nazwisko pracownika: ";
+  cin.ignore();   // Pominięcie znaku \n.
+  getline(cin, employee.name);
+
+  // Pobranie liczby przepracowanych godzin
+  cout << "Ile godzin przepracował pracownik? ";
+  cin >> employee.hours;
+
+  // Pobranie stawki godzinowej pracownika
+  cout << "Jaka jest stawka godzinowa pracownika? ";
+  cin >> employee.payRate;
+
+  // Wyliczenie wynagrodzenia pracownika
+  employee.grossPay = employee.hours * employee.payRate;
+
+  // Wyświetlenie danych pracownika
+  cout << "Informacje o wynagrodzeniu pracownika:\n";
+  cout << "Imię i nazwisko: " << employee.name << endl;
+  cout << "Identyfikator: " << employee.empNumber << endl;
+  cout << "Liczba przepracowanych godzin: " << employee.hours << endl;
+  cout << "Stawka godzinowa: " << employee.payRate << endl;
+  cout << fixed << showpoint << setprecision(2);
+  cout << "Wynagrodzenie: " << employee.grossPay << " zł" << endl;
+  return 0;
+}
+
