@@ -1,0 +1,39 @@
+// Ten program tworzy plik z pustymi rekordami magazynowymi.
+#include <iostream>
+#include <fstream>
+using namespace std;
+
+// Stałe
+const int DESC_SIZE = 31;  // Długość opisu
+const int NUM_RECORDS = 5; // Liczba rekordów
+
+// Deklaracja struktury InventoryItem
+struct InventoryItem
+{
+  char desc[DESC_SIZE];
+  int qty;
+  double price;
+};
+
+int main()
+{
+  // Utworzenie pustej struktury InventoryItem
+  InventoryItem record = { "", 0, 0.0 };
+
+  // Otwarcie pliku w trybie wyjściowym binarnym
+  fstream inventory("Magazyn.dat", ios::out | ios::binary);
+
+  // Zapisanie pustych rekordów
+  for (int count = 0; count < NUM_RECORDS; count++)
+  {
+    cout << "Zapisywanie rekordu nr " << count << endl;
+    inventory.write(reinterpret_cast<char *>(&record),
+      sizeof(record));
+  }
+
+  // Zamknięcie pliku
+  inventory.close();
+  return 0;
+}
+
+
