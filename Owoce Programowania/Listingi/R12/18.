@@ -1,0 +1,84 @@
+// Ten program odczytuje dowolne rekordy z pliku.
+#include <iostream>
+#include <fstream>
+using namespace std;
+
+const int NAME_SIZE = 51, ADDR_SIZE = 51, PHONE_SIZE = 14;
+
+// Deklaracja struktury odzwierciedlającej rekord
+struct Info
+{
+  char name[NAME_SIZE];
+  int age;
+  char address1[ADDR_SIZE];
+  char address2[ADDR_SIZE];
+  char phone[PHONE_SIZE];
+};
+
+// Prototypy funkcji
+long byteNum(int);
+void showRec(Info);
+
+int main()
+{
+  Info person;      // Zmienna przechowująca informacje o osobie
+  fstream people;   // Obiekt plikowy
+
+  // Otwarcie pliku w trybie wejściowym binarnym
+  people.open("Osoby.dat", ios::in | ios::binary);
+
+  // Sprawdzenie, czy nie wystąpiły błędy
+  if (!people)
+  {
+    cout << "Błąd otwarcia pliku. Przerwanie działania programu.\n";
+    return 0;
+  }
+
+  // Odczytanie i wyświetlenie rekordu nr 1 (drugiego rekordu)
+  cout << "Rekord nr 1:\n";
+  people.seekg(byteNum(1), ios::beg);
+  people.read(reinterpret_cast<char *>(&person), sizeof(person));
+  showRec(person);
+
+  // Odczytanie i wyświetlenie rekordu nr 0 (pierwszego rekordu)
+  cout << "\nRekord nr 0:\n";
+  people.seekg(byteNum(0), ios::beg);
+  people.read(reinterpret_cast<char *>(&person), sizeof(person));
+  showRec(person);
+
+  // Zamknięcie pliku
+  people.close();
+  return 0;
+}
+
+//************************************************************
+// Definicja funkcji byteNum(). Jej argumentem jest liczba
+// całkowita. Funkcja zwraca numer pierwszego bajtu zadanego
+// rekordu wskazanego w argumencie.
+//************************************************************
+
+long byteNum(int recNum)
+{
+  return sizeof(Info) * recNum;
+}
+
+//************************************************************
+// Definicja funkcji showRec(). Jej argumentem jest struktura
+// Info. Funkcja wyświetla zawartość tej struktury na ekranie.
+//************************************************************
+
+void showRec(Info record)
+{
+  cout << "Imię i nazwisko: ";
+  cout << record.name << endl;
+  cout << "Wiek: ";
+  cout << record.age << endl;
+  cout << "Adres 1: ";
+  cout << record.address1 << endl;
+  cout << "Adres 2: ";
+  cout << record.address2 << endl;
+  cout << "Nr telefonu: ";
+  cout << record.phone << endl;
+}
+
+
