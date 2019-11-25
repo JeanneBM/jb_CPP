@@ -1,0 +1,61 @@
+// Ten program wykorzystuje funkcję zwracającą strukturę.
+// Jest to zmodyfikowana wersja programu z listingu 11.2.
+#include <iostream>
+#include <iomanip>
+#include <cmath>  // Biblioteka zawierająca funkcję pow()
+using namespace std;
+
+// Stała pi
+const double PI = 3.14159;
+
+// Deklaracja struktury
+struct Circle
+{
+  double radius;      // Promień koła
+  double diameter;    // Średnica koła
+  double area;        // Pole koła
+};
+
+// Prototyp funkcji
+Circle getInfo();
+
+int main()
+{
+  Circle c;        // Definicja zmiennej strukturalnej
+
+  // Pobranie danych koła
+  c = getInfo();
+
+  // Obliczenie pola koła
+  c.area = PI * pow(c.radius, 2.0);
+
+  // Wyświetlenie danych koła
+  cout << "Promień i pole koła:\n";
+  cout << fixed << setprecision(2);
+  cout << "Promień: " << c.radius << endl;
+  cout << "Pole: " << c.area << endl;
+  return 0;
+}
+
+//****************************************************************
+// Definicja funkcji getInfo(). Funkcja ta wykorzystuje lokalną
+// zmienną strukturalną tempCircle typu Circle. Użytkownik
+// wprowadza średnicę koła, która jest następnie zapisywana
+// w składniku tempCircle.diameter. Funkcja wylicza promień
+// koła i zapisuje go w składniku tempCircle.radius.
+// Na koniec funkcja zwraca wynik zawierający zmienną
+// tempCircle.
+//****************************************************************
+
+Circle getInfo()
+{
+  Circle tempCircle;  // Tymczasowa zmienna strukturalna
+
+  // Zapisanie danych koła w tymczasowej zmiennej
+  cout << "Podaj średnicę koła: ";
+  cin >> tempCircle.diameter;
+  tempCircle.radius = tempCircle.diameter / 2.0;
+
+  // Zwrócenie tymczasowej zmiennej
+  return tempCircle;
+}
