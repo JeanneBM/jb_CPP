@@ -1,0 +1,59 @@
+// Ten program demonstruje funkcję, której argumentem
+// jest wskaźnik do struktury.
+#include <iostream>
+#include <string>
+#include <iomanip>
+using namespace std;
+
+struct Student
+{
+  string name;         // Imię i nazwisko kursanta
+  int idNum;           // Identyfikator kursanta
+  int creditHours;     // Liczba godzin szkolenia
+  double gpa;          // Średnia ocena
+};
+
+void getData(Student *);  // Prototyp funkcji
+
+int main()
+{
+  Student freshman;
+
+  // Pobranie danych kursanta
+  cout << "Podaj dane kursanta:\n";
+  getData(&freshman);    // Umieszczenie w argumencie funkcji adresu zmiennej freshman
+  cout << "\nWprowadzone dane kursanta:\n";
+
+  // Wyświetlenie danych zapisanych w zmiennej freshman
+  cout << setprecision(3);
+  cout << "Imię i nazwisko: " << freshman.name << endl;
+  cout << "Identyfikator: " << freshman.idNum << endl;
+  cout << "Liczba godzin szkolenia: " << freshman.creditHours << endl;
+  cout << "Średnia ocena: " << freshman.gpa << endl;
+  return 0;
+}
+
+//********************************************************
+// Definicja funkcji getData() wykorzystującej wskaźnik do 
+// struktury z danymi kursanta. Użytkownik wprowadza dane
+// kursanta, które są następnie zapisywane w zmiennej.
+//********************************************************
+
+void getData(Student *s)
+{
+  // Pobranie imienia i nazwiska kursanta
+  cout << "Imię i nazwisko kursanta: ";
+  getline(cin, s->name);
+
+  // Pobranie identyfikatora kursanta
+  cout << "Identyfikator kursanta: ";
+  cin >> s->idNum;
+
+  // Pobranie liczby godzin szkolenia
+  cout << "Liczba godzin szkolenia: ";
+  cin >> s->creditHours;
+
+  // Pobranie średniej ocen
+  cout << "Średnia ocena: ";
+  cin >> s->gpa;
+}
