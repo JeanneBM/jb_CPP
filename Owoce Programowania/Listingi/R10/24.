@@ -1,0 +1,44 @@
+// Program prosi u¿ytkownika o podanie liczby,
+// któr¹ funkcja currencyFormat() modyfikuje
+// zgodnie z przyjêtym formatem walutowym.
+#include <iostream>
+#include <string>
+using namespace std;
+
+// Prototyp funkcji
+void currencyFormat(string &);
+
+int main()
+{
+  string input;
+
+  // Pobranie liczby od u¿ytkownika
+  cout << "Wpisz liczbę w formacie nnnnn.nn : ";
+  cin >> input;
+  currencyFormat(input);
+  cout << "Liczba w formacie walutowym:\n";
+  cout << input << endl;
+  return 0;
+}
+
+//************************************************************
+// Definicja funkcji currencyFormat(). Argumentem
+// jest referencja do obiektu typu string. Przyjêto
+// za³o¿enie, ¿e obiekt ten zawiera liczbê
+// z symbolem dziesiêtnym. Funkcja modyfikuje
+// ci¹g zgodnie z przyjêtym formatem walutowym.
+//************************************************************
+
+void currencyFormat(string &currency)
+{
+  int dp;
+
+  dp = currency.find('.');      // Wyszukanie symbolu dziesiêtnego
+  currency.replace(dp, 1, ","); // Zamiana symbolu dziesiêtnego na przecinek
+  if (dp > 3)                   // Wstawienie spacji
+  {
+    for (int x = dp - 3; x > 0; x -= 3)
+      currency.insert(x, " ");
+  }
+  currency.append(" z³");    // Dopisanie sufiksu "z³"
+}
