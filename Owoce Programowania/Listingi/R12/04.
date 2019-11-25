@@ -1,0 +1,29 @@
+// Ten program zapisuje w pliku trzy wiersze liczb.
+#include <iostream>
+#include <fstream>
+#include <iomanip>
+using namespace std;
+
+int main()
+{
+  const int ROWS = 3;   // Liczba zapisywanych wierszy
+  const int COLS = 3;   // Liczba zapisywanych kolumn
+  int nums[ROWS][COLS] = { 2897, 5, 837,
+                           34, 7, 1623,
+                           390, 3456, 12 };
+  fstream outFile("Tabela.txt", ios::out);
+
+  // Zapisanie trzech wierszy liczb, z których
+  // każda zajmuje pole o szerokości 8 znaków.
+  for (int row = 0; row < ROWS; row++)
+  {
+    for (int col = 0; col < COLS; col++)
+    {
+      outFile << setw(8) << nums[row][col];
+    }
+    outFile << endl;
+  }
+  outFile.close();
+  cout << "Koniec.\n";
+  return 0;
+}
