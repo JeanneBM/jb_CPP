@@ -1,0 +1,49 @@
+// Ten program demonstruje użycie funkcji countChars() zliczającej
+// wystąpienia zadanej litery w ciągu znaków.
+#include <iostream>
+using namespace std;
+
+int countChars(char *, char); // Prototyp funkcji
+
+int main()
+{
+  const int SIZE = 51;   // Wielkość tablicy
+  char userString[SIZE]; // Przeszukiwany ciąg znaków
+  char letter;           // Szukana litera
+
+  // Pobranie ciągu znaków
+  cout << "Podaj ciąg (maks. 50 znaków): ";
+  cin.getline(userString, SIZE);
+
+  // Pobranie litery, której wystąpienia mają być zliczone
+  cout << "Podaj literę, a ja policzę\n";
+  cout << "ile razy występuje w ciągu: ";
+  cin >> letter;
+
+  // Wyświetlenie liczby wystąpień litery w ciągu
+  cout << "Litera " << letter << " występuje w ciągu ";
+  cout << countChars(userString, letter) << " razy.\n";
+  return 0;
+}
+
+//******************************************************************
+// Definicja funkcji countChars(). Argument strPtr
+// zawiera wskaźnik do ciągu znaków. Argument
+// ch zawiera wyszukiwaną literę. Funkcja zwraca
+// liczbę wystąpień litery w zadanym ciągu.
+//******************************************************************
+
+int countChars(char *strPtr, char ch)
+{
+  int times = 0;  // Liczba wystąpień litery w ciągu
+
+  // Porównywanie kolejnych znaków ciągu z literą podaną w argumencie ch
+  while (*strPtr != '\0')
+  {
+    if (*strPtr == ch)  // Jeżeli bieżący znak jest literą podaną w argumencie ch...
+      times++;          // ...to zwiększany jest licznik.
+    strPtr++;           // Przejście do następnego znaku w ciągu
+  }
+
+  return times;
+}
