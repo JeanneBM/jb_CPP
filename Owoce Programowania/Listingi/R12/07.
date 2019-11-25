@@ -1,0 +1,33 @@
+// Ten program demonstruje efekt użycia operatora >>
+// do odczytu pliku zawierającego spacje.
+#include <iostream>
+#include <fstream>
+#include <string>
+using namespace std;
+
+int main()
+{
+  string input;      // Zmienna na odczytane dane
+  fstream nameFile;  // Obiekt plikowy
+
+  // Otwarcie pliku w trybie wejściowym.
+  nameFile.open("Nowak.txt", ios::in);
+
+  // Kontynuacja działania w przypadku pomyślnego otwarcia pliku
+  if (nameFile)
+  {
+    // Odczyt zawartości pliku
+    while (nameFile >> input)
+    {
+      cout << input;
+    }
+
+    // Zamknięcie pliku
+    nameFile.close();
+  }
+  else
+  {
+    cout << "BŁĄD: nie można otworzyć pliku.\n";
+  }
+  return 0;
+}
