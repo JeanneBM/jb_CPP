@@ -1,0 +1,50 @@
+// Ten program demonstruje odczytywanie danych z jednego pliku
+// i zapisywanie ich w drugim pliku.
+#include <iostream>
+#include <fstream>
+#include <string>
+#include <cctype> // Biblioteka zawierająca funkcję toupper()
+using namespace std;
+
+int main()
+{
+  string fileName;    // Zmienna dla nazwy pliku
+  char ch;            // Zmienna przechowująca znak
+  ifstream inFile;    // Plik wejściowy
+
+  // Otwarcie pliku w trybie wyjściowym
+  ofstream outFile("Wyjście.txt");
+
+  // Pobranie nazwy pliku wejściowego
+  cout << "Podaj nazwę pliku: ";
+  cin >> fileName;
+
+  // Otwarcie pliku w trybie wejściowym
+  inFile.open(fileName);
+
+  // Kontynuacja działania w razie pomyślnego otwarcia pliku
+  if (inFile)
+  {
+    // Odczytanie znaku z pierwszego pliku
+    inFile.get(ch);
+
+    // Kontynuacja działania pod warunkiem pomyślnego
+    // wykonania operacji odczytu
+    while (inFile)
+    {
+      // Zapisanie wielkiej litery w drugim pliku
+      outFile.put(toupper(ch));
+
+      // Odczytanie następnego znaku z pierwszego pliku
+      inFile.get(ch);
+    }
+
+    // Zamknięcie obu plików
+    inFile.close();
+    outFile.close();
+    cout << "Konwersja plików zakończona.\n";
+  }
+  else
+    cout << "Nie można otworzyć pliku " << fileName << ".\n";
+  return 0;
+}
