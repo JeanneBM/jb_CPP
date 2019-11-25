@@ -1,0 +1,44 @@
+// Ten program prosi użytkownika o podanie nazwy pliku.
+// Plik jest otwierany, a jego zawartość jest wyświetlana na ekranie.
+#include <iostream>
+#include <fstream>
+#include <string>
+using namespace std;
+
+int main()
+{
+  string fileName;    // Zmienna dla nazwy pliku
+  char ch;            // Zmienna dla odczytanego znaku
+  fstream file;       // Obiekt plikowy
+
+  // Pobranie nazwy pliku
+  cout << "Podaj nazwę pliku: ";
+  cin >> fileName;
+
+  // Otwarcie pliku
+  file.open(fileName, ios::in);
+
+  // Kontynuacja działania w przypadku pomyślnego otwarcia pliku
+  if (file)
+  {
+    // Odczytanie znaku z pliku
+    file.get(ch);
+
+    // Kontynuacja działania pod warunkiem pomyślnego
+    // wykonania ostatniej operacji
+    while (file)
+    {
+      // Wyświetlenie ostatniego odczytanego znaku
+      cout << ch;
+
+      // Odczytanie następnego znaku
+      file.get(ch);
+    }
+
+    // Zamknięcie pliku
+    file.close();
+  }
+  else
+    cout << "Nie można otworzyć pliku " << fileName << ".\n";
+  return 0;
+}
