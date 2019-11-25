@@ -1,0 +1,38 @@
+// W tym programie w zmiennej strukturalnej zapisywane są dane koła.
+#include <iostream>
+#include <cmath> // Biblioteka zawierająca funkcję pow()
+#include <iomanip>
+using namespace std;
+
+// Stała pi
+const double PI = 3.14159;
+
+// Deklaracja struktury
+struct Circle
+{
+  double radius;    // Promień koła
+  double diameter;  // Średnica koła
+  double area;      // Pole koła
+};
+
+int main()
+{
+  Circle c;    // Definicja zmiennej strukturalnej
+
+  // Pobranie średnicy koła
+  cout << "Podaj średnicę koła: ";
+  cin >> c.diameter;
+
+  // Obliczenie promienia koła
+  c.radius = c.diameter / 2;
+
+  // Obliczenie pola koła
+  c.area = PI * pow(c.radius, 2.0);
+
+  // Wyświetlenie danych koła
+  cout << fixed << showpoint << setprecision(2);
+  cout << "Promień i pole koła:\n";
+  cout << "Promień: " << c.radius << endl;
+  cout << "Pole: " << c.area << endl;
+  return 0;
+}
