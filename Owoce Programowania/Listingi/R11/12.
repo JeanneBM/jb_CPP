@@ -1,0 +1,21 @@
+// Ten program demonstruje użycie typu wyliczeniowego.
+#include <iostream>
+#include <iomanip>
+using namespace std;
+
+int main()
+{
+  enum Water { FREEZING = 0, BOILING = 100 };
+  int waterTemp; // Zmienna przechowująca temperaturę wody
+
+  cout << "Podaj temperaturę wody: ";
+  cin >> waterTemp;
+  if (waterTemp <= FREEZING)
+    cout << "Woda zamarzła.\n";
+  else if (waterTemp >= BOILING)
+    cout << "Woda wrze.\n";
+  else
+    cout << "Woda nie zamarzła ani nie wrze.\n";
+
+  return 0;
+}
