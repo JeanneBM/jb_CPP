@@ -1,0 +1,76 @@
+#include <iostream>
+#include <string>
+#include <vector>
+using namespace std;
+
+// Prototyp funkcji
+void split(const string&, char, vector<string>&);
+
+int main()
+{
+  // Ciągi przeznaczone do tokenizacji
+  string str1 = "jeden dwa trzy cztery";
+  string str2 = "10:20:30:40:50";
+  string str3 = "a/b/c/d/e/f";
+
+  // Wektor do przechowywania tokenów
+  vector<string> tokens;
+
+  // Tokenizacja ciągu str1, separatorem jest spacja
+  split(str1, ' ', tokens);
+  for (auto e : tokens)
+    cout << e << " ";
+  cout << endl;
+  tokens.clear();
+
+  // Tokenizacja ciągu str2, separatorem jest dwukropek
+  split(str2, ':', tokens);
+  for (auto e : tokens)
+    cout << e << " ";
+  cout << endl;
+  tokens.clear();
+
+  // Tokenizacja ciągu str3, separatorem jest ukośnik
+  split(str3, '/', tokens);
+  for (auto e : tokens)
+    cout << e << " ";
+  cout << endl;
+  return 0;
+}
+
+void split(const string& s, char delim, vector<string>& tokens)
+{
+  int tokenStart = 0;  // Indeks początku następnego tokena
+
+  // Wyszukanie pierwszego wystąpienia separatora
+  int delimPosition = s.find(delim);
+
+  // Pętla powtarzana dopóki jest znajdowany kolejny separator
+  while (delimPosition != string::npos)
+  {
+    // Wyodrębnienie tokena
+    string tok = s.substr(tokenStart, delimPosition - tokenStart);
+
+    // Zapisanie tokena w wektorze
+    tokens.push_back(tok);
+
+    // Przesunięcie indeksu delimPosition do następnego znaku
+    delimPosition++;
+
+    // Przypisanie zmiennej tokenStart wartości delimPosition
+    tokenStart = delimPosition;
+
+    // Wyszukanie następnego wystąpienia separatora
+    delimPosition = s.find(delim, delimPosition);
+
+    // Wyodrębnienie ostatniego tokena, jeżeli separator nie został znaleziony
+    if (delimPosition == string::npos)
+    {
+      // Wyodrębnienie tokena
+      string tok = s.substr(tokenStart, delimPosition - tokenStart);
+
+      // Zapisanie tokena w wektorze
+      tokens.push_back(tok);
+    }
+  }
+}
