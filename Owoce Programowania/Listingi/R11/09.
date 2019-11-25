@@ -1,0 +1,32 @@
+// Ten program demonstruje użycie typu wyliczeniowego.
+#include <iostream>
+#include <iomanip>
+using namespace std;
+
+enum Day { MONDAY, TUESDAY, WEDNESDAY, THURSDAY, FRIDAY };
+
+int main()
+{
+  const int NUM_DAYS = 5;    // Liczba dni
+  double sales[NUM_DAYS];    // Sprzedaż w poszczególnych dniach
+  double total = 0.0;        // Suma
+  int index;                 // Licznik pętli
+
+  // Pobranie sprzedaży za każdy dzień
+  for (index = MONDAY; index <= FRIDAY; index++)
+  {
+    cout << "Podaj wartość sprzedaży w dniu "
+         << index << ": ";
+    cin >> sales[index];
+  }
+
+  // Wyliczenie całkowitej sprzedaży
+  for (index = MONDAY; index <= FRIDAY; index++)
+    total += sales[index];
+
+  // Wyświetlenie całkowitej sprzedaży
+  cout << "Całkowita wartość sprzedaży: " << setprecision(2)
+       << fixed << total << " zł" << endl;
+
+  return 0;
+}
