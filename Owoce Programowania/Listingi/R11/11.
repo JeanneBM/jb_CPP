@@ -1,0 +1,60 @@
+// Ten program demonstruje użycie typu wyliczeniowego.
+#include <iostream>
+#include <iomanip>
+using namespace std;
+
+enum Day { MONDAY, TUESDAY, WEDNESDAY, THURSDAY, FRIDAY };
+
+// Prototyp funkcji
+void displayDayName(Day);
+
+int main()
+{
+  const int NUM_DAYS = 5;    // Liczba dni
+  double sales[NUM_DAYS];    // Sprzedaż w poszczególnych dniach
+  double total = 0.0;        // Suma
+  Day workDay;               // Licznik pętli
+
+  // Pobranie sprzedaży za każdy dzień
+  for (workDay = MONDAY; workDay <= FRIDAY;
+    workDay = static_cast<Day>(workDay + 1))
+  {
+    cout << "Podaj wartość sprzedaży ";
+    displayDayName(workDay);
+    cout << ": ";
+    cin >> sales[workDay];
+  }
+
+  // Wyliczenie całkowitej sprzedaży
+  for (workDay = MONDAY; workDay <= FRIDAY;
+    workDay = static_cast<Day>(workDay + 1))
+    total += sales[workDay];
+
+  // Wyświetlenie całkowitej sprzedaży
+  cout << "Całkowita wartość sprzedaży: " << setprecision(2)
+    << fixed << total << " zł" << endl;
+
+  return 0;
+}
+
+//**********************************************************
+// Definicja funkcji displayDayName(). Jej argument
+// jest typu Day. Funkcja wyświetla nazwę dnia tygodnia
+// odpowiadającą wartości argumentu.
+//**********************************************************
+
+void displayDayName(Day d)
+{
+  switch (d)
+  {
+    case MONDAY: cout << "w poniedziałek";
+      break;
+    case TUESDAY: cout << "we wtorek";
+      break;
+    case WEDNESDAY: cout << "w środę";
+      break;
+    case THURSDAY: cout << "w czwartek";
+      break;
+    case FRIDAY: cout << "w piątek";
+  }
+}
