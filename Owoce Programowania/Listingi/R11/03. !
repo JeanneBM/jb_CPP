@@ -1,0 +1,40 @@
+// Ten program demonstruje użycie częściowo
+// zainicjowanych zmiennych strukturalnych
+#include <iostream>
+#include <string>
+#include <iomanip>
+using namespace std;
+
+struct EmployeePay
+{
+  string name;      // Imię i nazwisko pracownika
+  int empNum;       // Identyfikator pracownika
+  double payRate;   // Stawka godzinowa
+  double hours;     // Liczba przepracowanych godzin
+  double grossPay;  // Wynagrodzenie
+};
+
+int main()
+{
+  EmployeePay employee1 = { "Beata Rostowska", 141, 8.50 };
+  EmployeePay employee2 = { "Joanna Sandomierska", 142, 7.50 };
+
+  cout << fixed << showpoint << setprecision(2);
+
+  // Wyliczenie wypłaty dla pracownika 1
+  cout << "Imię i nazwisko: " << employee1.name << endl;
+  cout << "Identyfikator pracownika: " << employee1.empNum << endl;
+  cout << "Podaj liczbę przepracowanych godzin: ";
+  cin >> employee1.hours;
+  employee1.grossPay = employee1.hours * employee1.payRate;
+  cout << "Wypłata: " << employee1.grossPay << " zł" << endl << endl;
+
+  // Wyliczenie wypłaty dla pracownika 2
+  cout << "Imię i nazwisko: " << employee2.name << endl;
+  cout << "Identyfikator pracownika: " << employee2.empNum << endl;
+  cout << "Podaj liczbę przepracowanych godzin: ";
+  cin >> employee2.hours;
+  employee2.grossPay = employee2.hours * employee2.payRate;
+  cout << "Wypłata: " << employee2.grossPay << " zł" << endl;
+  return 0;
+}
