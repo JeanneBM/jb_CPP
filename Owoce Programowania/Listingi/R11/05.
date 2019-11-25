@@ -1,0 +1,76 @@
+// Ten program wykorzystuje zagnieżdżone struktury.
+#include <iostream>
+#include <string>
+using namespace std;
+
+// Struktura Date zawiera informacje o dacie.
+struct Date
+{
+  int month;
+  int day;
+  int year;
+};
+
+// Struktura Place zawiera dane adresowe.
+struct Place
+{
+  string address;
+  string city;
+  string state;
+  string zip;
+};
+
+// Struktura EmployeeInfo zawiera dane pracownika.
+struct EmployeeInfo
+{
+  string name;
+  int employeeNumber;
+  Date birthDate;            // Zagnieżdżona struktura
+  Place residence;           // Zagnieżdżona struktura
+};
+
+int main()
+{
+  // Definicja zmiennej strukturalnej zawierającej informacje o menedżerze
+  EmployeeInfo manager;
+
+  // Pobranie imienia, nazwiska i identyfikatora menedżera
+  cout << "Podaj imię i nazwisko menedżera: ";
+  getline(cin, manager.name);
+  cout << "Podaj identyfikator menedżera: ";
+  cin >> manager.employeeNumber;
+
+  // Pobranie daty urodzenia menedżera
+  cout << "Podaj datę urodzenia menedżera.\n";
+  cout << "Dzień (maks. 2 cyfry): ";
+  cin >> manager.birthDate.day;
+  cout << "Miesiąc (maks. 2 cyfry): ";
+  cin >> manager.birthDate.month;
+  cout << "Rok: ";
+  cin >> manager.birthDate.year;
+  cin.ignore();  // Pominięcie znaku nowego wiersza
+
+  // Pobranie informacji o miejscu zamieszkania menedżera
+  cout << "Podaj adres zamieszkania menedżera. Ulica: ";
+  getline(cin, manager.residence.address);
+  cout << "Miejscowość: ";
+  getline(cin, manager.residence.city);
+  cout << "Kod pocztowy: ";
+  getline(cin, manager.residence.zip);
+  cout << "Województwo: ";
+  getline(cin, manager.residence.state);
+
+  // Wyświetlenie wprowadzonych informacji
+  cout << "\nDane menedżera:\n";
+  cout << manager.name << endl;
+  cout << "Identyfikator: " << manager.employeeNumber << endl;
+  cout << "Data urodzenia: ";
+  cout << manager.birthDate.day << "-";
+  cout << manager.birthDate.month << "-";
+  cout << manager.birthDate.year << endl;
+  cout << "Adres zamieszkania:\n";
+  cout << manager.residence.address << endl;
+  cout << manager.residence.zip << " " << manager.residence.city << endl;
+  cout << manager.residence.state << endl;
+  return 0;
+}
