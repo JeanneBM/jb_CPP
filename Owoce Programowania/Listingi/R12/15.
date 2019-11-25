@@ -1,0 +1,58 @@
+// // Ten program wykorzystuje zmienną strukturalną do zapisywania w pliku rekordów danych.
+#include <iostream>
+#include <fstream>
+using namespace std;
+
+// Wielkości tablic
+const int NAME_SIZE = 51, ADDR_SIZE = 51, PHONE_SIZE = 14;
+
+// Deklaracja struktury jako rekordu danych
+struct Info
+{
+  char name[NAME_SIZE];
+  int age;
+  char address1[ADDR_SIZE];
+  char address2[ADDR_SIZE];
+  char phone[PHONE_SIZE];
+};
+
+int main()
+{
+  Info person; // Zmienna przechowująca informacje o osobie
+  char again;  // Zmienna przechowująca znak T lub N
+
+  // Otwarcie pliku w trybie wyjściowym binarnym
+  fstream people("Osoby.dat", ios::out | ios::binary);
+
+  do
+  {
+    // Pobranie danych osoby
+    cout << "Podaj następujące informacje "
+         << "o osobie:\n";
+    cout << "Imię i nazwisko: ";
+    cin.getline(person.name, NAME_SIZE);
+    cout << "Wiek: ";
+    cin >> person.age;
+    cin.ignore(); // Pominięcie znaku nowego wiersza
+    cout << "Adres 1: ";
+    cin.getline(person.address1, ADDR_SIZE);
+    cout << "Adres 2: ";
+    cin.getline(person.address2, ADDR_SIZE);
+    cout << "Nr telefonu: ";
+    cin.getline(person.phone, PHONE_SIZE);
+
+    // Zapisanie zawartośći struktury person w pliku
+    people.write(reinterpret_cast<char *>(&person),
+      sizeof(person));
+
+    // Sprawdzenie, czy użytkownik chce wprowadzić dane następnej osoby
+    cout << "Czy chcesz wprowadzić następny rekord danych? ";
+    cin >> again;
+    cin.ignore(); // Pominięcie znaku nowego wiersza
+  } while (again == 'T' || again == 't');
+
+  // Zamknięcie pliku
+  people.close();
+  return 0;
+}
+
