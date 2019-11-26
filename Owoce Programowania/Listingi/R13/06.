@@ -1,0 +1,29 @@
+// Ten program ilustruje funkcjonowanie konstruktora.
+#include <iostream>
+using namespace std;
+
+// Deklaracja klasy Demo
+
+class Demo
+{
+public:
+  Demo();    // Konstruktor
+};
+
+Demo::Demo()
+{
+  cout << "Witaj w konstruktorze!\n";
+}
+
+//*****************************************
+// Funkcja main()
+//*****************************************
+
+int main()
+{
+  Demo demoObject; // Definicja obiektu Demo
+
+  cout << "Ten program demonstruje tworzenie\n";
+  cout << "instancji klasy z konstruktorem.\n";
+  return 0;
+}
