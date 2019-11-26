@@ -1,0 +1,62 @@
+// Ten program umożliwia użytkownikowi modyfikowanie wybranego rekordu.
+#include <iostream>
+#include <fstream>
+using namespace std;
+
+const int DESC_SIZE = 31; // Długość opisu
+
+// Deklaracja struktury InventoryItem
+struct InventoryItem
+{
+  char desc[DESC_SIZE];
+  int qty;
+  double price;
+};
+
+int main()
+{
+  InventoryItem record; // Zmienna przechowująca rekord magazynowy
+  long recNum; // Zmienna przechowująca numer rekordu
+
+  // Otwarcie pliku w trybach wejściowym i wyjściowym
+  fstream inventory("Magazyn.dat",
+    ios::in | ios::out | ios::binary);
+
+  // Pobranie numeru żądanego rekordu
+  cout << "Który rekord chcesz zmodyfikować? ";
+  cin >> recNum;
+
+  // Przejście do żądanego rekordu z odczytanie go
+  inventory.seekg(recNum * sizeof(record), ios::beg);
+  inventory.read(reinterpret_cast<char *>(&record),
+    sizeof(record));
+
+  // Wyświetlenie zawartości rekordu
+  cout << "Opis: ";
+  cout << record.desc << endl;
+  cout << "Ilość: ";
+  cout << record.qty << endl;
+  cout << "Cena: ";
+  cout << record.price << endl;
+
+  // Pobranie nowych danych rekordu
+  cout << "Podaj nowe dane:\n";
+  cout << "Opis: ";
+  cin.ignore();
+  cin.getline(record.desc, DESC_SIZE);
+  cout << "Ilość: ";
+  cin >> record.qty;
+  cout << "Cena: ";
+  cin >> record.price;
+
+  // Przeniesienie pozycji na początek rekordu
+  inventory.seekp(recNum * sizeof(record), ios::beg);
+
+  // Zapisanie nowego rekordu w miejscu bieżącego
+  inventory.write(reinterpret_cast<char *>(&record),
+    sizeof(record));
+
+  // Zamknięcie pliku
+  inventory.close();
+  return 0;
+}
