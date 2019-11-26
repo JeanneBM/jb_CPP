@@ -1,0 +1,122 @@
+// Ten program tworzy instancje klasy Rectangle.
+#include <iostream>
+using namespace std;
+
+// Deklaracja klasy Rectangle
+class Rectangle
+{
+  private:
+    double width;
+    double length;
+  public:
+    void setWidth(double);
+    void setLength(double);
+    double getWidth() const;
+    double getLength() const;
+    double getArea() const;
+};
+
+//**************************************************
+// Funkcja setWidth() przypisuje wartość zmiennej członkowskiej width.
+//**************************************************
+
+void Rectangle::setWidth(double w)
+{
+  width = w;
+}
+
+//***************************************************
+// Funkcja setLength() przypisuje wartość zmiennej członkowskiej length.
+//***************************************************
+
+void Rectangle::setLength(double len)
+{
+  length = len;
+}
+
+//***************************************************
+// Funkcja getWidth() zwraca wartość zmiennej członkowskiej width.
+//***************************************************
+
+double Rectangle::getWidth() const
+{
+  return width;
+}
+
+//****************************************************
+// Funkcja getLength() zwraca wartość zmiennej członkowskiej getLength.
+//****************************************************
+
+double Rectangle::getLength() const
+{
+  return length;
+}
+
+//******************************************************
+// Funkcja getArea() zwraca iloczny zmiennych width i length.
+//******************************************************
+
+double Rectangle::getArea() const
+{
+  return width * length;
+}
+
+//*****************************************************
+// Funkcja main()
+//*****************************************************
+
+int main()
+{
+  double number;                  // Zmienna przechowująca liczbę
+  double totalArea;               // Całkowita powierzchnia mieszkania
+  Rectangle  *kitchen = nullptr;  // Wskaźnik do  obiektu przechowującego wymiary kuchni
+  Rectangle  *bedroom = nullptr;  // Wskaźnik do  obiektu przechowującego wymiary sypialni
+  Rectangle *den = nullptr;       // Wskaźnik do  obiektu przechowującego wymiary pokoju
+
+                                  // Dynamiczne zaalokowanie obiektów
+  kitchen = new Rectangle;
+  bedroom = new Rectangle;
+  den = new Rectangle;
+
+  // Pobranie wymiarów kuchni
+  cout << "Podaj długość kuchni: ";
+  cin >> number;                         // Pobranie długości
+  kitchen->setLength(number);            // Zapisanie długości w obiekcie kitchen
+  cout << "Podaj szerokość kuchni: ";
+  cin >> number;                         // Pobranie szerokości
+  kitchen->setWidth(number);             // Zapisanie szerokości w obiekcie kitchen
+
+  // Pobranie wymiarów sypialni.
+  cout << "Podaj długość sypialni: ";
+  cin >> number;                         // Pobranie długości
+  bedroom->setLength(number);            // Zapisanie długości w obiekcie bedroom
+  cout << "Podaj szerokość sypialni: ";
+  cin >> number;                         // Pobranie szerokości
+  bedroom->setWidth(number);             // Zapisanie szerokości w obiekcie bedroom
+
+  // Pobranie wymiarów pokoju.
+  cout << "Podaj długość pokoju: ";
+  cin >> number;                         // Pobranie długości
+  den->setLength(number);                // Zapisanie długości w obiekcie den
+  cout << "Podaj szerokość pokoju: ";
+  cin >> number;                         // Pobranie szerokości
+  den->setWidth(number);                 // Zapisanie szerokości w obiekcie den
+
+  // Wyliczenie całkowitej powierzchni trzech pomieszczeń
+  totalArea = kitchen->getArea() + bedroom->getArea() +
+    den->getArea();
+
+  // Wyświetlenie całkowitej powierzchni trzech pomieszczeń
+  cout << "Całkowita powierzchnia trzech pomieszczeń: "
+       << totalArea << endl;
+
+  // Usunięcie obiektów z pamięci
+  delete kitchen;
+  delete bedroom;
+  delete den;
+  kitchen = nullptr;   // Przypisanie wskaźnikowi kitchen wartości null
+  bedroom = nullptr;   // Przypisanie wskaźnikowi bedroom wartości null
+  den = nullptr;       // Przypisanie wskaźnikowi den wartości null
+
+  return 0;
+}
