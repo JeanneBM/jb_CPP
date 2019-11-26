@@ -1,0 +1,41 @@
+// Ten program wyświetla zawartość pliku magazynowego.
+#include <iostream>
+#include <fstream>
+using namespace std;
+
+const int DESC_SIZE = 31; // Długość opisu
+
+// Deklaracja struktury InventoryItem
+struct InventoryItem
+{
+  char desc[DESC_SIZE];
+  int qty;
+  double price;
+};
+
+int main()
+{
+  InventoryItem record; // Zmienna przechowująca rekord magazynowy
+
+  // Otwarcie pliku w trybie wejściowym binarnym
+  fstream inventory("Magazyn.dat", ios::in | ios::binary);
+
+  // Odczytanie i wyświetlenie rekordów
+  inventory.read(reinterpret_cast<char *>(&record),
+    sizeof(record));
+  while (!inventory.eof())
+  {
+    cout << "Opis: ";
+    cout << record.desc << endl;
+    cout << "Ilość: ";
+    cout << record.qty << endl;
+    cout << "Cena: ";
+    cout << record.price << endl << endl;
+    inventory.read(reinterpret_cast<char *>(&record),
+      sizeof(record));
+  }
+
+  // Zamknięcie pliku
+  inventory.close();
+  return 0;
+}
