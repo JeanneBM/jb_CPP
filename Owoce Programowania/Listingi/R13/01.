@@ -1,0 +1,92 @@
+// Ten program demonstruje użycie prostej klasy.
+#include <iostream>
+using namespace std;
+
+// Deklaracja klasy Rectangle
+class Rectangle
+{
+  private:
+    double width;
+    double length;
+  public:
+    void setWidth(double);
+    void setLength(double);
+    double getWidth() const;
+    double getLength() const;
+    double getArea() const;
+};
+
+//**************************************************
+// Funkcja setWidth() przypisuje wartość zmiennej członkowskiej width.
+//**************************************************
+
+void Rectangle::setWidth(double w)
+{
+  width = w;
+}
+
+//***************************************************
+// Funkcja setLength() przypisuje wartość zmiennej członkowskiej length.
+//***************************************************
+
+void Rectangle::setLength(double len)
+{
+  length = len;
+}
+
+//***************************************************
+// Funkcja getWidth() zwraca wartość zmiennej członkowskiej width.
+//***************************************************
+
+double Rectangle::getWidth() const
+{
+  return width;
+}
+
+//****************************************************
+// Funkcja getLength() zwraca wartość zmiennej członkowskiej getLength.
+//****************************************************
+
+double Rectangle::getLength() const
+{
+  return length;
+}
+
+//******************************************************
+// Funkcja getArea() zwraca iloczyn zmiennych width i length.
+//******************************************************
+
+double Rectangle::getArea() const
+{
+  return width * length;
+}
+
+//*****************************************************
+// Funkcja main()
+//*****************************************************
+
+int main()
+{
+  Rectangle box;     // Definicja instancji klasy Rectangle
+  double rectWidth;  // Lokalna zmienna przechowująca wartość zmiennej width
+  double rectLength; // Lokalna zmienna przechowująca wartość zmiennej length
+
+  // Podanie szerokości i długości prostokąta przez użytkownika
+  cout << "Ten program wylicza pole\n";
+  cout << "prostokąta. Podaj szerokość: ";
+  cin >> rectWidth;
+  cout << "Podaj długość: ";
+  cin >> rectLength;
+
+  // Zapisanie szerokości i długości prostokąta
+  // w obiekcie box
+  box.setWidth(rectWidth);
+  box.setLength(rectLength);
+
+  // Wyświetlenie danych prostokąta
+  cout << "Dane prostokąta:\n";
+  cout << "Szerokość: " << box.getWidth() << endl;
+  cout << "Długość: " << box.getLength() << endl;
+  cout << "Pole: " << box.getArea() << endl;
+  return 0;
+}
