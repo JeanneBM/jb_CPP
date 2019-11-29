@@ -1,0 +1,33 @@
+// Ten program demonstruje użycia destruktora.
+#include <iostream>
+using namespace std;
+
+class Demo
+{
+public:
+  Demo();  // Konstruktor
+  ~Demo(); // Destruktor
+};
+
+Demo::Demo()
+{
+  cout << "Witaj w konstruktorze!\n";
+}
+
+Demo::~Demo()
+{
+  cout << "Wywołanie destruktora.\n";
+}
+
+//*********************************************
+// Funkcja main()
+//*********************************************
+
+int main()
+{
+  Demo demoObject;  // Definicja obiektu Demo
+
+  cout << "Ten program demonstruje użycie obiektu\n";
+  cout << "z konstruktorem i destruktorem.\n";
+  return 0;
+}
