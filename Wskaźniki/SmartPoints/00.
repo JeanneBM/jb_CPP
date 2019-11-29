@@ -1,0 +1,223 @@
+Wskaźniki inteligentne (Modern C++) 19.11.2019
+
+W nowoczesnych C++ programowaniu Biblioteka standardowa obejmuje inteligentne wskaźniki, które są używane w celu zapewnienia, 
+że programy nie uwalniają pamięci i przecieków zasobów i są bezpieczne pod względem wyjątków.
+
+Zastosowania inteligentnych wskaźników
+
+Inteligentne wskaźniki są zdefiniowane w przestrzeni nazw std w pliku nagłówkowym ><pamięci . Są one niezwykle ważne dla RAII lub pozyskiwania 
+zasobów jest inicjowanie programowania idiom. Głównym celem tego idiomu jest zapewnienie, że pozyskiwanie zasobów występuje w tym samym czasie,
+co inicjacja obiektu, tak aby wszystkie zasoby dla tego obiektu były tworzone i gotowe w jednym wierszu kodu. 
+
+W praktyce główną zasadą RAII jest dawanie na własność dowolnego zasobu z przyznaną stertą — na przykład dynamicznie przydzielonej pamięci 
+lub uchwytów obiektu systemowego — obiektowi z przyznanym stosem, którego destruktor zawiera kod w celu usunięcia lub zwolnienia zasobów, 
+a także związany z nim kod porządkujący.
+
+W większości przypadków, podczas inicjowania surowego wskaźnika lub uchwytu zasobu w celu wskazania rzeczywistego zasobu, należy natychmiast 
+przekazać wskaźnik do inteligentnego wskaźnika. W nowoczesnym C++, surowe wskaźniki są używane tylko w małych blokach kodu o ograniczonym 
+zakresie, pętlach lub funkcjach pomocniczych, gdzie wydajność ma kluczowe znaczenie i nie ma możliwości popełnienia błędu w zakresie własności.
+
+Poniższy przykład porównuje deklarację surowego wskaźnika z deklaracją inteligentnego wskaźnika.
+C++
+
+void UseRawPointer()
+{
+    // Using a raw pointer -- not recommended.
+    Song* pSong = new Song(L"Nothing on You", L"Bruno Mars"); 
+
+    // Use pSong...
+
+    // Don't forget to delete!
+    delete pSong;   
+}
+
+
+void UseSmartPointer()
+{
+    // Declare a smart pointer on stack and pass it the raw pointer.
+    unique_ptr<Song> song2(new Song(L"Nothing on You", L"Bruno Mars"));
+
+    // Use song2...
+    wstring s = song2->duration_;
+    //...
+
+} // song2 is deleted automatically here.
+
+Jak pokazano w przykładzie, inteligentny wskaźnik jest szablonem klasy, którą deklarujesz na stosie i inicjujesz przy użyciu surowego wskaźnika,
+który wskazuje na obiekt z przydzieloną stertą. Po zainicjowaniu inteligentnego wskaźnika, inteligentny wskaźnik jest właścicielem wskaźnika 
+surowego. Oznacza to, że inteligentny wskaźnik jest odpowiedzialny za usunięcie pamięci określonej przez surowy wskaźnik. 
+Destruktor inteligentnego wskaźnika zawiera wywołanie usunięcia, a ponieważ inteligentny wskaźnik jest zadeklarowany na stosie, 
+jego destruktor jest wywołany, kiedy inteligentny wskaźnik wychodzi poza zakres, nawet jeśli później na stosie jest zgłoszony wyjątek.
+
+Dostęp do zhermetyzowanego wskaźnika za pomocą znanych operatorów wskaźnika, -> i *, które Klasa inteligentnego wskaźnika przeciąża, 
+aby zwrócić surowy wskaźnik nieprzetworzony.
+
+Idiom inteligentnego wskaźnika języka C++ przypomina tworzenie obiektów w językach takich, jak C#: utwórz obiekt, a następnie pozwól systemowi 
+zadbać o usunięcie go w odpowiednim czasie. Różnica polega na tym, że w tle nie działa żaden odrębny moduł odśmiecania; pamięć jest zarządzana 
+przez standardowe zasady zakresu C++, tak że środowisko wykonawcze jest szybsze i wydajniejsze.
+
+Ważne
+
+Zawsze twórz inteligentne wskaźniki w osobnym wierszu kodu, nigdy na liście parametrów, tak aby nie wystąpił niewielki wyciek zasobów z powodu 
+pewnych reguł alokacji listy parametrów.
+
+Poniższy przykład pokazuje, jak typ inteligentnego wskaźnika unique_ptr z biblioteki C++ standardowej może służyć do hermetyzacji wskaźnika 
+do dużego obiektu.
+
+C++
+
+
+class LargeObject
+{
+public:
+    void DoSomething(){}
+};
+
+void ProcessLargeObject(const LargeObject& lo){}
+void SmartPointerDemo()
+{    
+    // Create the object and pass it to a smart pointer
+    std::unique_ptr<LargeObject> pLarge(new LargeObject());
+
+    //Call a method on the object
+    pLarge->DoSomething();
+
+    // Pass a reference to a method.
+    ProcessLargeObject(*pLarge);
+
+} //pLarge is deleted automatically when function block goes out of scope.
+
+W przykładzie pokazano niezbędne kroki używania inteligentnych wskaźników.
+
+  Zadeklaruj inteligentny wskaźnik jako zmienną automatyczną (lokalną). (Nie używaj wyrażenia New lub malloc na samym wskaźniku inteligentnym).
+
+  W parametrze typu określ typ wskazywanego zhermetyzowanego wskaźnika.
+
+  Przekaż surowy wskaźnik do nowegoobiektu w konstruktorze inteligentnego wskaźnika. (Niektóre funkcje narzędziowe lub konstruktory 
+    inteligentnego wskaźnika robią to automatycznie.)
+
+  Użyj przeciążonych -> i operatory *, aby uzyskać dostęp do obiektu.
+
+  Niech inteligentny wskaźnik usunie obiekt.
+
+Inteligentne wskaźniki są zaprojektowane tak, aby były maksymalnie efektywne, zarówno w zakresie pamięci, jak i wydajności. 
+Na przykład jedynym elementem członkowskim danych w unique_ptr jest wskaźnik hermetyzowany. Oznacza to, że unique_ptr ma dokładnie taki sam 
+rozmiar jak ten wskaźnik, cztery bajty lub osiem bajtów. Uzyskiwanie dostępu do zhermetyzowanego wskaźnika przy użyciu funkcji inteligentnych 
+operatorów przeciążonych * i-> nie jest znacząco wolniejsze niż bezpośredni dostęp do pierwotnych wskaźników.
+
+Inteligentne wskaźniki mają własne funkcje członkowskie, do których uzyskuje się dostęp przy użyciu notacji "kropka". Na przykład niektóre C++ 
+inteligentne wskaźniki biblioteki standardowej mają funkcję resetowania elementu członkowskiego, która zwalnia własność wskaźnika. Jest to 
+przydatne, kiedy chcesz zwolnić pamięć zajmowaną przez inteligentny wskaźnik, zanim inteligentny wskaźnik wyjdzie poza zakres, jak pokazano 
+w poniższym przykładzie.
+
+C++
+
+void SmartPointerDemo2()
+{
+    // Create the object and pass it to a smart pointer
+    std::unique_ptr<LargeObject> pLarge(new LargeObject());
+
+    //Call a method on the object
+    pLarge->DoSomething();
+
+    // Free the memory before we exit function block.
+    pLarge.reset();
+
+    // Do some other work...
+
+}
+
+Inteligentne wskaźniki umożliwiają zwykle bezpośredni dostęp do własnego surowego wskaźnika. C++Inteligentne wskaźniki biblioteki standardowej 
+mają do tego celu get funkcję członkowską, a CComPtr ma publiczny element członkowski klasy p. Zapewniając bezpośredni dostęp do podstawowych 
+wskaźników, możesz skorzystać z inteligentnego wskaźnika do zarządzania pamięcią we własnym kodzie i nadal przekazywać surowy wskaźnik do kodu,
+który nie obsługuje inteligentnych wskaźników.
+
+C++
+
+void SmartPointerDemo4()
+{
+    // Create the object and pass it to a smart pointer
+    std::unique_ptr<LargeObject> pLarge(new LargeObject());
+
+    //Call a method on the object
+    pLarge->DoSomething();
+
+    // Pass raw pointer to a legacy API
+    LegacyLargeObjectFunction(pLarge.get());    
+}
+
+Rodzaje inteligentnych wskaźników
+
+Poniższa sekcja podsumowuje różne rodzaje inteligentnych wskaźników, które są dostępne w środowisku programowania Windows, i opisuje, kiedy ich
+używać.
+
+C++Inteligentne wskaźniki biblioteki standardowej
+
+Używaj tych inteligentnych wskaźników jako pierwszych, w celu hermetyzacji wskaźników jako zwykłych starych obiektów C++ (Plain Old C++ Objects
+— POCO).
+
+    unique_ptr
+    Pozwala na dokładnie jednego właściciela podstawowego wskaźnika. Użyj jako domyślnego wyboru dla POCO, chyba że wiadomo, że jest wymagane 
+    shared_ptr. Może być przeniesiony do nowego właściciela, ale nie kopiowany lub udostępniony. Zastępuje auto_ptr, który jest przestarzały. 
+    Porównaj z boost::scoped_ptr. unique_ptr jest mały i wydajny; rozmiar jest jednym wskaźnikiem i obsługuje odwołania rvalue do szybkiego 
+    wstawiania i pobierania z C++ standardowych kolekcji bibliotek. Plik nagłówkowy: <memory>. Aby uzyskać więcej informacji, zobacz How to: 
+    Create and Use Unique_ptr Instances and unique_ptr Class.
+
+    shared_ptr
+    Inteligentny wskaźnik zliczonych odwołań. Użyj, jeżeli chcesz przypisać jeden surowy wskaźnik wielu właścicielom, na przykład, kiedy 
+    zwracasz kopię wskaźnika z kontenera, ale chcesz zatrzymać oryginał. Nieprzetworzony wskaźnik nie zostanie usunięty, dopóki wszyscy 
+    właściciele shared_ptr nie znikną z zakresu lub w inny sposób nie podano własności. Rozmiar to dwa wskaźniki; jeden dla obiektu i jeden dla
+    współdzielonego bloku kontroli, który zawiera licznik odwołań. Plik nagłówkowy: <memory>. Aby uzyskać więcej informacji, zobacz How to: 
+    Create and Use Shared_ptr Instances and shared_ptr Class.
+
+    weak_ptr
+    Specjalny wskaźnik inteligentny dla przypadków użycia w połączeniu z shared_ptr. weak_ptr zapewnia dostęp do obiektu, który należy do 
+    co najmniej jednego wystąpienia shared_ptr, ale nie uczestniczy w zliczaniu odwołań. Używaj, jeżeli chcesz obserwować obiekt, ale 
+    nie wymagasz, aby pozostał aktywny. Wymagane w niektórych przypadkach, aby przerwać odwołania cykliczne między wystąpieniami shared_ptr. 
+    Plik nagłówkowy: <memory>. Aby uzyskać więcej informacji, zobacz How to: Create and Use Weak_ptr Instances and weak_ptr Class.
+
+Inteligentne wskaźniki dla obiektów COM (klasyczne programowanie systemu Windows)
+
+Kiedy pracujesz z obiektami COM, zawiń wskaźniki interfejsu w odpowiedni typ inteligentnego wskaźnika. Active Template Library (ATL) definiuje 
+kilka inteligentnych wskaźników do różnych celów. Można również użyć typu inteligentnego wskaźnika _com_ptr_t, którego kompilator używa, gdy 
+tworzy klasy otoki z plików. tlb. To najlepszy wybór, jeśli nie chcesz dołączyć plików nagłówkowych ATL.
+
+Klasa CComPtr
+Użyj tego, jeżeli nie możesz użyć ATL. Wykonuje zliczanie odwołań przy użyciu metod AddRef i Release. Aby uzyskać więcej informacji, zobacz 
+How to: Create and use CComPtr and CComQIPtr Instances.
+
+Klasa CComQIPtr
+Przypomina CComPtr, ale również zapewnia uproszczoną składnię do wywoływania QueryInterface na obiektach COM. Aby uzyskać więcej informacji, 
+zobacz How to: Create and use CComPtr and CComQIPtr Instances.
+
+Klasa CComHeapPtr
+Inteligentny wskaźnik do obiektów, które używają CoTaskMemFree do zwalniania pamięci.
+
+Klasa CComGITPtr
+Inteligentny wskaźnik dla interfejsów, które są uzyskiwane z tabeli interfejsu globalnego (GIT).
+
+_com_ptr_t, klasa
+Przypomina CComQIPtr w funkcji, ale nie zależy od nagłówków ATL.
+Inteligentne wskaźniki ATL dla obiektów POCO
+
+Oprócz inteligentnych wskaźników dla obiektów COM, ATL definiuje również inteligentne wskaźniki i kolekcje inteligentnych wskaźników dla 
+zwykłych starych C++ obiektów (POCO). W klasycznym programowaniu systemu Windows te typy są przydatnymi alternatywami dla C++ standardowych 
+kolekcji bibliotek, szczególnie gdy Przenoszenie kodu nie jest wymagane lub gdy nie chcesz mieszać modeli programowania biblioteki C++ 
+standardowej i ATL.
+
+Klasa CAutoPtr
+Inteligentny wskaźnik, który wymusza unikatowe własności poprzez przeniesienie własności na kopię. Porównywalne do przestarzałej 
+klasy std::auto_ptr.
+
+Klasa CHeapPtr
+Inteligentny wskaźnik dla obiektów, które są przydzielone przy użyciu funkcji C malloc .
+
+Klasa CAutoVectorPtr
+Inteligentny wskaźnik dla tablic, które są przydzielone za pomocą new[].
+
+Klasa CAutoPtrArray
+Klasa, która hermetyzuje tablicę elementów CAutoPtr.
+
+Klasa CAutoPtrList
+Klasa, która hermetyzuje metody manipulowania listą węzłów CAutoPtr.
+
