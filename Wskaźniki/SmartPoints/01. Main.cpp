@@ -1,3 +1,5 @@
+//https://github.com/Aseman-Land/SmartPoints
+
 #include <QGuiApplication>
 #include <QQmlApplicationEngine>
 #include <QtQml>
