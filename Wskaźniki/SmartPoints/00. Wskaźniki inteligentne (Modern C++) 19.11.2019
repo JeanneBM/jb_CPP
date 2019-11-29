@@ -1,8 +1,10 @@
 Wskaźniki inteligentne (Modern C++) 19.11.2019
 
+https://docs.microsoft.com/
+
 W nowoczesnych C++ programowaniu Biblioteka standardowa obejmuje inteligentne wskaźniki, które są używane w celu zapewnienia, 
 że programy nie uwalniają pamięci i przecieków zasobów i są bezpieczne pod względem wyjątków.
-
+https://docs.microsoft.com/
 Zastosowania inteligentnych wskaźników
 
 Inteligentne wskaźniki są zdefiniowane w przestrzeni nazw std w pliku nagłówkowym ><pamięci . Są one niezwykle ważne dla RAII lub pozyskiwania 
