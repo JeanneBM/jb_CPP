@@ -1,0 +1,26 @@
+// Ten program demonstruje użycie funkcji rekurencyjnej
+// do wyświetlania zawartości węzłów w odwrotnej kolejności.
+#include <iostream>
+#include "NumberList.h"
+using namespace std;
+
+int main()
+{
+  const double MAX = 10.0; // Maksymalna wartość do umieszczenia w liście
+
+  // Definicja obiektu typu NumberList
+  NumberList list;
+
+  // Umieszczenie w liście serii liczb
+  for (double x = 1.5; x < MAX; x += 1.1)
+    list.appendNode(x);
+
+  // Wyświetlenie wartości zapisanych w liście
+  cout << "Wartości zapisane w liście:\n";
+  list.displayList();
+
+  // Wyświetlenie wartości w odwrotnej kolejności
+  cout << "Wartości w odwrotnej kolejności:\n";
+  list.displayBackwards();
+  return 0;
+}
