@@ -1,0 +1,50 @@
+// Ten program demonstruje rekurencyjne wywoływanie funkcji
+// zliczającej wystąpienia zadanego znaku w ciągu.
+#include <iostream>
+#include <string>
+using namespace std;
+
+// Prototyp funkcji
+int numChars(char, string, int);
+
+int main()
+{
+  string str = "abcddddef";
+
+  // Wyświetlenie liczby wystąpień znaku 'd'
+  // w ciągu
+  cout << "Litera 'd' występuje "
+    << numChars('d', str, 0) << " razy.\n";
+
+  return 0;
+}
+
+//************************************************
+// Funkcja numChars(). Jest to funkcja rekurencyjna zliczająca
+// liczbę wystąpień znaku podanego w argumencie search w ciągu
+// podanym w argumencie str. Przeszukiwanie rozpoczyna się
+// od znaku, którego indeks jest podany w argumencie subscript.
+//************************************************
+
+int numChars(char search, string str, int subscript)
+{
+  if (subscript >= str.length())
+  {
+    // Przypadek bazowy: osiągnięty został koniec ciągu.
+    return 0;
+  }
+  else if (str[subscript] == search)
+  {
+    // Przypadek rekurencyjny: znaleziony został poszukiwany znak.
+    // Funkcja zwraca sumę liczby 1 i liczby wystąpień poszukiwanego znaku
+    // w pozostałej części ciągu.
+    return 1 + numChars(search, str, subscript + 1);
+  }
+  else
+  {
+    // Przypadek rekurencyjny: znak jest inny niż poszukiwany.
+    // Funkcja zwraca liczbę wystąpień poszukiwanego znaku
+    // w pozostałej części ciągu.
+    return numChars(search, str, subscript + 1);
+  }
+}
