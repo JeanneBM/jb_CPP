@@ -1,0 +1,41 @@
+// Ten program demonstruje rozwiązanie gry
+// "Wieże Hanoi".
+#include <iostream>
+using namespace std;
+
+// Prototyp funkcji
+void moveDiscs(int, int, int, int);
+
+int main()
+{
+  const int NUM_DISCS = 3; // Liczba krążków do przełożenia
+  const int FROM_PEG = 1;  // Początkowy numer słupka źródłowego
+  const int TO_PEG = 3;    // Początkowy numer słupka docelowego
+  const int TEMP_PEG = 2;  // Początkowy numer słupka pomocniczego
+
+  // Właściwa gra
+  moveDiscs(NUM_DISCS, FROM_PEG, TO_PEG, TEMP_PEG);
+  cout << "Wszystkie krążki zostały przełożone!\n";
+  return 0;
+}
+
+//***************************************************
+// Funkcja moveDiscs() wyświetlającą operacje przekładania
+// krążków w grze "Wieże Hanoi"
+// Argumenty funkcji:
+// num: Liczba krążków do przeniesienia
+// fromPeg: Początkowy numer słupka źródłowego
+// toPeg: Początkowy numer słupka docelowego
+// tempPeg: Początkowy numer słupka pomocniczego
+//***************************************************
+
+void moveDiscs(int num, int fromPeg, int toPeg, int tempPeg)
+{
+  if (num > 0)
+  {
+    moveDiscs(num - 1, fromPeg, tempPeg, toPeg);
+    cout << "Przenieś krążek ze słupka " << fromPeg
+         << " na " << toPeg << "." << endl;
+    moveDiscs(num - 1, tempPeg, toPeg, fromPeg);
+  }
+}
