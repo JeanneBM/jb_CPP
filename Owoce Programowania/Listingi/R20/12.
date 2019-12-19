@@ -1,0 +1,108 @@
+// Ten program demonstruje zastosowanie funkcji rekurencyjnej do
+// przeszukiwania wszystkich możliwości rozmienienia zadanej kwoty
+// i znalezienia najlepszej z nich.
+#include <iostream>
+using namespace std;
+
+// Stałe.
+const int MAX_COINS_CHANGE = 100;    // Maksymalna liczba monet po rozmienieniu
+const int MAX_COIN_VALUES = 6;       // Maksymalna liczba różnych monet
+const int NO_SOLUTION = INT_MAX;     // Stała oznaczająca brak rozwiązania
+
+// Prototypy funkcji
+void makeChange(int, int, int[], int);
+
+// coinValues - globalna tablica zawierająca wartości monet
+int coinValues[MAX_COIN_VALUES] = { 100, 50, 25, 10, 5, 1 };
+
+// bestCoins − globalna tablica zawierająca najlepszą możliwość rozmienienia
+int bestCoins[MAX_COINS_CHANGE];
+
+// Zmienne globalne.
+int numBestCoins = NO_SOLUTION,  // Liczba wartości w tablicy bestCoins
+    numSolutions = 0,            // Liczba możliwych rozmian
+    numCoins;                    // Liczba monet o różnych nominałach
+
+
+int main()
+{
+  int coinsUsed[MAX_COINS_CHANGE], // Lista wykorzystywanych monet
+      numCoinsUsed = 0,            // Liczba wykorzystanych monet
+      amount;                      // Rozmieniana kwota
+
+  // Wyświetlenie wszystkich nominałów monet
+  cout << "Nominały monet (centy): ";
+  for (int index = 0; index < 5; index++)
+    cout << coinValues[index] << " ";
+  cout << endl;
+
+  // Pobranie kwoty od użytkownika
+  cout << "Podaj liczbę centów (całkowitą) "
+       << "do rozmienienia: ";
+  cin >> amount;
+  cout << "Podaj maksymalną liczbę monet po rozmienieniu: ";
+  cin >> numCoins;
+
+  // Wywołanie funkcji rekurencyjnej
+  makeChange(numCoins, amount, coinsUsed, numCoinsUsed);
+
+  // Wyświetlenie wyniku
+  cout << "Liczba wszystkich kombinacji monet: " << numSolutions << endl;
+  cout << "Najlepsza kombinacja monet:\n";
+  if (numBestCoins == NO_SOLUTION)
+    cout << "\tBrak rozwiązania\n";
+  else
+  {
+    for (int count = 0; count < numBestCoins; count++)
+      cout << bestCoins[count] << " ";
+  }
+  cout << endl;
+  return 0;
+}
+
+//*********************************************************************
+// Funkcja makeChange(). Opis argumentów:
+// coinsLeft – liczba pozostałych dostępnych monet
+// amount – rozmieniana kwota
+// coinsUsed – tablica zawierająca wartości wykorzystanych monet
+// numCoinsUsed – liczba wartości w tablicy coinsUsed
+//
+// Funkcja wyszukuje rekurencyjnie wszystkie możliwości rozmiany
+// kwoty podanej w argumencie amount i zapisuje najlepszą
+// kombinację w tablicy  bestCoins.
+//*********************************************************************
+
+void makeChange(int coinsLeft, int amount, int coinsUsed[],
+  int numCoinsUsed)
+{
+  int coinPos, // Zmienna wykorzystywana do określania pozycji używanej monety w tablicy.
+    count;     // Licznik pętli
+
+  if (coinsLeft == 0)   // Nie ma więcej monet
+    return;
+  else if (amount < 0)  // Rozmieniana kwota jest ujemna
+    return;
+  else if (amount == 0) // Rozwiązanie zostało znalezione
+  {
+    // Zapisanie najlepszej kombinacji w tablicy bestCoins
+    if (numCoinsUsed < numBestCoins)
+    {
+      for (count = 0; count < numCoinsUsed; count++)
+        bestCoins[count] = coinsUsed[count];
+      numBestCoins = numCoinsUsed;
+    }
+    numSolutions++;
+    return;
+  }
+
+  // Wyszukanie innych kombinacji z daną monetą
+  coinPos = numCoins - coinsLeft;
+  coinsUsed[numCoinsUsed] = coinValues[coinPos];
+  numCoinsUsed++;
+  makeChange(coinsLeft, amount - coinValues[coinPos],
+    coinsUsed, numCoinsUsed);
+
+  // Wyszukanie innych kombinacji bez danej monety
+  numCoinsUsed--;
+  makeChange(coinsLeft - 1, amount, coinsUsed, numCoinsUsed);
+}
