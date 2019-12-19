@@ -1,0 +1,61 @@
+// Ten program demonstruje zastosowanie rekurencyjnej funkcji binarySearch().
+#include <iostream>
+using namespace std;
+
+// Prototyp funkcji
+int binarySearch(int[], int, int, int);
+
+const int SIZE = 20; // Wielkość tablicy
+
+int main()
+{
+  // Definicja tablicy zawierającej identyfikatory pracowników
+  int tests[SIZE] = { 101, 142, 147, 189, 199, 207, 222,
+                      234, 289, 296, 310, 319, 388, 394,
+                      417, 429, 447, 521, 536, 600 };
+  int empID;    // Identyfikator pracownika
+  int results;  // Wynik wyszukiwania
+
+  // Pobranie szukanego identyfikatora
+  cout << "Podaj szukany identyfikator pracownika: ";
+  cin >> empID;
+
+  // Wyszukiwanie identyfikatora w tablicy
+  results = binarySearch(tests, 0, SIZE - 1, empID);
+
+  // Wyświetlenie wyniku wyszukiwania
+  if (results == -1)
+    cout << "Identyfikator nie został znaleziony.\n";
+  else
+  {
+    cout << "Identyfikator znajduje się w elemencie o indeksie " << results;
+    cout << ".\n";
+  }
+  return 0;
+}
+
+//****************************************************************
+// Funkcja binarySearch() wykorzystuje rekurencję do
+// binarnego przeszukiwania fragmentu tablicy podanej
+// w argumencie array. Argument first zawiera indeks
+// początku, a last - indeks końca przeszukiwanego
+// zakresu tablicy. Argument value zawiera szukaną
+// wartość. Funkcja zwraca indeks elementu, jeżeli
+// wartość została znaleziona, lub -1 w przeciwnym
+// razie.
+//****************************************************************
+
+int binarySearch(int array[], int first, int last, int value)
+{
+  int middle; // Środek przeszukiwanego fragmentu tablicy
+
+  if (first > last)
+    return -1;
+  middle = (first + last) / 2;
+  if (array[middle] == value)
+    return middle;
+  if (array[middle] < value)
+    return binarySearch(array, middle + 1, last, value);
+  else
+    return binarySearch(array, first, middle - 1, value);
+}
