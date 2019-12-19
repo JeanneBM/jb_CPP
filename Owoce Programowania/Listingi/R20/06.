@@ -1,0 +1,32 @@
+// Ten program demonstruje użycie funkcji rekurencyjnej
+// do wyliczenia wyrazów ciągu Fibonacciego.
+#include <iostream>
+using namespace std;
+
+// Prototyp funkcji
+int fib(int);
+
+int main()
+{
+  cout << "Dziesięć pierwszych wyrazów ciągu Fibonacciego:\n";
+  for (int x = 0; x < 10; x++)
+    cout << fib(x) << " ";
+  cout << endl;
+  return 0;
+}
+
+//*****************************************
+// Definicja funkcji fib(). Jej argumentem jest liczba
+// całkowita n. Funkcja zwraca n-ty wyraz
+// ciągu Fibonacciego.
+//*****************************************
+
+int fib(int n)
+{
+  if (n <= 0)
+    return 0;  // Przypadek bazowy
+  else if (n == 1)
+    return 1;  // Przypadek bazowy
+  else
+    return fib(n - 1) + fib(n - 2); // Przypadek rekurencyjny
+}
