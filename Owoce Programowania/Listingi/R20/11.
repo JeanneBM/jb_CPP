@@ -1,0 +1,89 @@
+// Ten program demonstruje zastosowanie algorytmu sortowania szybkiego.
+#include <iostream>
+using namespace std;
+
+// Prototypy funkcji
+void quickSort(int[], int, int);
+int partition(int[], int, int);
+void swap(int &, int &);
+
+int main()
+{
+  const int SIZE = 10;  // Wielkość tablicy
+  int count;            // Licznik pętli
+  int array[SIZE] = { 7, 3, 9, 2, 0, 1, 8, 4, 6, 5 };
+
+  // Wyświetlenie zawartości tablicy
+  for (count = 0; count < SIZE; count++)
+    cout << array[count] << " ";
+  cout << endl;
+
+  // Sortowanie tablicy
+  quickSort(array, 0, SIZE - 1);
+
+  // Wyświetlenie zawartości tablicy
+  for (count = 0; count < SIZE; count++)
+    cout << array[count] << " ";
+  cout << endl;
+  return 0;
+}
+
+//************************************************
+// Funkcja quickSort() wykorzystuje algorytm sortowania szybkiego do sortowania fragmentu
+// tablicy podanej w argumencie set. Fragment jest określony za pomocą argumentów start i end.
+//************************************************
+
+void quickSort(int set[], int start, int end)
+{
+  int pivotPoint;
+
+  if (start < end)
+  {
+    // Określenie wartości rozdzielającej
+    pivotPoint = partition(set, start, end);
+    // Sortowanie podlisty 1
+    quickSort(set, start, pivotPoint - 1);
+    // Sortowanie podlisty 2
+    quickSort(set, pivotPoint + 1, end);
+  }
+}
+
+//***********************************************************
+// Funkcja partition() wybiera jako wartość rozdzielającą element
+// ze środka tablicy. Następnie przenosi wartości między podlistami
+// tak, aby w pierwszej podliście znalazły się wartości mniejsze od
+// wartości rozdzielającej, a w drugiej znalazły się wartości większe.
+//***********************************************************
+
+int partition(int set[], int start, int end)
+{
+  int pivotValue, pivotIndex, mid;
+
+  mid = (start + end) / 2;
+  swap(set[start], set[mid]);
+  pivotIndex = start;
+  pivotValue = set[start];
+  for (int scan = start + 1; scan <= end; scan++)
+  {
+    if (set[scan] < pivotValue)
+    {
+      pivotIndex++;
+      swap(set[pivotIndex], set[scan]);
+    }
+  }
+  swap(set[start], set[pivotIndex]);
+  return pivotIndex;
+}
+
+//******************************************
+// Funkcja swap() jedynie zamienia miejscami wartości
+// wskazane w argumentach value1 i value2.
+//******************************************
+
+void swap(int &value1, int &value2)
+{
+  int temp = value1;
+
+  value1 = value2;
+  value2 = temp;
+}
