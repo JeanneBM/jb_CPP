@@ -1,0 +1,31 @@
+// Ten program tworzy drzewo z pięciu węzłów,
+// i demonstruje użycie funkcji searchNode().
+#include <iostream>
+#include "IntBinaryTree.h"
+using namespace std;
+
+int main()
+{
+  IntBinaryTree tree;
+
+  // Wstawienie węzłów
+  cout << "Wstawianie węzłów.\n";
+  tree.insertNode(5);
+  tree.insertNode(8);
+  tree.insertNode(3);
+  tree.insertNode(12);
+  tree.insertNode(9);
+
+  // Wyszukanie wartości 3
+  if (tree.searchNode(3))
+    cout << "Drzewo zawiera wartość 3.\n";
+  else
+    cout << "Drzewo nie zawiera wartości 3.\n";
+
+  // Wyszukanie wartości 100
+  if (tree.searchNode(100))
+    cout << "Drzewo zawiera wartość 100.\n";
+  else
+    cout << "Drzewo nie zawiera wartości 100.\n";
+  return 0;
+}
