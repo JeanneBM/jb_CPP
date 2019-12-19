@@ -1,0 +1,35 @@
+// Ten program demonstruje zastosowanie funkcji rekurencyjnej
+// do wyliczenia silni zadanej liczby.
+#include <iostream>
+using namespace std;
+
+// Prototyp funkcji
+int factorial(int);
+
+int main()
+{
+  int number;
+
+  // Pobranie liczby od użytkownika
+  cout << "Podaj liczbę naturalną, a ja wyliczę\n";
+  cout << "jej silnię: ";
+  cin >> number;
+
+  // Wyświetlenie silni liczby
+  cout << "Silnia liczby " << number << " jest równa ";
+  cout << factorial(number) << "." << endl;
+  return 0;
+}
+
+//**************************************************************
+// Definicja rekurencyjnej funkcji factorial() wyliczającej
+// silnię argumentu n
+//**************************************************************
+
+int factorial(int n)
+{
+  if (n == 0)
+    return 1;                     // Przypadek bazowy
+  else
+    return n * factorial(n - 1);  // Przypadek rekurencyjny
+}
