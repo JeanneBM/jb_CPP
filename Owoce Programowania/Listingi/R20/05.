@@ -1,0 +1,36 @@
+// Ten program demonstruje użycie funkcji rekurencyjnej do wyliczenia
+// największego wspólnego dzielnika dwóch liczb.
+#include <iostream>
+using namespace std;
+
+// Prototyp funkcji
+int gcd(int, int);
+
+int main()
+{
+  int num1, num2;
+
+  // Pobranie dwóch liczb
+  cout << "Podaj dwie liczby całkowite: ";
+  cin >> num1 >> num2;
+
+  // Wyświetlenie największego wspólnego dzielnika
+  cout << "Największy wspólny dzielnik liczb " << num1;
+  cout << " i " << num2 << " jest równy ";
+  cout << gcd(num1, num2) << "." << endl;
+  return 0;
+}
+
+//**********************************************************
+// Definicja funkcji gcd(), któa wykorzystuje rekurencję do 
+// wyliczania największego wspólnego dzielnika dwóch liczb 
+// całkowitych podanych w argumentach x i y.
+//**********************************************************
+
+int gcd(int x, int y)
+{
+  if (x % y == 0)
+    return y;              // Przypadek bazowy
+  else
+    return gcd(y, x % y);  // Przypadek rekurencyjny
+}
