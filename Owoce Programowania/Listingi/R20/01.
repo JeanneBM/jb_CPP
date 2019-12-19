@@ -1,0 +1,28 @@
+// Ten prosty program demonstruje rekurencyjne wywoływanie funkcji
+#include <iostream>
+using namespace std;
+
+// Prototyp funkcji.
+void message(int);
+
+int main()
+{
+  message(5);
+  return 0;
+}
+
+//************************************************************
+// Definicja funkcji message(). Jeżeli wartość argumentu times
+// jest większa od zera, to funkcja wyświetla komunikat
+// i wywołuje rekurencyjnie samą siebie
+// z argumentem równym times – 1.
+//************************************************************
+
+void message(int times)
+{
+  if (times > 0)
+  {
+    cout << "To jest funkcja rekurencyjna.\n";
+    message(times - 1);
+  }
+}
