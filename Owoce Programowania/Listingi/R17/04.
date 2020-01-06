@@ -1,0 +1,22 @@
+#include <iostream>
+#include <vector>
+using namespace std;
+
+int main()
+{
+  const int SIZE = 10;
+
+  // Definicja wektora zawierającego 10 elementów typu int
+  vector<int> numbers(SIZE);
+
+  // Zapisanie w wektorze liczb od 0 do 9
+  for (int index = 0; index < numbers.size(); index++)
+    numbers[index] = index;
+
+  // Wyświetlenie zawartości elementów wektora
+  for (auto element : numbers)
+    cout << element << " ";
+  cout << endl;
+
+  return 0;
+}
