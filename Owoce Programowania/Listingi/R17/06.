@@ -1,0 +1,25 @@
+#include <iostream>
+#include <vector>
+using namespace std;
+
+int main()
+{
+  // Definicja dwóch wektorów
+  vector<int> v1 = { 1, 2, 3 };
+  vector<int> v2 = { 100, 200, 300, 400, 500 };
+
+  // Definicja iteratorów
+  auto it1 = v1.begin() + 1;  // Iterator wskazujący liczbę 2 w wektorze v1
+  auto it2 = v2.begin();      // Iterator wskazujący liczbę 100 w wektorze v2
+  auto it3 = v2.begin() + 3;  // Iterator wskazujący liczbę 400 w wektorze v2
+
+  // Wstawienie zakresu elementów do wektora v1
+  v1.insert(it1, it2, it3);
+
+  // Wyświetlenie zawartości elementów wektora v1
+  for (auto element : v1)
+    cout << element << " ";
+  cout << endl;
+
+  return 0;
+}
