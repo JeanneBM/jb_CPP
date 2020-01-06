@@ -1,0 +1,29 @@
+// Ten program demonstruje użycie kontenera list z biblioteki STL.
+#include <iostream>
+#include <list>
+using namespace std;
+
+int main()
+{
+  // Definicja pustej listy
+  list<int> myList;
+
+  // Dodanie wartości do listy
+  for (int x = 0; x < 100; x += 10)
+    myList.push_back(x);
+
+  // Wyświetlenie wartości za pomocą iteratora
+  for (auto it = myList.begin(); it != myList.end(); it++)
+    cout << *it << " ";
+  cout << endl;
+
+  // Odwrócenie kolejności elementów
+  myList.reverse();
+
+  // Ponowne wyświetlenie wartości za pomocą pętli zakresowej
+  for (auto element : myList)
+    cout << element << " ";
+  cout << endl;
+
+  return 0;
+}
