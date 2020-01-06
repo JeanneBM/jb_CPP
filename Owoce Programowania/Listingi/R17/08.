@@ -1,0 +1,30 @@
+#include <iostream>
+#include <string>
+#include <vector>
+#include "Product.h"
+using namespace std;
+
+int main()
+{
+  // Utworzenie obiektów typu Product
+  Product prod1("Koszulka", 20);
+  Product prod2("Kalendarz", 25);
+  Product prod3("Kubek", 30);
+
+  // Utworzenie wektora przechowującego elementy typu Product
+  vector<Product> products;
+
+  // Dodanie obiektów typu Product do wektora
+  products.push_back(prod1);
+  products.push_back(prod2);
+  products.push_back(prod3);
+
+  // Wyświetlenie zawartości elementów wektora za pomocą iteratora
+  for (auto it = products.begin(); it != products.end(); it++)
+  {
+    cout << "Produkt: " << it->getName() << endl
+         << "Liczba sztuk: " << it->getUnits() << endl;
+  }
+
+  return 0;
+}
