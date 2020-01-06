@@ -1,0 +1,30 @@
+#include <iostream>
+#include <string>
+#include <map>
+#include "Customer.h"
+using namespace std;
+
+int main()
+{
+  // Utworzenie kilku obiektów typu Customer
+  Customer customer1(1001, "Sylwia Sosnowska");
+  Customer customer2(1002, "Andrzej Grabowski");
+  Customer customer3(1003, "Monika Olszewska");
+
+  // Utworzenie mapy z rezerwacjami miejsc
+  map<Customer, string> assignments;
+
+  // Zapisane w mapie rezerwacji miejsc
+  assignments[customer1] = "1A";
+  assignments[customer2] = "2B";
+  assignments[customer3] = "3C";
+
+  // Wyświetlenie zawartości wszystkich obiektów w mapie
+  for (auto element : assignments)
+  {
+    cout << element.first.getName() << "\t"
+         << element.second << endl;
+  }
+
+  return 0;
+}
