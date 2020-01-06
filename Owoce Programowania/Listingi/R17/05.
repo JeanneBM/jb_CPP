@@ -1,0 +1,22 @@
+#include <iostream>
+#include <vector>
+using namespace std;
+
+int main()
+{
+  // Definicja wektora zawierającego 5 elementów typu int
+  vector<int> numbers = { 1, 2, 3, 4, 5 };
+
+  // Definicja iteratora wskazującego drugi element
+  auto it = numbers.begin() + 1;
+
+  // Wstawienie nowego elementu z wartością 99
+  numbers.insert(it, 99);
+
+  // Wyświetlenie zawartości elementów wektora
+  for (auto element : numbers)
+    cout << element << " ";
+  cout << endl;
+
+  return 0;
+}
