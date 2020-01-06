@@ -1,0 +1,47 @@
+// Ten program demonstruje użycie funkcji deleteNode().
+#include <iostream>
+#include "NumberList.h"
+using namespace std;
+
+int main()
+{
+  // Definicja obiektu NumberList
+  NumberList list;
+
+  // Dołączenie do listy kilku węzłów
+  list.appendNode(2.5);
+  list.appendNode(7.9);
+  list.appendNode(12.6);
+
+  // Wyświetlenie zawartości listy
+  cout << "Początkowa zawartość listy:\n";
+  list.displayList();
+  cout << endl;
+
+  // Usunięcie środkowego węzła
+  cout << "Usunięcie środkowego węzła.\n";
+  list.deleteNode(7.9);
+
+  // Wyświetlenie zawartości listy
+  cout << "Pozostałe węzły:\n";
+  list.displayList();
+  cout << endl;
+
+  // Usunięcie ostatniego węzła
+  cout << "Usunięcie ostatniego węzła.\n";
+  list.deleteNode(12.6);
+
+  // Wyświetlenie zawartości listy
+  cout << "Pozostałe węzły:\n";
+  list.displayList();
+  cout << endl;
+
+  // Usunięcie ostatniego węzła
+  cout << "Usunięcie pozostałego węzła.\n";
+  list.deleteNode(2.5);
+
+  // Wyświetlenie zawartości listy
+  cout << "Pozostałe węzły:\n";
+  list.displayList();
+  return 0;
+}
