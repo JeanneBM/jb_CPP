@@ -1,0 +1,24 @@
+#include <iostream>
+#include <string>
+#include <map>
+#include "Contact.h"
+using namespace std;
+
+int main()
+{
+  // Utworzenie mapy przechowującej obiekty typu Contact
+  map<string, Contact> contacts =
+    { { "Adam Mazur",    Contact("Adam Mazur", "amazur@poczta.pl") },
+    { "Janusz Barański", Contact("Janusz Barański", "jbaranski@poczta.pl") },
+    { "Ewa Raczyńska",   Contact("Ewa Raczyńska", "eraczynska@poczta.pl") }
+  };
+
+  // Wyświetlenie zawartości wszystkich elementów w mapie
+  for (auto element : contacts)
+  {
+    cout << element.second.getName() << "\t"
+         << element.second.getEmail() << endl;
+  }
+
+  return 0;
+}
