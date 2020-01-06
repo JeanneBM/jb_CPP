@@ -1,0 +1,25 @@
+// Ten program demonstruje użycie iteratora z mapą.
+#include <iostream>
+#include <string>
+#include <map>
+using namespace std;
+
+int main()
+{
+  // Utworzenie mapy zawierającej identyfikatory, imiona i nazwiska pracowników
+  map<int, string> employees =
+    { { 101, "Adam Nowak" }, { 102, "Joanna Wójcik" },
+      { 103, "Andrzej Kamiński" }, {104, "Wanda Mazur" } };
+
+  // Utworzenie iteratora
+  map<int, string>::iterator iter;
+
+  // Wyświetlenie zawartości elementów mapy za pomocą iteratora
+  for (iter = employees.begin(); iter != employees.end(); iter++)
+  {
+    cout << "Identyfikator: " << iter->first
+         << "\tImię i nazwisko: " << iter->second << endl;
+  }
+
+  return 0;
+}
