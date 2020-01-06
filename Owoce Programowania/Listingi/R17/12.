@@ -1,0 +1,35 @@
+#include <iostream>
+#include <string>
+#include <vector>
+#include <map>
+using namespace std;
+
+int main()
+{
+  // Utworzenie wektorów zawierających wyniki testów
+  vector<int> student1Scores = { 88, 92, 100 };
+  vector<int> student2Scores = { 95, 74, 81 };
+  vector<int> student3Scores = { 72, 88, 91 };
+  vector<int> student4Scores = { 70, 75, 78 };
+
+  // Utworzenie mapy zawierającej wszystkie wyniki testów
+  map<string, vector<int>> testScores;
+  testScores["Katarzyna"] = student1Scores;
+  testScores["Tadeusz"] = student2Scores;
+  testScores["Sylwia"] = student3Scores;
+  testScores["Ewa"] = student4Scores;
+
+  // Wyświetlenie wyników testów wszystkich uczniów
+  for (auto element : testScores)
+  {
+    // Wyświetlenie imienia ucznia
+    cout << "Uczeń: " << element.first << endl;
+
+    // Wyświetlenie wyników testów ucznia
+    for (int i = 0; i < element.second.size(); i++)
+    {
+      cout << "\t" << element.second[i] << endl;
+    }
+  }
+  return 0;
+}
