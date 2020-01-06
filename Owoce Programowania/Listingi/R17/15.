@@ -1,0 +1,30 @@
+#include <iostream>
+#include <string>
+#include <map>
+#include "Contact.h"
+using namespace std;
+
+int main()
+{
+  // Utworzenie kilku obiektów typu Contact
+  Contact contact1("Adam Mazur", "amazur@poczta.pl");
+  Contact contact2("Janusz Barański", "jbaranski@poczta.pl");
+  Contact contact3("Ewa Raczyńska", "eraczynska@poczta.pl");
+
+  // Utworzenie mapy przechowującej obiekty typu Contact
+  map<string, Contact> contacts;
+
+  // Umieszczenie obiektów w mapie
+  contacts[contact1.getName()] = contact1;
+  contacts[contact2.getName()] = contact2;
+  contacts[contact3.getName()] = contact3;
+
+  // Wyświetlenie zawartości wszystkich elementów w mapie
+  for (auto element : contacts)
+  {
+    cout << element.second.getName() << "\t"
+         << element.second.getEmail() << endl;
+  }
+
+  return 0;
+}
