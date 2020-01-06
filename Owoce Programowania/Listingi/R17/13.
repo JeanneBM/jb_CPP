@@ -1,0 +1,29 @@
+#include <iostream>
+#include <string>
+#include <vector>
+#include <map>
+using namespace std;
+
+int main()
+{
+  // Utworzenie wektorów zawierających wyniki testów
+  map<string, vector<int>> testScores =
+    { { "Katarzyna", vector<int> {88, 92, 100 } },
+      { "Tadeusz",   vector<int> {95, 74, 81 } },
+      { "Sylwia",    vector<int> {72, 88, 91 } },
+      { "Ewa",       vector<int> {70, 75, 78 } } };
+
+  // Wyświetlenie wyników testów wszystkich uczniów
+  for (auto element : testScores)
+  {
+    // Wyświetlenie imienia ucznia
+    cout << "Uczeń: " << element.first << endl;
+
+    // Wyświetlenie wyników testów ucznia
+    for (auto score : element.second)
+    {
+      cout << "\t" << score << endl;
+    }
+  }
+  return 0;
+}
