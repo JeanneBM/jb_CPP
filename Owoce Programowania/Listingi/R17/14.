@@ -1,0 +1,46 @@
+#include <iostream>
+#include <string>
+#include <map>
+#include "Contact.h"
+using namespace std;
+
+int main()
+{
+  string searchName;   // Imię i nazwisko wyszukiwanej osoby
+
+  // Utworzenie kilku obiektów typu Contact
+  Contact contact1("Adam Mazur", "amazur@poczta.pl");
+  Contact contact2("Janusz Barański", "jbaranski@poczta.pl");
+  Contact contact3("Ewa Raczyńska", "eraczynska@poczta.pl");
+
+  // Utworzenie mapy przechowującej obiekty typu Contact
+  map<string, Contact> contacts;
+
+  // Utworzenie iteratora dla mapy
+  map<string, Contact>::iterator iter;
+
+  // Umieszczenie obiektów w mapie
+  contacts[contact1.getName()] = contact1;
+  contacts[contact2.getName()] = contact2;
+  contacts[contact3.getName()] = contact3;
+
+  // Pobranie imienia i nazwiska wyszukiwanej osoby
+  cout << "Podaj imię i nazwisko osoby: ";
+  getline(cin, searchName);
+
+  // Wyszukiwanie imienia i nazwiska
+  iter = contacts.find(searchName);
+
+  // Wyświetlenie wyników
+  if (iter != contacts.end())
+  {
+    cout << "Imię i nazwisko: " << iter->second.getName() << endl;
+    cout << "E-mail: " << iter->second.getEmail() << endl;
+  }
+  else
+  {
+    cout << "Brak danych.\n";
+  }
+
+  return 0;
+}
