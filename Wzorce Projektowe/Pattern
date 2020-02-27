@@ -1,0 +1,27 @@
+
+String createHead()
+
+String createBody()
+
+String createFooter()
+
+String execute()
+
+
+execute() = createHead()+createBody()+createFooter()
+
+
+
+DeutscheWelcome
+
+Guten Tag! Ich heiße Asia. Auf Wiedersehen!
+
+
+PolishWelcome
+
+Czesc! Mam na imie Asia. Do zobaczenia!
+
+
+SpanishWelcome 
+
+Hola! Mi nombre es Asia. Hasta La Vista!
